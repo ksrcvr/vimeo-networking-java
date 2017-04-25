@@ -23,8 +23,9 @@
 package com.vimeo.networking.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.vimeo.stag.GsonAdapterKey;
+import com.vimeo.stag.UseStag;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.Serializable;
@@ -32,18 +33,22 @@ import java.io.Serializable;
 /**
  * Created by hanssena on 4/23/15.
  */
+@SuppressWarnings("unused")
+// TODO: Figure out how to enable UseStag on this class without breaking deserialization due to the API giving us back integers for add and download 2/1/17 [AR]
+// @UseStag(FieldOption.SERIALIZED_NAME)
 public class Privacy implements Serializable {
 
     private static final long serialVersionUID = -1679908652622815871L;
     private static final String PRIVACY_NOBODY = "nobody";
     private static final String PRIVACY_USERS = "users";
-    public static final String PRIVACY_ANYBODY = "anybody";
+    private static final String PRIVACY_ANYBODY = "anybody";
     private static final String PRIVACY_VOD = "ptv";
     private static final String PRIVACY_CONTACTS = "contacts";
     private static final String PRIVACY_PASSWORD = "password";
     private static final String PRIVACY_DISABLE = "disable";
     private static final String PRIVACY_UNLISTED = "unlisted";
 
+    @UseStag
     public enum PrivacyValue {
         @SerializedName(PRIVACY_NOBODY)
         NOBODY(PRIVACY_NOBODY),
@@ -62,16 +67,19 @@ public class Privacy implements Serializable {
         @SerializedName(PRIVACY_DISABLE)
         DISABLE(PRIVACY_DISABLE);
 
+        @NotNull
         private final String text;
 
-        PrivacyValue(String text) {
+        PrivacyValue(@NotNull String text) {
             this.text = text;
         }
 
+        @NotNull
         public String getText() {
             return this.text;
         }
 
+        @Nullable
         public static PrivacyValue privacyValueFromString(String string) {
             if (string != null) {
                 for (PrivacyValue privacyValue : PrivacyValue.values()) {
@@ -85,43 +93,43 @@ public class Privacy implements Serializable {
     }
 
     @Nullable
-    @GsonAdapterKey("view")
-    public PrivacyValue view;
+    @SerializedName("view")
+    public PrivacyValue mView;
 
     @Nullable
-    @GsonAdapterKey("embed")
-    public String embed;
+    @SerializedName("embed")
+    public String mEmbed;
 
-    @GsonAdapterKey("download")
-    public boolean download;
+    @SerializedName("download")
+    public boolean mDownload;
 
-    @GsonAdapterKey("add")
-    public boolean add;
+    @SerializedName("add")
+    public boolean mAdd;
 
     @Nullable
-    @GsonAdapterKey("comments")
-    public PrivacyValue comments;
+    @SerializedName("comments")
+    public PrivacyValue mComments;
 
     @Nullable
     public PrivacyValue getView() {
-        return view;
+        return mView;
     }
 
     @Nullable
     public String getEmbed() {
-        return embed;
+        return mEmbed;
     }
 
     public boolean isDownload() {
-        return download;
+        return mDownload;
     }
 
     public boolean isAdd() {
-        return add;
+        return mAdd;
     }
 
     @Nullable
     public PrivacyValue getComments() {
-        return comments;
+        return mComments;
     }
 }

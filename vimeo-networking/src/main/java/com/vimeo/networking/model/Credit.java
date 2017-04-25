@@ -1,6 +1,29 @@
+/*
+ * Copyright (c) 2017 Vimeo (https://vimeo.com)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.vimeo.networking.model;
 
-import com.vimeo.stag.GsonAdapterKey;
+import com.google.gson.annotations.SerializedName;
+import com.vimeo.stag.UseStag;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -10,29 +33,31 @@ import java.io.Serializable;
  * A model representing a credit.
  * Created by zetterstromk on 1/11/17.
  */
+@SuppressWarnings("unused")
+@UseStag
 public class Credit implements Serializable {
 
     private static final long serialVersionUID = 6037404487282167384L;
 
     @Nullable
-    @GsonAdapterKey("uri")
-    String mUri;
+    @SerializedName("uri")
+    protected String mUri;
 
     @Nullable
-    @GsonAdapterKey("role")
-    String mRole;
+    @SerializedName("role")
+    protected String mRole;
 
     @Nullable
-    @GsonAdapterKey("name")
-    String mName;
+    @SerializedName("name")
+    protected String mName;
 
     @Nullable
-    @GsonAdapterKey("video")
-    Video mVideo;
+    @SerializedName("video")
+    protected Video mVideo;
 
     @Nullable
-    @GsonAdapterKey("user")
-    User mUser;
+    @SerializedName("user")
+    protected User mUser;
 
     @Nullable
     public String getUri() {
@@ -55,7 +80,7 @@ public class Credit implements Serializable {
     }
 
     public void setVideo(@Nullable Video video) {
-        mVideo = video;
+        this.mVideo = video;
     }
 
     @Nullable
@@ -64,7 +89,7 @@ public class Credit implements Serializable {
     }
 
     public void setUser(@Nullable User user) {
-        mUser = user;
+        this.mUser = user;
     }
 
     @Override
@@ -107,11 +132,11 @@ public class Credit implements Serializable {
     @Override
     public String toString() {
         return "Credit{" +
-               "mUri='" + mUri + '\'' +
-               ", mRole='" + mRole + '\'' +
-               ", mName='" + mName + '\'' +
-               ", mVideo=" + mVideo +
-               ", mUser=" + mUser +
+               "uri='" + mUri + '\'' +
+               ", role='" + mRole + '\'' +
+               ", name='" + mName + '\'' +
+               ", video=" + mVideo +
+               ", user=" + mUser +
                '}';
     }
 }

@@ -1,6 +1,29 @@
+/*
+ * Copyright (c) 2017 Vimeo (https://vimeo.com)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.vimeo.networking.model;
 
-import com.vimeo.stag.GsonAdapterKey;
+import com.google.gson.annotations.SerializedName;
+import com.vimeo.stag.UseStag;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -12,29 +35,31 @@ import java.io.Serializable;
  * video data (name, description, etc)
  * Created by zetterstromk on 10/4/16.
  */
+@SuppressWarnings("unused")
+@UseStag
 public class VideoBadge implements Serializable {
 
     private static final long serialVersionUID = -5343389171512787927L;
 
     @Nullable
-    @GsonAdapterKey("type")
-    public String mType;
+    @SerializedName("type")
+    protected String mType;
 
     @Nullable
-    @GsonAdapterKey("festival")
-    public String mFestival;
+    @SerializedName("festival")
+    protected String mFestival;
 
     @Nullable
-    @GsonAdapterKey("link")
-    public String mLink;
+    @SerializedName("link")
+    protected String mLink;
 
     @Nullable
-    @GsonAdapterKey("text")
-    public String mText;
+    @SerializedName("text")
+    protected String mText;
 
     @Nullable
-    @GsonAdapterKey("pictures")
-    public PictureCollection mPictureCollection;
+    @SerializedName("pictures")
+    protected PictureCollection mPictureCollection;
 
     // -----------------------------------------------------------------------------------------------------
     // Getters

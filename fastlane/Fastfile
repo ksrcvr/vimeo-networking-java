@@ -50,7 +50,7 @@ platform :android do
       )
     rescue => error
       begin
-        pretty_junit(file_pattern: "vimeo-networking/build/test-results/TEST-*")
+        pretty_junit(file_pattern: "vimeo-networking/build/test-results/test/TEST-*")
       rescue => error
       end
 
@@ -62,11 +62,11 @@ platform :android do
     end
     
     begin
-      pretty_junit(file_pattern: "vimeo-networking/build/test-results/TEST-*")
+      pretty_junit(file_pattern: "vimeo-networking/build/test-results/test/TEST-*")
     rescue => error
     end
     
-    if is_ci
+    if is_ci && ENV['DANGER_GITHUB_API_TOKEN']
       danger(use_bundle_exec: false)
     end
 

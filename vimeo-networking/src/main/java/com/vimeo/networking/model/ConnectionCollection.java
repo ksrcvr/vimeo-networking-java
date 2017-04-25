@@ -22,7 +22,10 @@
 
 package com.vimeo.networking.model;
 
-import com.vimeo.stag.GsonAdapterKey;
+import com.google.gson.annotations.SerializedName;
+import com.vimeo.networking.model.notifications.NotificationConnection;
+import com.vimeo.stag.UseStag;
+import com.vimeo.stag.UseStag.FieldOption;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -33,103 +36,305 @@ import java.io.Serializable;
  * Created by hanssena on 4/23/15.
  */
 @SuppressWarnings("unused")
+@UseStag(FieldOption.SERIALIZED_NAME)
 public class ConnectionCollection implements Serializable {
 
     private static final long serialVersionUID = -4523270955994232839L;
+
     @Nullable
-    @GsonAdapterKey("videos")
-    public Connection videos;
+    @SerializedName("videos")
+    protected Connection mVideos;
+
     @Nullable
-    @GsonAdapterKey("categories")
-    public Connection categories;
+    @SerializedName("categories")
+    protected Connection mCategories;
+
     @Nullable
-    @GsonAdapterKey("comments")
-    public Connection comments;
+    @SerializedName("comments")
+    protected Connection mComments;
+
     @Nullable
-    @GsonAdapterKey("credits")
-    public Connection credits;
+    @SerializedName("credits")
+    protected Connection mCredits;
+
     @Nullable
-    @GsonAdapterKey("likes")
-    public Connection likes;
+    @SerializedName("likes")
+    protected Connection mLikes;
+
     @Nullable
-    @GsonAdapterKey("pictures")
-    public Connection pictures;
+    @SerializedName("pictures")
+    protected Connection mPictures;
+
     @Nullable
-    @GsonAdapterKey("texttracks")
-    public Connection texttracks;
+    @SerializedName("texttracks")
+    protected Connection mTexttracks;
+
     @Nullable
-    @GsonAdapterKey("activities")
-    public Connection activities;
+    @SerializedName("activities")
+    protected Connection mActivities;
+
     @Nullable
-    @GsonAdapterKey("albums")
-    public Connection albums;
+    @SerializedName("albums")
+    protected Connection mAlbums;
+
     @Nullable
-    @GsonAdapterKey("channels")
-    public Connection channels;
+    @SerializedName("channels")
+    protected Connection mChannels;
+
     @Nullable
-    @GsonAdapterKey("moderated_channels")
-    public Connection moderatedChannels;
+    @SerializedName("moderated_channels")
+    protected Connection mModeratedChannels;
+
     @Nullable
-    @GsonAdapterKey("feed")
-    public Connection feed;
+    @SerializedName("feed")
+    protected Connection mFeed;
+
     @Nullable
-    @GsonAdapterKey("followers")
-    public Connection followers;
+    @SerializedName("followers")
+    protected Connection mFollowers;
+
     @Nullable
-    @GsonAdapterKey("following")
-    public Connection following;
+    @SerializedName("following")
+    protected Connection mFollowing;
+
     @Nullable
-    @GsonAdapterKey("groups")
-    public Connection groups;
+    @SerializedName("groups")
+    protected Connection mGroups;
+
     @Nullable
-    @GsonAdapterKey("portfolios")
-    public Connection portfolios;
+    @SerializedName("portfolios")
+    protected Connection mPortfolios;
+
     @Nullable
-    @GsonAdapterKey("shared")
-    public Connection shared;
+    @SerializedName("shared")
+    protected Connection mShared;
+
     @Nullable
-    @GsonAdapterKey("recommendations")
-    public Connection recommendations;
+    @SerializedName("recommendations")
+    protected Connection mRecommendations;
+
     @Nullable
-    @GsonAdapterKey("appearances")
-    public Connection appearances;
+    @SerializedName("appearances")
+    protected Connection mAppearances;
+
     @Nullable
-    @GsonAdapterKey("related")
-    public Connection related;
+    @SerializedName("related")
+    protected Connection mRelated;
+
     @Nullable
-    @GsonAdapterKey("replies")
-    public Connection replies;
+    @SerializedName("replies")
+    protected Connection mReplies;
+
     @Nullable
-    @GsonAdapterKey("users")
-    public Connection users;
+    @SerializedName("users")
+    protected Connection mUsers;
+
     @Nullable
-    @GsonAdapterKey("watchlater")
-    public Connection watchlater;
+    @SerializedName("watchlater")
+    protected Connection mWatchlater;
+
     @Nullable
-    @GsonAdapterKey("ondemand")
-    public Connection ondemand;
+    @SerializedName("ondemand")
+    protected Connection mOndemand;
+
     @Nullable
-    @GsonAdapterKey("season")
-    public Connection season;
+    @SerializedName("season")
+    protected Connection mSeason;
+
     @Nullable
-    @GsonAdapterKey("seasons")
-    public Connection seasons;
+    @SerializedName("seasons")
+    protected Connection mSeasons;
+
     @Nullable
-    @GsonAdapterKey("trailer")
-    public Connection trailer;
+    @SerializedName("trailer")
+    protected Connection mTrailer;
+
     @Nullable
-    @GsonAdapterKey("playback")
-    public Connection playbackFailureReason;
+    @SerializedName("playback")
+    protected Connection mPlaybackFailureReason;
+
     @Nullable
-    @GsonAdapterKey("recommended_channels")
-    public Connection recommendedChannels;
+    @SerializedName("recommended_channels")
+    protected Connection mRecommendedChannels;
+
     @Nullable
-    @GsonAdapterKey("recommended_users")
-    public Connection recommendedUsers;
+    @SerializedName("recommended_users")
+    protected Connection mRecommendedUsers;
+
     @Nullable
-    @GsonAdapterKey("watched_videos")
-    public Connection watchedVideos;
+    @SerializedName("watched_videos")
+    protected Connection mWatchedVideos;
+
     @Nullable
-    @GsonAdapterKey("notifications")
-    public Connection notifications;
+    @SerializedName("notifications")
+    protected NotificationConnection mNotifications;
+
+    @Nullable
+    @SerializedName("contents")
+    protected Connection mContents;
+
+    @Nullable
+    public Connection getVideos() {
+        return mVideos;
+    }
+
+    @Nullable
+    public Connection getCategories() {
+        return mCategories;
+    }
+
+    @Nullable
+    public Connection getComments() {
+        return mComments;
+    }
+
+    @Nullable
+    public Connection getCredits() {
+        return mCredits;
+    }
+
+    @Nullable
+    public Connection getLikes() {
+        return mLikes;
+    }
+
+    @Nullable
+    public Connection getPictures() {
+        return mPictures;
+    }
+
+    @Nullable
+    public Connection getTexttracks() {
+        return mTexttracks;
+    }
+
+    @Nullable
+    public Connection getActivities() {
+        return mActivities;
+    }
+
+    @Nullable
+    public Connection getAlbums() {
+        return mAlbums;
+    }
+
+    @Nullable
+    public Connection getChannels() {
+        return mChannels;
+    }
+
+    @Nullable
+    public Connection getModeratedChannels() {
+        return mModeratedChannels;
+    }
+
+    @Nullable
+    public Connection getFeed() {
+        return mFeed;
+    }
+
+    @Nullable
+    public Connection getFollowers() {
+        return mFollowers;
+    }
+
+    @Nullable
+    public Connection getFollowing() {
+        return mFollowing;
+    }
+
+    @Nullable
+    public Connection getGroups() {
+        return mGroups;
+    }
+
+    @Nullable
+    public Connection getPortfolios() {
+        return mPortfolios;
+    }
+
+    @Nullable
+    public Connection getShared() {
+        return mShared;
+    }
+
+    @Nullable
+    public Connection getRecommendations() {
+        return mRecommendations;
+    }
+
+    @Nullable
+    public Connection getAppearances() {
+        return mAppearances;
+    }
+
+    @Nullable
+    public Connection getRelated() {
+        return mRelated;
+    }
+
+    @Nullable
+    public Connection getReplies() {
+        return mReplies;
+    }
+
+    @Nullable
+    public Connection getUsers() {
+        return mUsers;
+    }
+
+    @Nullable
+    public Connection getWatchlater() {
+        return mWatchlater;
+    }
+
+    @Nullable
+    public Connection getOndemand() {
+        return mOndemand;
+    }
+
+    @Nullable
+    public Connection getSeason() {
+        return mSeason;
+    }
+
+    @Nullable
+    public Connection getSeasons() {
+        return mSeasons;
+    }
+
+    @Nullable
+    public Connection getTrailer() {
+        return mTrailer;
+    }
+
+    @Nullable
+    public Connection getPlaybackFailureReason() {
+        return mPlaybackFailureReason;
+    }
+
+    @Nullable
+    public Connection getRecommendedChannels() {
+        return mRecommendedChannels;
+    }
+
+    @Nullable
+    public Connection getRecommendedUsers() {
+        return mRecommendedUsers;
+    }
+
+    @Nullable
+    public Connection getWatchedVideos() {
+        return mWatchedVideos;
+    }
+
+    @Nullable
+    public NotificationConnection getNotifications() {
+        return mNotifications;
+    }
+
+    @Nullable
+    public Connection getContents() {
+        return mContents;
+    }
 }

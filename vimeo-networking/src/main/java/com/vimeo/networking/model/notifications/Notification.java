@@ -1,10 +1,33 @@
+/*
+ * Copyright (c) 2017 Vimeo (https://vimeo.com)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.vimeo.networking.model.notifications;
 
+import com.google.gson.annotations.SerializedName;
 import com.vimeo.networking.model.Comment;
 import com.vimeo.networking.model.Credit;
 import com.vimeo.networking.model.User;
 import com.vimeo.networking.model.Video;
-import com.vimeo.stag.GsonAdapterKey;
+import com.vimeo.stag.UseStag;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -14,45 +37,48 @@ import java.util.Date;
 
 /**
  * A model representing activity that a user may be notified about.
+ * <p>
  * Created by zetterstromk on 1/11/17.
  */
+@SuppressWarnings("unused")
+@UseStag
 public class Notification implements Serializable {
 
     private static final long serialVersionUID = -68262442832775695L;
 
     @Nullable
-    @GsonAdapterKey("uri")
-    String mUri;
+    @SerializedName("uri")
+    protected String mUri;
 
     @Nullable
-    @GsonAdapterKey("created_time")
-    Date mCreatedDate;
+    @SerializedName("created_time")
+    protected Date mCreatedDate;
 
     @NotNull
-    @GsonAdapterKey("type")
-    String mType;
+    @SerializedName("type")
+    protected String mType;
 
     @Nullable
-    @GsonAdapterKey("user")
-    User mUser;
+    @SerializedName("user")
+    protected User mUser;
 
     @Nullable
-    @GsonAdapterKey("comment")
-    Comment mComment;
+    @SerializedName("comment")
+    protected Comment mComment;
 
     @Nullable
-    @GsonAdapterKey("clip")
-    Video mVideo;
+    @SerializedName("clip")
+    protected Video mVideo;
 
     @Nullable
-    @GsonAdapterKey("credit")
-    Credit mCredit;
+    @SerializedName("credit")
+    protected Credit mCredit;
 
-    @GsonAdapterKey("new")
-    boolean mIsNew;
+    @SerializedName("new")
+    protected boolean mIsNew;
 
-    @GsonAdapterKey("seen")
-    boolean mIsSeen;
+    @SerializedName("seen")
+    protected boolean mIsSeen;
 
     @Nullable
     public String getUri() {
@@ -161,13 +187,13 @@ public class Notification implements Serializable {
     @Override
     public String toString() {
         return "Notification{" +
-               "mUri='" + mUri + '\'' +
-               ", mCreatedDate=" + mCreatedDate +
-               ", mType='" + mType + '\'' +
-               ", mUser=" + mUser +
-               ", mComment=" + mComment +
-               ", mVideo=" + mVideo +
-               ", mCredit=" + mCredit +
+               "uri='" + mUri + '\'' +
+               ", createdDate=" + mCreatedDate +
+               ", type='" + mType + '\'' +
+               ", user=" + mUser +
+               ", comment=" + mComment +
+               ", video=" + mVideo +
+               ", credit=" + mCredit +
                '}';
     }
 }

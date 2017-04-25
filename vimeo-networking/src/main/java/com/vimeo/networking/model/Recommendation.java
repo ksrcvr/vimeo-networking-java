@@ -1,6 +1,29 @@
+/*
+ * Copyright (c) 2017 Vimeo (https://vimeo.com)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package com.vimeo.networking.model;
 
-import com.vimeo.stag.GsonAdapterKey;
+import com.google.gson.annotations.SerializedName;
+import com.vimeo.stag.UseStag;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -13,6 +36,8 @@ import java.io.Serializable;
  * <p/>
  * Created by zetterstromk on 8/15/16.
  */
+@SuppressWarnings("unused")
+@UseStag
 public class Recommendation implements Serializable {
 
     private static final long serialVersionUID = -1451431453348153582L;
@@ -30,34 +55,34 @@ public class Recommendation implements Serializable {
      * Null if not recommended by a category
      */
     @Nullable
-    @GsonAdapterKey("category")
-    public Category mCategory;
+    @SerializedName("category")
+    protected Category mCategory;
 
     @Nullable
-    @GsonAdapterKey("type")
-    public String mRecommendationType;
+    @SerializedName("type")
+    protected String mRecommendationType;
 
     /**
      * Null if type is not user
      */
     @Nullable
-    @GsonAdapterKey("user")
-    public User mUser;
+    @SerializedName("user")
+    protected User mUser;
 
     /**
      * Null if type is not channel
      */
     @Nullable
-    @GsonAdapterKey("channel")
-    public Channel mChannel;
+    @SerializedName("channel")
+    protected Channel mChannel;
 
     @Nullable
-    @GsonAdapterKey("description")
-    public String mDescription;
+    @SerializedName("description")
+    protected String mDescription;
 
     @Nullable
-    @GsonAdapterKey("resource_key")
-    public String mResourceKey;
+    @SerializedName("resource_key")
+    protected String mResourceKey;
 
     // -----------------------------------------------------------------------------------------------------
     // Getters

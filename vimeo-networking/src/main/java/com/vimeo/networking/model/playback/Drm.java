@@ -24,8 +24,9 @@
 
 package com.vimeo.networking.model.playback;
 
+import com.google.gson.annotations.SerializedName;
 import com.vimeo.networking.model.VideoFile;
-import com.vimeo.stag.GsonAdapterKey;
+import com.vimeo.stag.UseStag;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -40,16 +41,17 @@ import java.io.Serializable;
  * Created by zetterstromk on 6/22/16.
  */
 @SuppressWarnings("unused")
+@UseStag
 public class Drm implements Serializable {
 
     private static final long serialVersionUID = 3048847922257143776L;
 
     @Nullable
-    @GsonAdapterKey("widevine")
+    @SerializedName(value = "widevine", alternate = "m_widevine")
     public VideoFile mWidevine;
 
     @Nullable
-    @GsonAdapterKey("playready")
+    @SerializedName(value = "playready", alternate = "m_play_ready")
     public VideoFile mPlayReady;
 
     @Nullable

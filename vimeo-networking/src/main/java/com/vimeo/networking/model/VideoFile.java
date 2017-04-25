@@ -23,7 +23,7 @@
 package com.vimeo.networking.model;
 
 import com.google.gson.annotations.SerializedName;
-import com.vimeo.stag.GsonAdapterKey;
+import com.vimeo.stag.UseStag;
 
 import org.jetbrains.annotations.Nullable;
 
@@ -35,8 +35,12 @@ import java.util.Date;
  * <p/>
  * Created by alfredhanssen on 4/25/15.
  */
+@SuppressWarnings("unused")
+// TODO: Remove the VideoFileDeserializer and use Stag instead, once API corrects log issue behind version 2/16/17 [KZ]
+// @UseStag(FieldOption.SERIALIZED_NAME)
 public class VideoFile implements Serializable {
 
+    @UseStag
     public enum MimeType {
         NONE("None"),
         @SerializedName("video/mp4")
@@ -60,6 +64,7 @@ public class VideoFile implements Serializable {
     }
 
     @Deprecated
+    @UseStag
     public enum VideoQuality {
         NONE("N/A"),
         @SerializedName("hls")
@@ -91,23 +96,23 @@ public class VideoFile implements Serializable {
     // -----------------------------------------------------------------------------------------------------
     // <editor-fold desc="Fields common between all file types">
     @Nullable
-    @GsonAdapterKey("link_expiration_time")
-    Date mLinkExpirationTime;
+    @SerializedName("link_expiration_time")
+    protected Date mLinkExpirationTime;
 
-    @GsonAdapterKey("link")
-    String mLink;
-
-    @Nullable
-    @GsonAdapterKey("log")
-    String mLog;
+    @SerializedName("link")
+    protected String mLink;
 
     @Nullable
-    @GsonAdapterKey("token")
-    String mToken;
+    @SerializedName("log")
+    protected String mLog;
 
     @Nullable
-    @GsonAdapterKey("license_link")
-    String mLicenseLink;
+    @SerializedName("token")
+    protected String mToken;
+
+    @Nullable
+    @SerializedName("license_link")
+    protected String mLicenseLink;
 
     @Nullable
     public Date getLinkExpirationTime() {
@@ -148,46 +153,46 @@ public class VideoFile implements Serializable {
     // Progressive files only - these fields are not relevant to HLS/Dash
     // -----------------------------------------------------------------------------------------------------
     // <editor-fold desc="Progressive files only">
-    /** quality will be removed in the future when {@link Video#files} is removed */
+    /** quality will be removed in the future when {@link Video#mVideoFiles} is removed */
     @Deprecated
     @Nullable
-    @GsonAdapterKey("quality")
-    VideoQuality mQuality;
+    @SerializedName("quality")
+    protected VideoQuality mQuality;
 
-    /** expires will be removed in the future when {@link Video#files} is removed */
+    /** expires will be removed in the future when {@link Video#mVideoFiles} is removed */
     @Deprecated
     @Nullable
-    @GsonAdapterKey("expires")
-    Date mExpires;
+    @SerializedName("expires")
+    protected Date mExpires;
 
     @Nullable
-    @GsonAdapterKey("type")
-    MimeType mMimeType;
+    @SerializedName("type")
+    protected MimeType mMimeType;
 
-    @GsonAdapterKey("fps")
-    double mFps;
+    @SerializedName("fps")
+    protected double mFps;
 
-    @GsonAdapterKey("width")
-    int mWidth;
+    @SerializedName("width")
+    protected int mWidth;
 
-    @GsonAdapterKey("height")
-    int mHeight;
+    @SerializedName("height")
+    protected int mHeight;
 
-    @GsonAdapterKey("size")
-    long mSize; // size of the file, in bytes
+    @SerializedName("size")
+    protected long mSize; // size of the file, in bytes
 
     /** The md5 provides us with a way to uniquely identify video files at {@link #getLink()} */
     @Nullable
-    @GsonAdapterKey("md5")
-    String mMd5;
+    @SerializedName("md5")
+    protected String mMd5;
 
     @Nullable
-    @GsonAdapterKey("created_time")
-    Date mCreatedTime; // time indicating when this transcode was completed
+    @SerializedName("created_time")
+    protected Date mCreatedTime; // time indicating when this transcode was completed
 
     /**
      * quality is no longer included in VideoFiles under {@link Video#getPlay()} - it will be removed
-     * in a future release once {@link Video#files} is removed.
+     * in a future release once {@link Video#mVideoFiles} is removed.
      *
      * @return the VideoQuality
      */

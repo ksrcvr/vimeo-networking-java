@@ -22,10 +22,12 @@
 
 package com.vimeo.networking.model;
 
+import com.google.gson.annotations.SerializedName;
 import com.vimeo.networking.Vimeo;
 import com.vimeo.networking.model.Privacy.PrivacyValue;
 import com.vimeo.networking.model.UserBadge.UserBadgeType;
-import com.vimeo.stag.GsonAdapterKey;
+import com.vimeo.networking.model.notifications.NotificationConnection;
+import com.vimeo.stag.UseStag;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -37,7 +39,8 @@ import java.util.Date;
 /**
  * Created by alfredhanssen on 4/12/15.
  */
-
+@SuppressWarnings("unused")
+@UseStag
 public class User implements Serializable, Followable {
 
     private static final long serialVersionUID = -4112910222188194647L;
@@ -55,48 +58,66 @@ public class User implements Serializable, Followable {
         STAFF
     }
 
-    @GsonAdapterKey("uri")
-    public String uri;
-    @GsonAdapterKey("name")
-    public String name;
-    @GsonAdapterKey("link")
-    public String link;
-    @GsonAdapterKey("location")
-    public String location;
-    @GsonAdapterKey("bio")
-    public String bio;
-    @GsonAdapterKey("created_time")
-    public Date createdTime;
-    @GsonAdapterKey("account")
-    public String account;
-    @GsonAdapterKey("pictures")
-    public PictureCollection pictures;
-    @GsonAdapterKey("emails")
-    public ArrayList<Email> emails;
-    @GsonAdapterKey("websites")
-    public ArrayList<Website> websites;
-    @GsonAdapterKey("metadata")
-    public Metadata metadata;
-    @GsonAdapterKey("upload_quota")
-    public UploadQuota uploadQuota;
+    @SerializedName("uri")
+    public String mUri;
+
+    @SerializedName("name")
+    public String mName;
+
+    @SerializedName("link")
+    public String mLink;
+
+    @SerializedName("location")
+    public String mLocation;
+
+    @SerializedName("bio")
+    public String mBio;
+
+    @SerializedName("created_time")
+    public Date mCreatedTime;
+
+    @SerializedName("account")
+    public String mAccount;
+
+    @SerializedName("pictures")
+    public PictureCollection mPictures;
+
+    @SerializedName("emails")
+    public ArrayList<Email> mEmails;
+
+    @SerializedName("websites")
+    public ArrayList<Website> mWebsites;
+
+    @SerializedName("metadata")
+    public Metadata mMetadata;
+
+    @SerializedName("upload_quota")
+    public UploadQuota mUploadQuota;
+
     @Nullable
-    @GsonAdapterKey("preferences")
-    public Preferences preferences;
+    @SerializedName("preferences")
+    public Preferences mPreferences;
     @Nullable
-    @GsonAdapterKey("badge")
-    public UserBadge badge;
+    @SerializedName("badge")
+    public UserBadge mBadge;
+
     @Nullable
-    @GsonAdapterKey("content_filter")
+    @SerializedName("content_filter")
     public String[] contentFilter;
 
+    @Nullable
+    public UserBadge getBadge() {
+        return mBadge;
+    }
+
     public AccountType getAccountType() {
-        if (this.account == null) {
+        if (this.mAccount == null) {
             //We should assume the account object could be null; also, a User object could be created with
             // just a uri, then updated when fetched from the server, so account would be null until then.
             // Scenario: deeplinking. [KZ] 9/29/15
             return AccountType.BASIC;
         }
-        switch (this.account) {
+        switch (this.mAccount) {
             case ACCOUNT_BUSINESS:
                 return AccountType.BUSINESS;
             case ACCOUNT_PLUS:
@@ -112,7 +133,7 @@ public class User implements Serializable, Followable {
     }
 
     public UserBadgeType getUserBadgeType() {
-        return badge == null ? UserBadgeType.NONE : badge.getBadgeType();
+        return mBadge == null ? UserBadgeType.NONE : mBadge.getBadgeType();
     }
 
     /**
@@ -121,6 +142,14 @@ public class User implements Serializable, Followable {
      * -----------------------------------------------------------------------------------------------------
      */
     // <editor-fold desc="Accessors/Helpers">
+    public void setUri(String uri) {
+        mUri = uri;
+    }
+
+    public PictureCollection getPictures() {
+        return mPictures;
+    }
+
     @Override
     public boolean canFollow() {
         return getFollowInteraction() != null;
@@ -129,128 +158,154 @@ public class User implements Serializable, Followable {
     @Override
     public boolean isFollowing() {
         Interaction follow = getFollowInteraction();
-        return follow != null && follow.added;
+        return follow != null && follow.mAdded;
     }
 
     @Nullable
     private ConnectionCollection getMetadataConnections() {
-        if (metadata != null) {
-            return metadata.connections;
+        if (mMetadata != null) {
+            return mMetadata.getConnections();
         }
         return null;
     }
 
     @Nullable
     private InteractionCollection getMetadataInteractions() {
-        if (metadata != null) {
-            return metadata.interactions;
+        if (mMetadata != null) {
+            return mMetadata.getInteractions();
         }
         return null;
+    }
+
+    /**
+     * @return the {@link SvodInteraction}. Will be null if the requesting application does not have the
+     * permission to view the interaction, and will be null for users other than the current user.
+     */
+    @Nullable
+    public SvodInteraction getSvodInteraction() {
+        InteractionCollection interactions = getMetadataInteractions();
+        return interactions != null ? interactions.getSvod() : null;
+    }
+
+    /**
+     * @return true if the user is an SVOD subscriber. False will be returned if the user is not an
+     * SVOD subscriber. False will always be returned for users other than the currently authenticated
+     * user.
+     */
+    public boolean isSvodSubscriber() {
+        SvodInteraction svod = getSvodInteraction();
+        return svod != null && svod.getPurchaseDate() != null;
     }
 
     @Nullable
     @Override
     public Interaction getFollowInteraction() {
         InteractionCollection interactions = getMetadataInteractions();
-        return interactions != null ? interactions.follow : null;
+        return interactions != null ? interactions.getFollow() : null;
     }
 
     @Nullable
     public Connection getFollowingConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.following : null;
+        return connections != null ? connections.getFollowing() : null;
     }
 
     @Nullable
     public Connection getFollowersConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.followers : null;
+        return connections != null ? connections.getFollowers() : null;
     }
 
     public int getFollowerCount() {
         Connection followers = getFollowersConnection();
-        return followers != null ? followers.total : 0;
+        return followers != null ? followers.getTotal() : 0;
     }
 
     public int getFollowingCount() {
         Connection following = getFollowingConnection();
-        return following != null ? following.total : 0;
+        return following != null ? following.getTotal() : 0;
     }
 
     @Nullable
     public Connection getLikesConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.likes : null;
+        return connections != null ? connections.getLikes() : null;
     }
 
     public int getLikesCount() {
         Connection likes = getLikesConnection();
-        return likes != null ? likes.total : 0;
+        return likes != null ? likes.getTotal() : 0;
     }
 
     @Nullable
     public Connection getFollowedChannelsConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.channels : null;
+        return connections != null ? connections.getChannels() : null;
     }
 
     public int getChannelsCount() {
         Connection channels = getFollowedChannelsConnection();
-        return channels != null ? channels.total : 0;
+        return channels != null ? channels.getTotal() : 0;
     }
 
     @Nullable
     public Connection getModeratedChannelsConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.moderatedChannels : null;
+        return connections != null ? connections.getModeratedChannels() : null;
     }
 
     public int getModeratedChannelsConnectionCount() {
         Connection moderatedChannels = getModeratedChannelsConnection();
-        return moderatedChannels != null ? moderatedChannels.total : 0;
+        return moderatedChannels != null ? moderatedChannels.getTotal() : 0;
     }
 
     @Nullable
     public Connection getAppearancesConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.appearances : null;
+        return connections != null ? connections.getAppearances() : null;
     }
 
     public int getAppearancesCount() {
         Connection appearances = getAppearancesConnection();
-        return appearances != null ? appearances.total : 0;
+        return appearances != null ? appearances.getTotal() : 0;
     }
 
     @Nullable
     public Connection getWatchLaterConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.watchlater : null;
+        return connections != null ? connections.getWatchlater() : null;
     }
 
     @Nullable
     public Connection getWatchedVideosConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.watchedVideos : null;
+        return connections != null ? connections.getWatchedVideos() : null;
+    }
+
+    @Nullable
+    public NotificationConnection getNotificationConnection() {
+        ConnectionCollection collections = getMetadataConnections();
+        return collections != null ? collections.getNotifications() : null;
     }
     // </editor-fold>
 
     @NotNull
-    public ArrayList<Picture> getPictures() {
-        if (pictures == null || pictures.getPictures() == null) {
+    public ArrayList<Picture> getPicturesList() {
+        if (mPictures == null || mPictures.getPictures() == null) {
             return new ArrayList<>();
         }
-        return pictures.getPictures();
+        return mPictures.getPictures();
     }
 
     @Nullable
     public Connection getVideosConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.videos : null;
+        return connections != null ? connections.mVideos : null;
     }
 
     public int getVideoCount() {
         Connection videos = getVideosConnection();
-        return videos != null ? videos.total : 0;
+        return videos != null ? videos.mTotal : 0;
     }
 
     public boolean isPlusOrPro() {
@@ -264,30 +319,29 @@ public class User implements Serializable, Followable {
     @Nullable
     public PrivacyValue getPreferredVideoPrivacyValue() {
         PrivacyValue privacyValue = null;
-        if (preferences != null && preferences.getVideos() != null &&
-            preferences.getVideos().getPrivacy() != null) {
-            privacyValue = preferences.getVideos().getPrivacy().getView();
+        if (mPreferences != null && mPreferences.getVideos() != null &&
+            mPreferences.getVideos().getPrivacy() != null) {
+            privacyValue = mPreferences.getVideos().getPrivacy().getView();
         }
         return privacyValue;
     }
 
     public boolean canUploadPicture() {
-        if ((metadata != null) && (metadata.connections != null) &&
-            (metadata.connections.pictures != null) &&
-            (metadata.connections.pictures.options != null)) {
-            return metadata.connections.pictures.options.contains(Vimeo.OPTIONS_POST);
-        }
-        return false;
+        return mMetadata != null &&
+               mMetadata.mConnections != null &&
+               mMetadata.mConnections.mPictures != null &&
+               mMetadata.mConnections.mPictures.mOptions != null &&
+               mMetadata.mConnections.mPictures.mOptions.contains(Vimeo.OPTIONS_POST);
     }
 
     public UploadQuota getUploadQuota() {
-        return uploadQuota;
+        return mUploadQuota;
     }
 
     // Returns -1 if there is no space object on this user
     public long getFreeUploadSpace() {
-        if (uploadQuota != null) {
-            return uploadQuota.getFreeUploadSpace();
+        if (mUploadQuota != null) {
+            return mUploadQuota.getFreeUploadSpace();
         }
         return Vimeo.NOT_FOUND;
     }
@@ -299,48 +353,71 @@ public class User implements Serializable, Followable {
      */
     // <editor-fold desc="Getters">
     public String getUri() {
-        return uri;
+        return mUri;
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public String getLink() {
-        return link;
+        return mLink;
     }
 
     public String getLocation() {
-        return location;
+        return mLocation;
     }
 
     public String getBio() {
-        return bio;
+        return mBio;
     }
 
     public Date getCreatedTime() {
-        return createdTime;
+        return mCreatedTime;
     }
 
     public String getAccount() {
-        return account;
+        return mAccount;
     }
 
     public ArrayList<Email> getVerifiedEmails() {
-        return emails;
+        return mEmails;
     }
 
     public ArrayList<Website> getWebsites() {
-        return websites;
+        return mWebsites;
     }
 
     public Metadata getMetadata() {
-        return metadata;
+        return mMetadata;
     }
 
     @Nullable
     public Preferences getPreferences() {
-        return preferences;
+        return mPreferences;
+    }
+
+    // </editor-fold>
+
+    // -----------------------------------------------------------------------------------------------------
+    // Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Setters">
+
+    public void setPictures(PictureCollection pictures) {
+        mPictures = pictures;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public void setLocation(String location) {
+        mLocation = location;
+    }
+
+    public void setBio(String bio) {
+        mBio = bio;
     }
 
     // </editor-fold>
@@ -356,11 +433,11 @@ public class User implements Serializable, Followable {
 
         User that = (User) o;
 
-        return ((this.uri != null && that.uri != null) ? this.uri.equals(that.uri) : false);
+        return ((this.mUri != null && that.mUri != null) && this.mUri.equals(that.mUri));
     }
 
     @Override
     public int hashCode() {
-        return this.uri != null ? this.uri.hashCode() : 0;
+        return this.mUri != null ? this.mUri.hashCode() : 0;
     }
 }

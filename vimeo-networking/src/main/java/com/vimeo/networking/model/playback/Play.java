@@ -27,8 +27,9 @@ package com.vimeo.networking.model.playback;
 import com.google.gson.annotations.SerializedName;
 import com.vimeo.networking.model.VideoFile;
 import com.vimeo.networking.model.playback.embed.Embed;
-import com.vimeo.stag.GsonAdapterKey;
+import com.vimeo.stag.UseStag;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.Serializable;
@@ -39,10 +40,13 @@ import java.util.ArrayList;
  * <p/>
  * Created by zetterstromk on 4/25/16.
  */
+@SuppressWarnings("unused")
+@UseStag
 public class Play implements Serializable {
 
     private static final long serialVersionUID = -7429617944240759711L;
 
+    @UseStag
     public enum Status {
         // if not done transcoding
         @SerializedName("unavailable")
@@ -57,9 +61,10 @@ public class Play implements Serializable {
         @SerializedName("restricted")
         RESTRICTED("restricted");
 
+        @NotNull
         private final String string;
 
-        Status(String string) {
+        Status(@NotNull String string) {
             this.string = string;
         }
 
@@ -70,32 +75,32 @@ public class Play implements Serializable {
     }
 
     @Nullable
-    @GsonAdapterKey("embed")
-    Embed mEmbed;
+    @SerializedName(value = "embed", alternate = "m_embed")
+    protected Embed mEmbed;
 
     @Nullable
-    @GsonAdapterKey("hls")
-    VideoFile mHls;
+    @SerializedName(value = "hls", alternate = "m_hls")
+    protected VideoFile mHls;
 
     @Nullable
-    @GsonAdapterKey("dash")
-    VideoFile mDash;
+    @SerializedName(value = "dash", alternate = "m_dash")
+    protected VideoFile mDash;
 
     @Nullable
-    @GsonAdapterKey("progressive")
-    ArrayList<VideoFile> mProgressive;
+    @SerializedName(value = "progressive", alternate = "m_progressive")
+    protected ArrayList<VideoFile> mProgressive;
 
     @Nullable
-    @GsonAdapterKey("progress")
-    PlayProgress mProgress;
+    @SerializedName(value = "progress", alternate = "m_progress")
+    protected PlayProgress mProgress;
 
     @Nullable
-    @GsonAdapterKey("status")
-    Status mStatus;
+    @SerializedName(value = "status", alternate = "m_status")
+    protected Status mStatus;
 
     @Nullable
-    @GsonAdapterKey("drm")
-    Drm mDrm;
+    @SerializedName(value = "drm", alternate = "m_drm")
+    protected Drm mDrm;
 
     @Nullable
     public Embed getEmbed() {
@@ -103,7 +108,7 @@ public class Play implements Serializable {
     }
 
     public void setEmbed(@Nullable Embed embed) {
-        mEmbed = embed;
+        this.mEmbed = embed;
     }
 
     @Nullable
@@ -127,7 +132,7 @@ public class Play implements Serializable {
     }
 
     public void setProgress(@Nullable PlayProgress progress) {
-        mProgress = progress;
+        this.mProgress = progress;
     }
 
     @Nullable

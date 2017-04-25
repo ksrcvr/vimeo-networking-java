@@ -22,7 +22,8 @@
 
 package com.vimeo.networking.model;
 
-import com.vimeo.stag.GsonAdapterKey;
+import com.google.gson.annotations.SerializedName;
+import com.vimeo.stag.UseStag;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -35,6 +36,8 @@ import java.util.ArrayList;
  * of {@link Picture}s
  * Created by hanssena on 4/23/15.
  */
+@SuppressWarnings("unused")
+@UseStag
 public class PictureCollection implements Serializable {
 
     private static final long serialVersionUID = -4495146309328278574L;
@@ -62,26 +65,26 @@ public class PictureCollection implements Serializable {
     }
 
     @Nullable
-    @GsonAdapterKey("uri")
-    String mUri;
+    @SerializedName(value = "uri", alternate = "m_uri")
+    protected String mUri;
 
-    @GsonAdapterKey("active")
-    boolean mIsActive;
-
-    @Nullable
-    @GsonAdapterKey("type")
-    String mType;
+    @SerializedName(value = "active", alternate = "m_is_active")
+    protected boolean mIsActive;
 
     @Nullable
-    @GsonAdapterKey("sizes")
-    ArrayList<Picture> mPictures;
+    @SerializedName(value = "type", alternate = "m_type")
+    protected String mType;
+
+    @Nullable
+    @SerializedName(value = "sizes", alternate = "m_pictures")
+    protected ArrayList<Picture> mPictures;
 
     @Nullable
     public Picture pictureForWidth(int width) {
         if (mPictures != null && !mPictures.isEmpty()) {
             Picture selectedPicture = mPictures.get(mPictures.size() - 1);
             for (Picture picture : mPictures) {
-                if ((picture.width >= width) && ((picture.width - width) < (selectedPicture.width - width))) {
+                if ((picture.mWidth >= width) && ((picture.mWidth - width) < (selectedPicture.mWidth - width))) {
                     selectedPicture = picture;
                 }
             }
