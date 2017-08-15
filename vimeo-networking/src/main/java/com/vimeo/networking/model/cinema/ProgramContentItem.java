@@ -77,37 +77,37 @@ public class ProgramContentItem implements Serializable {
 
     @Nullable
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @Nullable
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @Nullable
     @SerializedName("type")
-    protected Type mType;
+    private Type mType;
 
     @Nullable
     @SerializedName("content")
-    protected ArrayList<Video> mVideoList;
+    private ArrayList<Video> mVideoList;
 
     @Nullable
     @SerializedName("metadata")
-    protected Metadata mMetadata;
+    private Metadata mMetadata;
 
     /**
      * Non-null when {@link #mType} is {@link Type#CHANNEL}
      */
     @Nullable
     @SerializedName("channel")
-    protected Channel mChannel;
+    private Channel mChannel;
 
     /**
      * Non-null when {@link #mType} is {@link Type#CATEGORY}
      */
     @Nullable
     @SerializedName("category")
-    protected Category mCategory;
+    private Category mCategory;
 
     /**
      * @return The uri to the original data source (as a String)
@@ -181,4 +181,31 @@ public class ProgramContentItem implements Serializable {
         return contents != null ? contents.getUri() : null;
     }
 
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
+    }
+
+    public void setType(@Nullable Type type) {
+        mType = type;
+    }
+
+    public void setVideoList(@Nullable ArrayList<Video> videoList) {
+        mVideoList = videoList;
+    }
+
+    public void setMetadata(@Nullable Metadata metadata) {
+        mMetadata = metadata;
+    }
+
+    public void setChannel(@Nullable Channel channel) {
+        mChannel = channel;
+    }
+
+    public void setCategory(@Nullable Category category) {
+        mCategory = category;
+    }
 }

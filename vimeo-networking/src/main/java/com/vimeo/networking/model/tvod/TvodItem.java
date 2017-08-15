@@ -71,6 +71,10 @@ public class TvodItem implements Serializable {
         }
     }
 
+    public void setLink(@Nullable String link) {
+        mLink = link;
+    }
+
     @UseStag
     public static class Publish implements Serializable {
 
@@ -78,52 +82,55 @@ public class TvodItem implements Serializable {
 
         @Nullable
         @SerializedName("time")
-        protected Date mTime;
+        private Date mTime;
 
         @Nullable
         public Date getTime() {
             return mTime;
         }
 
+        public void setTime(@Nullable Date time) {
+            mTime = time;
+        }
     }
 
     private static final long serialVersionUID = 8360150766347816073L;
 
     @Nullable
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @Nullable
     @SerializedName("description")
-    protected String mDescription;
+    private String mDescription;
 
     @Nullable
     @SerializedName("type")
-    protected TvodType mType;
+    private TvodType mType;
 
     @Nullable
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     @Nullable
     @SerializedName("publish")
-    protected Publish mPublish;
+    private Publish mPublish;
 
     @Nullable
     @SerializedName("pictures")
-    protected PictureCollection mPictures;
+    private PictureCollection mPictures;
 
     @Nullable
     @SerializedName("metadata")
-    protected Metadata mMetadata;
+    private Metadata mMetadata;
 
     @Nullable
     @SerializedName("user")
-    protected User mUser;
+    private User mUser;
 
     @Nullable
     @SerializedName("film")
-    protected Video mFilm;
+    private Video mFilm;
 
     @Nullable
     @SerializedName("trailer")

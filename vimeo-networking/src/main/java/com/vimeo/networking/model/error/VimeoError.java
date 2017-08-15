@@ -51,19 +51,19 @@ public class VimeoError extends RuntimeException {
     private Response mResponse;
 
     @SerializedName("error")
-    protected String mErrorMessage;
+    private String mErrorMessage;
 
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     @SerializedName("developer_message")
-    protected String mDeveloperMessage;
+    private String mDeveloperMessage;
 
     @SerializedName("error_code")
-    protected ErrorCode mErrorCode;
+    private ErrorCode mErrorCode;
 
     @SerializedName("invalid_parameters")
-    protected List<InvalidParameter> mInvalidParameters;
+    private List<InvalidParameter> mInvalidParameters;
 
     private Exception mException;
     private int mHttpStatusCode = Vimeo.NOT_FOUND;
@@ -80,6 +80,10 @@ public class VimeoError extends RuntimeException {
     public VimeoError(String errorMessage, Exception exception) {
         this.mDeveloperMessage = errorMessage;
         this.mException = exception;
+    }
+
+    public static String getAuthenticationHeader() {
+        return AUTHENTICATION_HEADER;
     }
 
     public Response getResponse() {
@@ -248,5 +252,9 @@ public class VimeoError extends RuntimeException {
             return "HTTP Status Code: " + getHttpStatusCode();
         }
         return "";
+    }
+
+    public void setCanceledError(boolean canceledError) {
+        mIsCanceledError = canceledError;
     }
 }

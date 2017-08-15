@@ -41,23 +41,23 @@ public class Credit implements Serializable {
 
     @Nullable
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @Nullable
     @SerializedName("role")
-    protected String mRole;
+    private String mRole;
 
     @Nullable
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @Nullable
     @SerializedName("video")
-    protected Video mVideo;
+    private Video mVideo;
 
     @Nullable
     @SerializedName("user")
-    protected User mUser;
+    private User mUser;
 
     @Nullable
     public String getUri() {
@@ -138,5 +138,17 @@ public class Credit implements Serializable {
                ", video=" + mVideo +
                ", user=" + mUser +
                '}';
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
+    public void setRole(@Nullable String role) {
+        mRole = role;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
     }
 }

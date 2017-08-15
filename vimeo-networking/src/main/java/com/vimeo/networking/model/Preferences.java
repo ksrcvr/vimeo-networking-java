@@ -43,7 +43,7 @@ public class Preferences implements Serializable {
 
     @Nullable
     @SerializedName(value = "videos", alternate = "m_videos")
-    protected VideosPreference mVideos;
+    private VideosPreference mVideos;
 
     /**
      * Return the {@link VideosPreference} of this object
@@ -51,5 +51,9 @@ public class Preferences implements Serializable {
     @Nullable
     public VideosPreference getVideos() {
         return mVideos;
+    }
+
+    public void setVideos(@Nullable VideosPreference videos) {
+        mVideos = videos;
     }
 }

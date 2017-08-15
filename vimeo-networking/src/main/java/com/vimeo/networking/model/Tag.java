@@ -37,19 +37,19 @@ public class Tag implements Serializable {
     private static final long serialVersionUID = 3388947522077930006L;
 
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @SerializedName("tag")
-    protected String mTag;
+    private String mTag;
 
     @SerializedName("canonical")
-    protected String mCanonical;
+    private String mCanonical;
 
     @SerializedName("metadata")
-    protected Metadata mMetadata;
+    private Metadata mMetadata;
 
     public String getUri() {
         return mUri;
@@ -69,5 +69,25 @@ public class Tag implements Serializable {
 
     public Metadata getMetadata() {
         return mMetadata;
+    }
+
+    public void setUri(String uri) {
+        mUri = uri;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public void setTag(String tag) {
+        mTag = tag;
+    }
+
+    public void setCanonical(String canonical) {
+        mCanonical = canonical;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
     }
 }

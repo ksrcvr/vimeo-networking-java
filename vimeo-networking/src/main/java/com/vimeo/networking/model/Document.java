@@ -43,10 +43,14 @@ public class Document implements Serializable {
 
     @Nullable
     @SerializedName("html")
-    protected String html;
+    private String html;
 
     @Nullable
     public String getHtml() {
         return html;
+    }
+
+    public void setHtml(@Nullable String html) {
+        this.html = html;
     }
 }

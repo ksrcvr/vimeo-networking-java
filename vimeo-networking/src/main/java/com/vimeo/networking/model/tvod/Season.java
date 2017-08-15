@@ -50,6 +50,7 @@ public class Season implements Serializable {
     private static final String SEASON_TYPE_MAIN = "main";
     private static final String SEASON_TYPE_EXTRAS = "extras";
 
+    @SuppressWarnings("WeakerAccess")
     public enum SeasonType {
         MAIN,
         EXTRAS
@@ -59,34 +60,34 @@ public class Season implements Serializable {
 
     @Nullable
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @Nullable
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @Nullable
     @SerializedName("type")
-    protected String mType;
+    private String mType;
 
     @Nullable
     @SerializedName("description")
-    protected String mDescription;
+    private String mDescription;
 
     @Nullable
     @SerializedName("user")
-    protected User mUser;
+    private User mUser;
 
     @SerializedName("position")
-    protected int mPosition;
+    private int mPosition;
 
     @Nullable
     @SerializedName("metadata")
-    protected Metadata mMetadata;
+    private Metadata mMetadata;
 
     @Nullable
     @SerializedName("resource_key")
-    protected String mResourceKey;
+    private String mResourceKey;
 
     // -----------------------------------------------------------------------------------------------------
     // Getters
@@ -214,6 +215,38 @@ public class Season implements Serializable {
     @Override
     public int hashCode() {
         return mUri != null ? mUri.hashCode() : 0;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
+    }
+
+    public void setType(@Nullable String type) {
+        mType = type;
+    }
+
+    public void setDescription(@Nullable String description) {
+        mDescription = description;
+    }
+
+    public void setUser(@Nullable User user) {
+        mUser = user;
+    }
+
+    public void setPosition(int position) {
+        mPosition = position;
+    }
+
+    public void setMetadata(@Nullable Metadata metadata) {
+        mMetadata = metadata;
+    }
+
+    public void setResourceKey(@Nullable String resourceKey) {
+        mResourceKey = resourceKey;
     }
     // </editor-fold>
 }

@@ -94,21 +94,21 @@ public class Privacy implements Serializable {
 
     @Nullable
     @SerializedName("view")
-    public PrivacyValue mView;
+    private PrivacyValue mView;
 
     @Nullable
     @SerializedName("embed")
-    public String mEmbed;
+    private String mEmbed;
 
     @SerializedName("download")
-    public boolean mDownload;
+    private boolean mDownload;
 
     @SerializedName("add")
-    public boolean mAdd;
+    private boolean mAdd;
 
     @Nullable
     @SerializedName("comments")
-    public PrivacyValue mComments;
+    private PrivacyValue mComments;
 
     @Nullable
     public PrivacyValue getView() {
@@ -131,5 +131,25 @@ public class Privacy implements Serializable {
     @Nullable
     public PrivacyValue getComments() {
         return mComments;
+    }
+
+    public void setView(@Nullable PrivacyValue view) {
+        mView = view;
+    }
+
+    public void setEmbed(@Nullable String embed) {
+        mEmbed = embed;
+    }
+
+    public void setDownload(boolean download) {
+        mDownload = download;
+    }
+
+    public void setAdd(boolean add) {
+        mAdd = add;
+    }
+
+    public void setComments(@Nullable PrivacyValue comments) {
+        mComments = comments;
     }
 }

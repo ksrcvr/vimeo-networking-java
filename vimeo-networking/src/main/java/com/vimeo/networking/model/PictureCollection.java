@@ -66,25 +66,25 @@ public class PictureCollection implements Serializable {
 
     @Nullable
     @SerializedName(value = "uri", alternate = "m_uri")
-    protected String mUri;
+    private String mUri;
 
     @SerializedName(value = "active", alternate = "m_is_active")
-    protected boolean mIsActive;
+    private boolean mIsActive;
 
     @Nullable
     @SerializedName(value = "type", alternate = "m_type")
-    protected String mType;
+    private String mType;
 
     @Nullable
     @SerializedName(value = "sizes", alternate = "m_pictures")
-    protected ArrayList<Picture> mPictures;
+    private ArrayList<Picture> mPictures;
 
     @Nullable
     public Picture pictureForWidth(int width) {
         if (mPictures != null && !mPictures.isEmpty()) {
             Picture selectedPicture = mPictures.get(mPictures.size() - 1);
             for (Picture picture : mPictures) {
-                if ((picture.mWidth >= width) && ((picture.mWidth - width) < (selectedPicture.mWidth - width))) {
+                if ((picture.getWidth() >= width) && ((picture.getWidth() - width) < (selectedPicture.getWidth() - width))) {
                     selectedPicture = picture;
                 }
             }
@@ -145,5 +145,26 @@ public class PictureCollection implements Serializable {
             default:
                 return PictureType.UNKNOWN;
         }
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
+    public void setActive(boolean active) {
+        mIsActive = active;
+    }
+
+    @Nullable
+    public String getType() {
+        return mType;
+    }
+
+    public void setType(@Nullable String type) {
+        mType = type;
+    }
+
+    public void setPictures(@Nullable ArrayList<Picture> pictures) {
+        mPictures = pictures;
     }
 }

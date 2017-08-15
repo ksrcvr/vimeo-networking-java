@@ -40,5 +40,14 @@ public class StatsCollection implements Serializable {
 
     @Nullable
     @SerializedName("plays")
-    public Integer mPlays; // If this is null, that means the uploader has disabled play count [KZ] 9/9/15
+    private Integer mPlays; // If this is null, that means the uploader has disabled play count [KZ] 9/9/15
+
+    @Nullable
+    public Integer getPlays() {
+        return mPlays;
+    }
+
+    public void setPlays(@Nullable Integer plays) {
+        mPlays = plays;
+    }
 }

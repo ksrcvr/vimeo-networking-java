@@ -45,9 +45,13 @@ public class Embed implements Serializable {
     private static final long serialVersionUID = 7145437300195734964L;
 
     @SerializedName("html")
-    protected String mHtml;
+    private String mHtml;
 
     public String getHtml() {
         return mHtml;
+    }
+
+    public void setHtml(String html) {
+        mHtml = html;
     }
 }

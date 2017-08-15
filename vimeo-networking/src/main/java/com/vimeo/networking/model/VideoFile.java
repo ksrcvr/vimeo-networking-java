@@ -72,14 +72,14 @@ public abstract class VideoFile implements Serializable {
     // <editor-fold desc="Fields common between all file types">
     @Nullable
     @SerializedName("link_expiration_time")
-    protected Date mLinkExpirationTime;
+    private Date mLinkExpirationTime;
 
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     @Nullable
     @SerializedName("log")
-    protected String mLog;
+    private String mLog;
 
     @Nullable
     public Date getLinkExpirationTime() {
@@ -121,6 +121,18 @@ public abstract class VideoFile implements Serializable {
     @Override
     public int hashCode() {
         return mLink != null ? mLink.hashCode() : 0;
+    }
+
+    public void setLinkExpirationTime(@Nullable Date linkExpirationTime) {
+        mLinkExpirationTime = linkExpirationTime;
+    }
+
+    public void setLink(String link) {
+        mLink = link;
+    }
+
+    public void setLog(@Nullable String log) {
+        mLog = log;
     }
     // </editor-fold>
 }

@@ -42,27 +42,27 @@ public class Connection implements Serializable {
 
     @Nullable
     @SerializedName("uri")
-    public String mUri;
+    private String mUri;
 
     @Nullable
     @SerializedName("options")
-    public ArrayList<String> mOptions;
+    private ArrayList<String> mOptions;
 
     @SerializedName("total")
-    public int mTotal;
+    private int mTotal;
 
     @SerializedName("main_total")
-    public int mMainTotal;
+    private int mMainTotal;
 
     @SerializedName("extra_total")
-    public int mExtraTotal;
+    private int mExtraTotal;
 
     @SerializedName("viewable_total")
-    public int mViewableTotal;
+    private int mViewableTotal;
 
     @Nullable
     @SerializedName("name")
-    public String mName;
+    private String mName;
 
     // -----------------------------------------------------------------------------------------------------
     // Getters
@@ -103,5 +103,29 @@ public class Connection implements Serializable {
 
     public void setTotal(int total) {
         mTotal = total;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
+    public void setOptions(@Nullable ArrayList<String> options) {
+        mOptions = options;
+    }
+
+    public void setMainTotal(int mainTotal) {
+        mMainTotal = mainTotal;
+    }
+
+    public void setExtraTotal(int extraTotal) {
+        mExtraTotal = extraTotal;
+    }
+
+    public void setViewableTotal(int viewableTotal) {
+        mViewableTotal = viewableTotal;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
     }
 }

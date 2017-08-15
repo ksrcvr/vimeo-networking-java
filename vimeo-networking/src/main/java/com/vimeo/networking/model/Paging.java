@@ -37,16 +37,16 @@ public class Paging implements Serializable {
     private static final long serialVersionUID = -8547699448016693035L;
 
     @SerializedName("next")
-    protected String mNext;
+    private String mNext;
 
     @SerializedName("previous")
-    protected String mPrevious;
+    private String mPrevious;
 
     @SerializedName("first")
-    protected String mFirst;
+    private String mFirst;
 
     @SerializedName("last")
-    protected String mLast;
+    private String mLast;
 
     public String getNext() {
         return mNext;
@@ -62,5 +62,21 @@ public class Paging implements Serializable {
 
     public String getLast() {
         return mLast;
+    }
+
+    public void setNext(String next) {
+        mNext = next;
+    }
+
+    public void setPrevious(String previous) {
+        mPrevious = previous;
+    }
+
+    public void setFirst(String first) {
+        mFirst = first;
+    }
+
+    public void setLast(String last) {
+        mLast = last;
     }
 }

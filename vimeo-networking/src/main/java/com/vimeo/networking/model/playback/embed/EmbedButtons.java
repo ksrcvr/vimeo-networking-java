@@ -42,25 +42,25 @@ public class EmbedButtons implements Serializable {
     private static final long serialVersionUID = 6724361702326756097L;
 
     @SerializedName("like")
-    protected boolean mLike;
+    private boolean mLike;
 
     @SerializedName("watchlater")
-    protected boolean mWatchLater;
+    private boolean mWatchLater;
 
     @SerializedName("share")
-    protected boolean mShare;
+    private boolean mShare;
 
     @SerializedName("embed")
-    protected boolean mEmbed;
+    private boolean mEmbed;
 
     @SerializedName("hd")
-    protected boolean mHd;
+    private boolean mHd;
 
     @SerializedName("fullscreen")
-    protected boolean mFullscreen;
+    private boolean mFullscreen;
 
     @SerializedName("scaling")
-    protected boolean mScaling;
+    private boolean mScaling;
 
     public boolean isLike() {
         return mLike;

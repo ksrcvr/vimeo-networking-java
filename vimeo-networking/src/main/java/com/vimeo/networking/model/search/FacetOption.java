@@ -44,14 +44,18 @@ public class FacetOption implements Serializable {
 
     @Nullable
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @SerializedName("total")
-    protected int mTotal;
+    private int mTotal;
 
     @Nullable
     @SerializedName("text")
-    protected String mText;
+    private String mText;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     @Nullable
     public String getName() {
@@ -65,5 +69,17 @@ public class FacetOption implements Serializable {
     @Nullable
     public String getText() {
         return mText;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
+    }
+
+    public void setTotal(int total) {
+        mTotal = total;
+    }
+
+    public void setText(@Nullable String text) {
+        mText = text;
     }
 }

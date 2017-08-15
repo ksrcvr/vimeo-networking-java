@@ -34,7 +34,7 @@ import org.jetbrains.annotations.NotNull;
  * <p>
  * Created by zetterstromk on 6/27/16.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "WeakerAccess"})
 @UseStag
 public enum SearchType {
 

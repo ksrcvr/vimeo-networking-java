@@ -33,19 +33,19 @@ import com.google.gson.annotations.SerializedName;
 public class FeaturesConfiguration {
 
     @SerializedName("iap")
-    protected boolean mIapEnabled;
+    private boolean mIapEnabled;
 
     @SerializedName("autoupload")
-    protected boolean mAutoUploadEnabled;
+    private boolean mAutoUploadEnabled;
 
     @SerializedName("comscore")
-    protected boolean mComScoreEnabled;
+    private boolean mComScoreEnabled;
 
     @SerializedName("play_tracking")
-    protected boolean mPlayTrackingEnabled = true; // Default to true
+    private boolean mPlayTrackingEnabled = true; // Default to true
 
     @SerializedName("chromecast_app_id")
-    protected String mChromecastReceiverAppID;
+    private String mChromecastReceiverAppID;
 
     public boolean isIapEnabled() {
         return mIapEnabled;

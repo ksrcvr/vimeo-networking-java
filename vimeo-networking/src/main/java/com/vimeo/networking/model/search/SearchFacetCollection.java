@@ -44,27 +44,27 @@ public class SearchFacetCollection implements Serializable {
 
     @Nullable
     @SerializedName("type")
-    protected SearchFacet mTypeFacet;
+    private SearchFacet mTypeFacet;
 
     @Nullable
     @SerializedName("category")
-    protected SearchFacet mCategoryFacet;
+    private SearchFacet mCategoryFacet;
 
     @Nullable
     @SerializedName("duration")
-    protected SearchFacet mDurationFacet;
+    private SearchFacet mDurationFacet;
 
     @Nullable
     @SerializedName("license")
-    protected SearchFacet mLicenseFacet;
+    private SearchFacet mLicenseFacet;
 
     @Nullable
     @SerializedName("uploaded")
-    protected SearchFacet mUploadedFacet;
+    private SearchFacet mUploadedFacet;
 
     @Nullable
     @SerializedName("user_type")
-    protected SearchFacet mUserTypeFacet;
+    private SearchFacet mUserTypeFacet;
 
     @Nullable
     public SearchFacet getTypeFacet() {
@@ -94,5 +94,29 @@ public class SearchFacetCollection implements Serializable {
     @Nullable
     public SearchFacet getUserTypeFacet() {
         return mUserTypeFacet;
+    }
+
+    public void setTypeFacet(@Nullable SearchFacet typeFacet) {
+        mTypeFacet = typeFacet;
+    }
+
+    public void setCategoryFacet(@Nullable SearchFacet categoryFacet) {
+        mCategoryFacet = categoryFacet;
+    }
+
+    public void setDurationFacet(@Nullable SearchFacet durationFacet) {
+        mDurationFacet = durationFacet;
+    }
+
+    public void setLicenseFacet(@Nullable SearchFacet licenseFacet) {
+        mLicenseFacet = licenseFacet;
+    }
+
+    public void setUploadedFacet(@Nullable SearchFacet uploadedFacet) {
+        mUploadedFacet = uploadedFacet;
+    }
+
+    public void setUserTypeFacet(@Nullable SearchFacet userTypeFacet) {
+        mUserTypeFacet = userTypeFacet;
     }
 }

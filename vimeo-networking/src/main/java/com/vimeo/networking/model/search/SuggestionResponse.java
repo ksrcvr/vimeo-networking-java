@@ -43,21 +43,11 @@ public class SuggestionResponse implements Serializable {
 
     @Nullable
     @SerializedName("ondemand_title")
-    ArrayList<TvodSuggestion> mTvodSuggestions;
+    private ArrayList<TvodSuggestion> mTvodSuggestions;
 
     @Nullable
     @SerializedName("video")
-    ArrayList<VideoSuggestion> mVideoSuggestions;
-
-    @Nullable
-    public ArrayList<TvodSuggestion> getTvodSuggestionList() {
-        return mTvodSuggestions;
-    }
-
-    @Nullable
-    public ArrayList<VideoSuggestion> getVideoSuggestions() {
-        return mVideoSuggestions;
-    }
+    private ArrayList<VideoSuggestion> mVideoSuggestions;
 
     @Override
     public boolean equals(Object o) {
@@ -86,5 +76,23 @@ public class SuggestionResponse implements Serializable {
                "mTvodSuggestions=" + mTvodSuggestions +
                ", mVideoSuggestions=" + mVideoSuggestions +
                '}';
+    }
+
+    @Nullable
+    public ArrayList<TvodSuggestion> getTvodSuggestions() {
+        return mTvodSuggestions;
+    }
+
+    @Nullable
+    public ArrayList<VideoSuggestion> getVideoSuggestions() {
+        return mVideoSuggestions;
+    }
+
+    public void setTvodSuggestions(@Nullable ArrayList<TvodSuggestion> tvodSuggestions) {
+        mTvodSuggestions = tvodSuggestions;
+    }
+
+    public void setVideoSuggestions(@Nullable ArrayList<VideoSuggestion> videoSuggestions) {
+        mVideoSuggestions = videoSuggestions;
     }
 }

@@ -45,6 +45,7 @@ public class Recommendation implements Serializable {
     static final String TYPE_CHANNEL = "channel";
     static final String TYPE_USER = "user";
 
+    @SuppressWarnings("WeakerAccess")
     public enum RecommendationType {
         NONE,
         CHANNEL,
@@ -56,33 +57,33 @@ public class Recommendation implements Serializable {
      */
     @Nullable
     @SerializedName("category")
-    protected Category mCategory;
+    private Category mCategory;
 
     @Nullable
     @SerializedName("type")
-    protected String mRecommendationType;
+    private String mRecommendationType;
 
     /**
      * Null if type is not user
      */
     @Nullable
     @SerializedName("user")
-    protected User mUser;
+    private User mUser;
 
     /**
      * Null if type is not channel
      */
     @Nullable
     @SerializedName("channel")
-    protected Channel mChannel;
+    private Channel mChannel;
 
     @Nullable
     @SerializedName("description")
-    protected String mDescription;
+    private String mDescription;
 
     @Nullable
     @SerializedName("resource_key")
-    protected String mResourceKey;
+    private String mResourceKey;
 
     // -----------------------------------------------------------------------------------------------------
     // Getters
@@ -122,6 +123,30 @@ public class Recommendation implements Serializable {
         } else {
             return RecommendationType.NONE;
         }
+    }
+
+    public void setCategory(@Nullable Category category) {
+        mCategory = category;
+    }
+
+    public void setRecommendationType(@Nullable String recommendationType) {
+        mRecommendationType = recommendationType;
+    }
+
+    public void setUser(@Nullable User user) {
+        mUser = user;
+    }
+
+    public void setChannel(@Nullable Channel channel) {
+        mChannel = channel;
+    }
+
+    public void setDescription(@Nullable String description) {
+        mDescription = description;
+    }
+
+    public void setResourceKey(@Nullable String resourceKey) {
+        mResourceKey = resourceKey;
     }
     // </editor-fold>
 

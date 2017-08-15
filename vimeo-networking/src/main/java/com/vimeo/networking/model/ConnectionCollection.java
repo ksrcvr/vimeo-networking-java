@@ -43,135 +43,135 @@ public class ConnectionCollection implements Serializable {
 
     @Nullable
     @SerializedName("videos")
-    protected Connection mVideos;
+    private Connection mVideos;
 
     @Nullable
     @SerializedName("categories")
-    protected Connection mCategories;
+    private Connection mCategories;
 
     @Nullable
     @SerializedName("comments")
-    protected Connection mComments;
+    private Connection mComments;
 
     @Nullable
     @SerializedName("credits")
-    protected Connection mCredits;
+    private Connection mCredits;
 
     @Nullable
     @SerializedName("likes")
-    protected Connection mLikes;
+    private Connection mLikes;
 
     @Nullable
     @SerializedName("pictures")
-    protected Connection mPictures;
+    private Connection mPictures;
 
     @Nullable
     @SerializedName("texttracks")
-    protected Connection mTexttracks;
+    private Connection mTexttracks;
 
     @Nullable
     @SerializedName("activities")
-    protected Connection mActivities;
+    private Connection mActivities;
 
     @Nullable
     @SerializedName("albums")
-    protected Connection mAlbums;
+    private Connection mAlbums;
 
     @Nullable
     @SerializedName("channels")
-    protected Connection mChannels;
+    private Connection mChannels;
 
     @Nullable
     @SerializedName("moderated_channels")
-    protected Connection mModeratedChannels;
+    private Connection mModeratedChannels;
 
     @Nullable
     @SerializedName("feed")
-    protected Connection mFeed;
+    private Connection mFeed;
 
     @Nullable
     @SerializedName("followers")
-    protected Connection mFollowers;
+    private Connection mFollowers;
 
     @Nullable
     @SerializedName("following")
-    protected Connection mFollowing;
+    private Connection mFollowing;
 
     @Nullable
     @SerializedName("groups")
-    protected Connection mGroups;
+    private Connection mGroups;
 
     @Nullable
     @SerializedName("portfolios")
-    protected Connection mPortfolios;
+    private Connection mPortfolios;
 
     @Nullable
     @SerializedName("shared")
-    protected Connection mShared;
+    private Connection mShared;
 
     @Nullable
     @SerializedName("recommendations")
-    protected Connection mRecommendations;
+    private Connection mRecommendations;
 
     @Nullable
     @SerializedName("appearances")
-    protected Connection mAppearances;
+    private Connection mAppearances;
 
     @Nullable
     @SerializedName("related")
-    protected Connection mRelated;
+    private Connection mRelated;
 
     @Nullable
     @SerializedName("replies")
-    protected Connection mReplies;
+    private Connection mReplies;
 
     @Nullable
     @SerializedName("users")
-    protected Connection mUsers;
+    private Connection mUsers;
 
     @Nullable
     @SerializedName("watchlater")
-    protected Connection mWatchlater;
+    private Connection mWatchlater;
 
     @Nullable
     @SerializedName("ondemand")
-    protected Connection mTvod;
+    private Connection mTvod;
 
     @Nullable
     @SerializedName("season")
-    protected Connection mSeason;
+    private Connection mSeason;
 
     @Nullable
     @SerializedName("seasons")
-    protected Connection mSeasons;
+    private Connection mSeasons;
 
     @Nullable
     @SerializedName("trailer")
-    protected Connection mTrailer;
+    private Connection mTrailer;
 
     @Nullable
     @SerializedName("playback")
-    protected Connection mPlaybackFailureReason;
+    private Connection mPlaybackFailureReason;
 
     @Nullable
     @SerializedName("recommended_channels")
-    protected Connection mRecommendedChannels;
+    private Connection mRecommendedChannels;
 
     @Nullable
     @SerializedName("recommended_users")
-    protected Connection mRecommendedUsers;
+    private Connection mRecommendedUsers;
 
     @Nullable
     @SerializedName("watched_videos")
-    protected Connection mWatchedVideos;
+    private Connection mWatchedVideos;
 
     @Nullable
     @SerializedName("notifications")
-    protected NotificationConnection mNotifications;
+    private NotificationConnection mNotifications;
 
     @Nullable
     @SerializedName("contents")
-    protected Connection mContents;
+    private Connection mContents;
 
     @Nullable
     public Connection getVideos() {
@@ -336,5 +336,137 @@ public class ConnectionCollection implements Serializable {
     @Nullable
     public Connection getContents() {
         return mContents;
+    }
+
+    public void setVideos(@Nullable Connection videos) {
+        mVideos = videos;
+    }
+
+    public void setCategories(@Nullable Connection categories) {
+        mCategories = categories;
+    }
+
+    public void setComments(@Nullable Connection comments) {
+        mComments = comments;
+    }
+
+    public void setCredits(@Nullable Connection credits) {
+        mCredits = credits;
+    }
+
+    public void setLikes(@Nullable Connection likes) {
+        mLikes = likes;
+    }
+
+    public void setPictures(@Nullable Connection pictures) {
+        mPictures = pictures;
+    }
+
+    public void setTexttracks(@Nullable Connection texttracks) {
+        mTexttracks = texttracks;
+    }
+
+    public void setActivities(@Nullable Connection activities) {
+        mActivities = activities;
+    }
+
+    public void setAlbums(@Nullable Connection albums) {
+        mAlbums = albums;
+    }
+
+    public void setChannels(@Nullable Connection channels) {
+        mChannels = channels;
+    }
+
+    public void setModeratedChannels(@Nullable Connection moderatedChannels) {
+        mModeratedChannels = moderatedChannels;
+    }
+
+    public void setFeed(@Nullable Connection feed) {
+        mFeed = feed;
+    }
+
+    public void setFollowers(@Nullable Connection followers) {
+        mFollowers = followers;
+    }
+
+    public void setFollowing(@Nullable Connection following) {
+        mFollowing = following;
+    }
+
+    public void setGroups(@Nullable Connection groups) {
+        mGroups = groups;
+    }
+
+    public void setPortfolios(@Nullable Connection portfolios) {
+        mPortfolios = portfolios;
+    }
+
+    public void setShared(@Nullable Connection shared) {
+        mShared = shared;
+    }
+
+    public void setRecommendations(@Nullable Connection recommendations) {
+        mRecommendations = recommendations;
+    }
+
+    public void setAppearances(@Nullable Connection appearances) {
+        mAppearances = appearances;
+    }
+
+    public void setRelated(@Nullable Connection related) {
+        mRelated = related;
+    }
+
+    public void setReplies(@Nullable Connection replies) {
+        mReplies = replies;
+    }
+
+    public void setUsers(@Nullable Connection users) {
+        mUsers = users;
+    }
+
+    public void setWatchlater(@Nullable Connection watchlater) {
+        mWatchlater = watchlater;
+    }
+
+    public void setTvod(@Nullable Connection tvod) {
+        mTvod = tvod;
+    }
+
+    public void setSeason(@Nullable Connection season) {
+        mSeason = season;
+    }
+
+    public void setSeasons(@Nullable Connection seasons) {
+        mSeasons = seasons;
+    }
+
+    public void setTrailer(@Nullable Connection trailer) {
+        mTrailer = trailer;
+    }
+
+    public void setPlaybackFailureReason(@Nullable Connection playbackFailureReason) {
+        mPlaybackFailureReason = playbackFailureReason;
+    }
+
+    public void setRecommendedChannels(@Nullable Connection recommendedChannels) {
+        mRecommendedChannels = recommendedChannels;
+    }
+
+    public void setRecommendedUsers(@Nullable Connection recommendedUsers) {
+        mRecommendedUsers = recommendedUsers;
+    }
+
+    public void setWatchedVideos(@Nullable Connection watchedVideos) {
+        mWatchedVideos = watchedVideos;
+    }
+
+    public void setNotifications(@Nullable NotificationConnection notifications) {
+        mNotifications = notifications;
+    }
+
+    public void setContents(@Nullable Connection contents) {
+        mContents = contents;
     }
 }

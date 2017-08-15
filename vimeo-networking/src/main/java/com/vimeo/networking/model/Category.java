@@ -41,38 +41,38 @@ public class Category implements Serializable, Followable {
 
     @Nullable
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @Nullable
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @Nullable
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     @SerializedName("top_level")
-    protected boolean mTopLevel;
+    private boolean mTopLevel;
 
     @Nullable
     @SerializedName("pictures")
-    protected PictureCollection mPictures;
+    private PictureCollection mPictures;
 
     @Nullable
     @SerializedName("icon")
-    protected PictureCollection mIcon;
+    private PictureCollection mIcon;
 
     @Nullable
     @SerializedName("subcategories")
-    protected ArrayList<Category> mSubcategories;
+    private ArrayList<Category> mSubcategories;
 
     @Nullable
     @SerializedName("parent")
-    protected Category mParent;
+    private Category mParent;
 
     @Nullable
     @SerializedName("metadata")
-    protected Metadata mMetadata;
+    private Metadata mMetadata;
 
     @Nullable
     public String getUri() {
@@ -115,15 +115,15 @@ public class Category implements Serializable, Followable {
 
     @Nullable
     public Connection getVideosConnection() {
-        if (mMetadata != null && mMetadata.mConnections != null && mMetadata.mConnections.mVideos != null) {
-            return mMetadata.mConnections.mVideos;
+        if (mMetadata != null && mMetadata.getConnections() != null && mMetadata.getConnections().getVideos() != null) {
+            return mMetadata.getConnections().getVideos();
         }
         return null;
     }
 
     public int getVideoCount() {
         if (getVideosConnection() != null) {
-            return getVideosConnection().mTotal;
+            return getVideosConnection().getTotal();
         }
         return 0;
     }
@@ -131,8 +131,8 @@ public class Category implements Serializable, Followable {
     @Nullable
     @Override
     public Interaction getFollowInteraction() {
-        if (mMetadata != null && mMetadata.mInteractions != null && mMetadata.mInteractions.mFollow != null) {
-            return mMetadata.mInteractions.mFollow;
+        if (mMetadata != null && mMetadata.getInteractions() != null && mMetadata.getInteractions().getFollow() != null) {
+            return mMetadata.getInteractions().getFollow();
         }
         return null;
     }
@@ -145,20 +145,20 @@ public class Category implements Serializable, Followable {
     @Override
     public boolean isFollowing() {
         Interaction interaction = getFollowInteraction();
-        return interaction != null && interaction.mAdded;
+        return interaction != null && interaction.isAdded();
     }
 
     @Nullable
     public Connection getUserConnection() {
-        if (mMetadata != null && mMetadata.mConnections != null && mMetadata.mConnections.mUsers != null) {
-            return mMetadata.mConnections.mUsers;
+        if (mMetadata != null && mMetadata.getConnections() != null && mMetadata.getConnections().getUsers() != null) {
+            return mMetadata.getConnections().getUsers();
         }
         return null;
     }
 
     public int getFollowerCount() {
         if (getUserConnection() != null) {
-            return getUserConnection().mTotal;
+            return getUserConnection().getTotal();
         }
         return 0;
     }
@@ -192,5 +192,37 @@ public class Category implements Serializable, Followable {
     @Override
     public int hashCode() {
         return this.mUri != null ? this.mUri.hashCode() : 0;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
+    }
+
+    public void setLink(@Nullable String link) {
+        mLink = link;
+    }
+
+    public void setTopLevel(boolean topLevel) {
+        mTopLevel = topLevel;
+    }
+
+    public void setPictures(@Nullable PictureCollection pictures) {
+        mPictures = pictures;
+    }
+
+    public void setIcon(@Nullable PictureCollection icon) {
+        mIcon = icon;
+    }
+
+    public void setSubcategories(@Nullable ArrayList<Category> subcategories) {
+        mSubcategories = subcategories;
+    }
+
+    public void setParent(@Nullable Category parent) {
+        mParent = parent;
+    }
+
+    public void setMetadata(@Nullable Metadata metadata) {
+        mMetadata = metadata;
     }
 }

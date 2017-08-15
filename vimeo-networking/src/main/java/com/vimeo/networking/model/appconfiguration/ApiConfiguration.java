@@ -34,7 +34,7 @@ public class ApiConfiguration {
 
     // Default host so if not set (from no internet connection) then we still have a base url
     @SerializedName("host")
-    protected String mHost = Vimeo.VIMEO_BASE_URL_STRING;
+    private String mHost = Vimeo.VIMEO_BASE_URL_STRING;
 
     public void setHost(String host) {
         mHost = host;

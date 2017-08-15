@@ -66,16 +66,16 @@ public class UserBadge implements Serializable {
     }
 
     @SerializedName(value = "type", alternate = "m_badge_type")
-    protected String mBadgeType;
+    private String mBadgeType;
 
     @SerializedName(value = "text", alternate = "m_text")
-    protected String mText;
+    private String mText;
 
     @SerializedName(value = "alt_text", alternate = "m_alternate_text")
-    protected String mAlternateText;
+    private String mAlternateText;
 
     @SerializedName(value = "url", alternate = "m_url")
-    protected String mUrl;
+    private String mUrl;
 
     public String getText() {
         return mText;
@@ -115,5 +115,21 @@ public class UserBadge implements Serializable {
                 return UserBadgeType.NONE;
 
         }
+    }
+
+    public void setBadgeType(String badgeType) {
+        mBadgeType = badgeType;
+    }
+
+    public void setText(String text) {
+        mText = text;
+    }
+
+    public void setAlternateText(String alternateText) {
+        mAlternateText = alternateText;
+    }
+
+    public void setUrl(String url) {
+        mUrl = url;
     }
 }

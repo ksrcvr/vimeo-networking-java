@@ -39,16 +39,16 @@ import com.vimeo.stag.UseStag;
 public class InvalidParameter {
 
     @SerializedName("field")
-    protected String mField;
+    private String mField;
 
     @SerializedName("error_code")
-    protected ErrorCode mErrorCode;
+    private ErrorCode mErrorCode;
 
     @SerializedName("user_message")
-    protected String mUserMessage;
+    private String mUserMessage;
 
     @SerializedName("developer_message")
-    protected String mDeveloperMessage;
+    private String mDeveloperMessage;
 
     public InvalidParameter() {}
 
@@ -72,5 +72,21 @@ public class InvalidParameter {
 
     public String getDeveloperMessage() {
         return mDeveloperMessage;
+    }
+
+    public void setField(String field) {
+        mField = field;
+    }
+
+    public void setErrorCode(ErrorCode errorCode) {
+        mErrorCode = errorCode;
+    }
+
+    public void setUserMessage(String userMessage) {
+        mUserMessage = userMessage;
+    }
+
+    public void setDeveloperMessage(String developerMessage) {
+        mDeveloperMessage = developerMessage;
     }
 }

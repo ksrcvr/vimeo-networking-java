@@ -33,13 +33,13 @@ import com.google.gson.annotations.SerializedName;
 public class AppConfiguration {
 
     @SerializedName("facebook")
-    protected FacebookConfiguration mFacebook;
+    private FacebookConfiguration mFacebook;
 
     @SerializedName("api")
-    protected ApiConfiguration mApi;
+    private ApiConfiguration mApi;
 
     @SerializedName("features")
-    protected FeaturesConfiguration mFeatures;
+    private FeaturesConfiguration mFeatures;
 
     public void setFacebook(FacebookConfiguration facebook) {
         mFacebook = facebook;

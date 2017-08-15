@@ -39,6 +39,7 @@ public class FeedItem implements Serializable {
 
     private static final long serialVersionUID = -8744477085158366576L;
 
+    @SuppressWarnings("WeakerAccess")
     public enum AttributionType {
         UPLOAD,
         LIKE,
@@ -52,34 +53,34 @@ public class FeedItem implements Serializable {
     }
 
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @SerializedName("clip")
-    protected Video mClip;
+    private Video mClip;
 
     @SerializedName("type")
-    protected String mType;
+    private String mType;
 
     @SerializedName("time")
-    protected Date mTime;
+    private Date mTime;
 
     @SerializedName("user")
-    protected User mUser;   // from like type
+    private User mUser;   // from like type
 
     @SerializedName("channel")
-    protected Channel mChannel; // from channel type
+    private Channel mChannel; // from channel type
 
     @SerializedName("category")
-    protected Category mCategory;
+    private Category mCategory;
 
     @SerializedName("tag")
-    protected Tag mTag;
+    private Tag mTag;
 
     @SerializedName("group")
-    protected Group mGroup;
+    private Group mGroup;
 
     @SerializedName("metadata")
-    protected Metadata mMetadata;
+    private Metadata mMetadata;
 
     public void setClip(@Nullable Video video) {
         mClip = video;
@@ -170,5 +171,36 @@ public class FeedItem implements Serializable {
         return this.mClip.getResourceKey() != null ? this.mClip.getResourceKey().hashCode() : 0;
     }
 
+    public void setUri(String uri) {
+        mUri = uri;
+    }
+
+    public void setType(String type) {
+        mType = type;
+    }
+
+    public void setTime(Date time) {
+        mTime = time;
+    }
+
+    public void setChannel(Channel channel) {
+        mChannel = channel;
+    }
+
+    public void setCategory(Category category) {
+        mCategory = category;
+    }
+
+    public void setTag(Tag tag) {
+        mTag = tag;
+    }
+
+    public void setGroup(Group group) {
+        mGroup = group;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
+    }
 }
 

@@ -39,13 +39,13 @@ public class Space implements Serializable {
     private static final long serialVersionUID = -1985382617862372889L;
 
     @SerializedName("free")
-    protected long mFree;
+    private long mFree;
 
     @SerializedName("max")
-    protected long mMax;
+    private long mMax;
 
     @SerializedName("used")
-    protected long mUsed;
+    private long mUsed;
 
     public long getFree() {
         return mFree;
@@ -57,5 +57,17 @@ public class Space implements Serializable {
 
     public long getUsed() {
         return mUsed;
+    }
+
+    public void setFree(long free) {
+        mFree = free;
+    }
+
+    public void setMax(long max) {
+        mMax = max;
+    }
+
+    public void setUsed(long used) {
+        mUsed = used;
     }
 }

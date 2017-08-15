@@ -39,10 +39,10 @@ public class Quota implements Serializable {
     private static final long serialVersionUID = -9173641301792409558L;
 
     @SerializedName("hd")
-    protected boolean mHd;
+    private boolean mHd;
 
     @SerializedName("sd")
-    protected boolean mSd;
+    private boolean mSd;
 
     public boolean isHd() {
         return mHd;
@@ -50,5 +50,13 @@ public class Quota implements Serializable {
 
     public boolean isSd() {
         return mSd;
+    }
+
+    public void setHd(boolean hd) {
+        mHd = hd;
+    }
+
+    public void setSd(boolean sd) {
+        mSd = sd;
     }
 }

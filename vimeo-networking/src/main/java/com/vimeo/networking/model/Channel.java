@@ -40,37 +40,37 @@ public class Channel implements Serializable, Followable {
     private static final long serialVersionUID = 3190410523525111858L;
 
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @SerializedName("description")
-    protected String mDescription;
+    private String mDescription;
 
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     @SerializedName("created_time")
-    protected Date mCreatedTime;
+    private Date mCreatedTime;
 
     @SerializedName("modified_time")
-    protected Date mModifiedTime;
+    private Date mModifiedTime;
 
     @SerializedName("user")
-    protected User mUser;
+    private User mUser;
 
     @SerializedName("pictures")
-    protected PictureCollection mPictures;
+    private PictureCollection mPictures;
 
     @SerializedName("header")
-    protected PictureCollection mHeader;
+    private PictureCollection mHeader;
 
     @SerializedName("privacy")
-    protected Privacy mPrivacy;
+    private Privacy mPrivacy;
 
     @SerializedName("metadata")
-    protected Metadata mMetadata;
+    private Metadata mMetadata;
 
     public void setUri(String uri) {
         mUri = uri;
@@ -126,8 +126,8 @@ public class Channel implements Serializable, Followable {
 
     @Nullable
     public Connection getUsersConnection() {
-        if (mMetadata != null && mMetadata.mConnections != null && mMetadata.mConnections.mUsers != null) {
-            return mMetadata.mConnections.mUsers;
+        if (mMetadata != null && mMetadata.getConnections() != null && mMetadata.getConnections().getUsers() != null) {
+            return mMetadata.getConnections().getUsers();
         }
         return null;
     }
@@ -135,8 +135,8 @@ public class Channel implements Serializable, Followable {
     @Nullable
     @Override
     public Interaction getFollowInteraction() {
-        if (mMetadata != null && mMetadata.mInteractions != null && mMetadata.mInteractions.mFollow != null) {
-            return mMetadata.mInteractions.mFollow;
+        if (mMetadata != null && mMetadata.getInteractions() != null && mMetadata.getInteractions().getFollow() != null) {
+            return mMetadata.getInteractions().getFollow();
         }
         return null;
     }
@@ -149,27 +149,27 @@ public class Channel implements Serializable, Followable {
     @Override
     public boolean isFollowing() {
         Interaction interaction = getFollowInteraction();
-        return interaction != null && interaction.mAdded;
+        return interaction != null && interaction.isAdded();
     }
 
     public int getFollowerCount() {
         if (getUsersConnection() != null) {
-            return getUsersConnection().mTotal;
+            return getUsersConnection().getTotal();
         }
         return 0;
     }
 
     @Nullable
     public Connection getVideosConnection() {
-        if (mMetadata != null && mMetadata.mConnections != null && mMetadata.mConnections.mVideos != null) {
-            return mMetadata.mConnections.mVideos;
+        if (mMetadata != null && mMetadata.getConnections() != null && mMetadata.getConnections().getVideos() != null) {
+            return mMetadata.getConnections().getVideos();
         }
         return null;
     }
 
     public int getVideoCount() {
         if (getVideosConnection() != null) {
-            return getVideosConnection().mTotal;
+            return getVideosConnection().getTotal();
         }
         return 0;
     }
@@ -191,5 +191,41 @@ public class Channel implements Serializable, Followable {
     @Override
     public int hashCode() {
         return this.mUri != null ? this.mUri.hashCode() : 0;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public void setDescription(String description) {
+        mDescription = description;
+    }
+
+    public void setLink(String link) {
+        mLink = link;
+    }
+
+    public void setCreatedTime(Date createdTime) {
+        mCreatedTime = createdTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        mModifiedTime = modifiedTime;
+    }
+
+    public void setPictures(PictureCollection pictures) {
+        mPictures = pictures;
+    }
+
+    public void setHeader(PictureCollection header) {
+        mHeader = header;
+    }
+
+    public void setPrivacy(Privacy privacy) {
+        mPrivacy = privacy;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
     }
 }

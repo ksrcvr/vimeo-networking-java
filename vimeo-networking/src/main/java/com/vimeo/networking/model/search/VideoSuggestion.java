@@ -43,7 +43,7 @@ public final class VideoSuggestion extends BaseSuggestion implements Serializabl
 
     @Nullable
     @SerializedName("meta")
-    VideoSuggestionMetadata mMetadata;
+    private VideoSuggestionMetadata mMetadata;
 
     /**
      * Returns the score associated with this suggestion. The higher the score
@@ -60,14 +60,14 @@ public final class VideoSuggestion extends BaseSuggestion implements Serializabl
 
         VideoSuggestion that = (VideoSuggestion) o;
 
-        if (!mText.equals(that.mText)) { return false; }
+        if (!getText().equals(that.getText())) { return false; }
         return mMetadata != null ? mMetadata.equals(that.mMetadata) : that.mMetadata == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = mText.hashCode();
+        int result = getText().hashCode();
         result = 31 * result + (mMetadata != null ? mMetadata.hashCode() : 0);
         return result;
     }
@@ -75,7 +75,7 @@ public final class VideoSuggestion extends BaseSuggestion implements Serializabl
     @Override
     public String toString() {
         return "VideoSuggestion{" +
-               "mText='" + mText + '\'' +
+               "mText='" + getText() + '\'' +
                ", mMetadata=" + mMetadata +
                '}';
     }
@@ -87,5 +87,14 @@ public final class VideoSuggestion extends BaseSuggestion implements Serializabl
 
         @SerializedName("score")
         int mScore;
+    }
+
+    @Nullable
+    public VideoSuggestionMetadata getMetadata() {
+        return mMetadata;
+    }
+
+    public void setMetadata(@Nullable VideoSuggestionMetadata metadata) {
+        mMetadata = metadata;
     }
 }

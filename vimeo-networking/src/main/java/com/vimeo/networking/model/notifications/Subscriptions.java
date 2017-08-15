@@ -46,25 +46,25 @@ public class Subscriptions implements Serializable {
 
 
     @SerializedName(NotificationConstants.NOTIFICATION_COMMENT)
-    protected boolean mComment;
+    private boolean mComment;
 
     @SerializedName(NotificationConstants.NOTIFICATION_CREDIT)
-    protected boolean mCredit;
+    private boolean mCredit;
 
     @SerializedName(NotificationConstants.NOTIFICATION_LIKE)
-    protected boolean mLike;
+    private boolean mLike;
 
     @SerializedName(NotificationConstants.NOTIFICATION_REPLY)
-    protected boolean mReply;
+    private boolean mReply;
 
     @SerializedName(NotificationConstants.NOTIFICATION_FOLLOW)
-    protected boolean mFollow;
+    private boolean mFollow;
 
     @SerializedName(NotificationConstants.NOTIFICATION_VIDEO_AVAILABLE)
-    protected boolean mVideoAvailable;
+    private boolean mVideoAvailable;
 
     @SerializedName(NotificationConstants.NOTIFICATION_FOLLOWED_USER_VIDEO_AVAILABLE)
-    protected boolean mFollowedUserVideoAvailable;
+    private boolean mFollowedUserVideoAvailable;
 
     public boolean isReceivingComment() {
         return mComment;
@@ -145,5 +145,61 @@ public class Subscriptions implements Serializable {
         map.put(NotificationConstants.NOTIFICATION_FOLLOWED_USER_VIDEO_AVAILABLE, mFollowedUserVideoAvailable);
 
         return map;
+    }
+
+    public boolean isComment() {
+        return mComment;
+    }
+
+    public void setComment(boolean comment) {
+        mComment = comment;
+    }
+
+    public boolean isCredit() {
+        return mCredit;
+    }
+
+    public void setCredit(boolean credit) {
+        mCredit = credit;
+    }
+
+    public boolean isLike() {
+        return mLike;
+    }
+
+    public void setLike(boolean like) {
+        mLike = like;
+    }
+
+    public boolean isReply() {
+        return mReply;
+    }
+
+    public void setReply(boolean reply) {
+        mReply = reply;
+    }
+
+    public boolean isFollow() {
+        return mFollow;
+    }
+
+    public void setFollow(boolean follow) {
+        mFollow = follow;
+    }
+
+    public boolean isVideoAvailable() {
+        return mVideoAvailable;
+    }
+
+    public void setVideoAvailable(boolean videoAvailable) {
+        mVideoAvailable = videoAvailable;
+    }
+
+    public boolean isFollowedUserVideoAvailable() {
+        return mFollowedUserVideoAvailable;
+    }
+
+    public void setFollowedUserVideoAvailable(boolean followedUserVideoAvailable) {
+        mFollowedUserVideoAvailable = followedUserVideoAvailable;
     }
 }

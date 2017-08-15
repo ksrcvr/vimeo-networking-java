@@ -45,11 +45,11 @@ public class SearchFacet implements Serializable {
 
     @Nullable
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @Nullable
     @SerializedName("options")
-    protected ArrayList<FacetOption> mOptions;
+    private ArrayList<FacetOption> mOptions;
 
     @Nullable
     public String getName() {
@@ -59,5 +59,13 @@ public class SearchFacet implements Serializable {
     @Nullable
     public ArrayList<FacetOption> getOptions() {
         return mOptions;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
+    }
+
+    public void setOptions(@Nullable ArrayList<FacetOption> options) {
+        mOptions = options;
     }
 }

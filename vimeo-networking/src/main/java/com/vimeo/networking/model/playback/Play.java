@@ -78,31 +78,31 @@ public class Play implements Serializable {
 
     @Nullable
     @SerializedName(value = "embed", alternate = "m_embed")
-    protected Embed mEmbed;
+    private Embed mEmbed;
 
     @Nullable
     @SerializedName(value = "hls", alternate = "m_hls")
-    protected HlsVideoFile mHls;
+    private HlsVideoFile mHls;
 
     @Nullable
     @SerializedName(value = "dash", alternate = "m_dash")
-    protected DashVideoFile mDash;
+    private DashVideoFile mDash;
 
     @Nullable
     @SerializedName(value = "progressive", alternate = "m_progressive")
-    protected ArrayList<ProgressiveVideoFile> mProgressive;
+    private ArrayList<ProgressiveVideoFile> mProgressive;
 
     @Nullable
     @SerializedName(value = "progress", alternate = "m_progress")
-    protected PlayProgress mProgress;
+    private PlayProgress mProgress;
 
     @Nullable
     @SerializedName(value = "status", alternate = "m_status")
-    protected Status mStatus;
+    private Status mStatus;
 
     @Nullable
     @SerializedName(value = "drm", alternate = "m_drm")
-    protected Drm mDrm;
+    private Drm mDrm;
 
     @Nullable
     public Embed getEmbed() {
@@ -170,6 +170,37 @@ public class Play implements Serializable {
             count++;
         }
         return count;
+    }
+
+    @Nullable
+    public HlsVideoFile getHls() {
+        return mHls;
+    }
+
+    public void setHls(@Nullable HlsVideoFile hls) {
+        mHls = hls;
+    }
+
+    @Nullable
+    public DashVideoFile getDash() {
+        return mDash;
+    }
+
+    public void setDash(@Nullable DashVideoFile dash) {
+        mDash = dash;
+    }
+
+    @Nullable
+    public ArrayList<ProgressiveVideoFile> getProgressive() {
+        return mProgressive;
+    }
+
+    public void setProgressive(@Nullable ArrayList<ProgressiveVideoFile> progressive) {
+        mProgressive = progressive;
+    }
+
+    public void setDrm(@Nullable Drm drm) {
+        mDrm = drm;
     }
     // </editor-fold>
 }

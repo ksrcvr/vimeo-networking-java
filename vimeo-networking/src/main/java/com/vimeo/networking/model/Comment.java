@@ -46,22 +46,22 @@ public class Comment implements Serializable {
     }
 
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @SerializedName("type")
-    protected CommentType mType;
+    private CommentType mType;
 
     @SerializedName("created_on")
-    protected Date mCreatedOn;
+    private Date mCreatedOn;
 
     @SerializedName("text")
-    protected String mText;
+    private String mText;
 
     @SerializedName("user")
-    protected User mUser;
+    private User mUser;
 
     @SerializedName("metadata")
-    protected Metadata mMetadata;
+    private Metadata mMetadata;
 
     public String getUri() {
         return mUri;
@@ -92,18 +92,18 @@ public class Comment implements Serializable {
     }
 
     public int replyCount() {
-        if (mMetadata != null && mMetadata.mConnections != null && mMetadata.mConnections.mReplies != null) {
-            return mMetadata.mConnections.mReplies.mTotal;
+        if (mMetadata != null && mMetadata.getConnections() != null && mMetadata.getConnections().getReplies() != null) {
+            return mMetadata.getConnections().getReplies().getTotal();
         }
         return 0;
     }
 
     public boolean canReply() {
         return mMetadata != null &&
-               mMetadata.mConnections != null &&
-               mMetadata.mConnections.mReplies != null &&
-               mMetadata.mConnections.mReplies.mOptions != null &&
-               mMetadata.mConnections.mReplies.mOptions.contains(Vimeo.OPTIONS_POST);
+               mMetadata.getConnections() != null &&
+               mMetadata.getConnections().getReplies() != null &&
+               mMetadata.getConnections().getReplies().getOptions() != null &&
+               mMetadata.getConnections().getReplies().getOptions().contains(Vimeo.OPTIONS_POST);
     }
 
     @Override
@@ -125,4 +125,23 @@ public class Comment implements Serializable {
         return this.mUri != null ? this.mUri.hashCode() : 0;
     }
 
+    public void setUri(String uri) {
+        mUri = uri;
+    }
+
+    public void setType(CommentType type) {
+        mType = type;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        mCreatedOn = createdOn;
+    }
+
+    public void setText(String text) {
+        mText = text;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
+    }
 }

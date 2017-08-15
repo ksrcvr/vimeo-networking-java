@@ -45,15 +45,15 @@ public class SubscriptionCollection implements Serializable {
 
     @Nullable
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @Nullable
     @SerializedName("modified_time")
-    protected Date mModifiedTime;
+    private Date mModifiedTime;
 
     @Nullable
     @SerializedName("subscriptions")
-    protected Subscriptions mSubscriptions;
+    private Subscriptions mSubscriptions;
 
     @Nullable
     public String getUri() {
@@ -68,5 +68,17 @@ public class SubscriptionCollection implements Serializable {
     @Nullable
     public Subscriptions getSubscriptions() {
         return mSubscriptions;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
+    public void setModifiedTime(@Nullable Date modifiedTime) {
+        mModifiedTime = modifiedTime;
+    }
+
+    public void setSubscriptions(@Nullable Subscriptions subscriptions) {
+        mSubscriptions = subscriptions;
     }
 }

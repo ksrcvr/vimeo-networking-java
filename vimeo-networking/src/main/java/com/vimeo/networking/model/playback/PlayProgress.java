@@ -44,7 +44,7 @@ public class PlayProgress implements Serializable {
 
     @Nullable
     @SerializedName(value = "seconds", alternate = "m_seconds")
-    protected Float mSeconds;
+    private Float mSeconds;
 
     /**
      * @return where the user has progressed to in the video, in seconds

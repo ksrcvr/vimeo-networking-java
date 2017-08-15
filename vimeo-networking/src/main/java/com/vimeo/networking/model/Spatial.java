@@ -59,11 +59,11 @@ public class Spatial implements Serializable {
 
     @NotNull
     @SerializedName(value = "projection", alternate = "m_projection")
-    protected String mProjection;
+    private String mProjection;
 
     @NotNull
     @SerializedName(value = "stereo_format", alternate = "m_stereo_format")
-    protected String mStereoFormat;
+    private String mStereoFormat;
 
     @NotNull
     public Projection getProjection() {
@@ -125,5 +125,18 @@ public class Spatial implements Serializable {
         result = 31 * result + mStereoFormat.hashCode();
         result = 31 * result + super.hashCode();
         return result;
+    }
+
+    public void setProjection(@NotNull String projection) {
+        mProjection = projection;
+    }
+
+    @NotNull
+    public String getStereoFormat() {
+        return mStereoFormat;
+    }
+
+    public void setStereoFormat(@NotNull String stereoFormat) {
+        mStereoFormat = stereoFormat;
     }
 }

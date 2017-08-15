@@ -37,13 +37,13 @@ public class Website implements Serializable {
     private static final long serialVersionUID = -1672589618654261644L;
 
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     @SerializedName("description")
-    protected String mDescription;
+    private String mDescription;
 
     public String getName() {
         return mName;
@@ -55,5 +55,17 @@ public class Website implements Serializable {
 
     public String getDescription() {
         return mDescription;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public void setLink(String link) {
+        mLink = link;
+    }
+
+    public void setDescription(String description) {
+        mDescription = description;
     }
 }

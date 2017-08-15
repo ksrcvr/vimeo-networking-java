@@ -41,27 +41,27 @@ public class InteractionCollection implements Serializable {
 
     @Nullable
     @SerializedName("watchlater")
-    protected Interaction mWatchLater;
+    private Interaction mWatchLater;
 
     @Nullable
     @SerializedName("like")
-    protected Interaction mLike;
+    private Interaction mLike;
 
     @Nullable
     @SerializedName("follow")
-    protected Interaction mFollow;
+    private Interaction mFollow;
 
     @Nullable
     @SerializedName("buy")
-    protected Interaction mBuy;
+    private Interaction mBuy;
 
     @Nullable
     @SerializedName("rent")
-    protected Interaction mRent;
+    private Interaction mRent;
 
     @Nullable
     @SerializedName("subscribe")
-    protected Interaction mSubscribe;
+    private Interaction mSubscribe;
 
     @Nullable
     public Interaction getWatchLater() {

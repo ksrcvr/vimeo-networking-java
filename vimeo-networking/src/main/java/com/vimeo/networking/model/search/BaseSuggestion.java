@@ -41,7 +41,7 @@ abstract class BaseSuggestion implements Serializable {
 
     @NotNull
     @SerializedName("text")
-    String mText;
+    private String mText;
 
     /**
      * Returns the title associated with this suggestion.
@@ -49,5 +49,9 @@ abstract class BaseSuggestion implements Serializable {
     @NotNull
     public String getText() {
         return mText;
+    }
+
+    public void setText(@NotNull String text) {
+        mText = text;
     }
 }

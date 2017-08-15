@@ -48,10 +48,14 @@ public class Drm implements Serializable {
 
     @Nullable
     @SerializedName(value = "widevine", alternate = "m_widevine")
-    public DashVideoFile mWidevine;
+    private DashVideoFile mWidevine;
 
     @Nullable
     public DashVideoFile getWidevine() {
         return mWidevine;
+    }
+
+    public void setWidevine(@Nullable DashVideoFile widevine) {
+        mWidevine = widevine;
     }
 }

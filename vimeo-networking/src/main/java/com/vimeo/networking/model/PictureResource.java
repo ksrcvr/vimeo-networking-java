@@ -37,13 +37,13 @@ public class PictureResource implements Serializable {
     private static final long serialVersionUID = -495204863230150919L;
 
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @SerializedName("active")
-    protected boolean mActive;
+    private boolean mActive;
 
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     public String getUri() {
         return mUri;
@@ -55,5 +55,17 @@ public class PictureResource implements Serializable {
 
     public String getLink() {
         return mLink;
+    }
+
+    public void setUri(String uri) {
+        mUri = uri;
+    }
+
+    public void setActive(boolean active) {
+        mActive = active;
+    }
+
+    public void setLink(String link) {
+        mLink = link;
     }
 }

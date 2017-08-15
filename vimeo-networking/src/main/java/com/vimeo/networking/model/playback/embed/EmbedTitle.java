@@ -44,15 +44,15 @@ public class EmbedTitle implements Serializable {
 
     @Nullable
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @Nullable
     @SerializedName("owner")
-    protected String mOwner;
+    private String mOwner;
 
     @Nullable
     @SerializedName("portrait")
-    protected String mPortrait;
+    private String mPortrait;
 
     @Nullable
     public String getName() {

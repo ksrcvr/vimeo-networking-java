@@ -41,11 +41,11 @@ public class VideosPreference implements Serializable {
 
     @Nullable
     @SerializedName(value = "privacy", alternate = "m_privacy")
-    protected Privacy mPrivacy;
+    private Privacy mPrivacy;
 
     @Nullable
     @SerializedName(value = "password", alternate = "m_password")
-    protected String mPassword;
+    private String mPassword;
 
     /**
      * Returns the default password a user has set up for their videos
@@ -61,5 +61,13 @@ public class VideosPreference implements Serializable {
     @Nullable
     public Privacy getPrivacy() {
         return mPrivacy;
+    }
+
+    public void setPrivacy(@Nullable Privacy privacy) {
+        mPrivacy = privacy;
+    }
+
+    public void setPassword(@Nullable String password) {
+        mPassword = password;
     }
 }

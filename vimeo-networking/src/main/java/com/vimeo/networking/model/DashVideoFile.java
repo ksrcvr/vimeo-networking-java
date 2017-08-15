@@ -44,11 +44,11 @@ public class DashVideoFile extends VideoFile {
 
     @Nullable
     @SerializedName("token")
-    protected String mToken;
+    private String mToken;
 
     @Nullable
     @SerializedName("license_link")
-    protected String mLicenseLink;
+    private String mLicenseLink;
 
     @Nullable
     public String getToken() {
@@ -66,4 +66,11 @@ public class DashVideoFile extends VideoFile {
         return VideoQuality.DASH;
     }
 
+    public void setToken(@Nullable String token) {
+        mToken = token;
+    }
+
+    public void setLicenseLink(@Nullable String licenseLink) {
+        mLicenseLink = licenseLink;
+    }
 }

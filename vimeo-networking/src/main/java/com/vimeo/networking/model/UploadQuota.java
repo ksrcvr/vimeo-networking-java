@@ -41,10 +41,10 @@ public class UploadQuota implements Serializable {
     private static final long serialVersionUID = 4050488085481972886L;
 
     @SerializedName("space")
-    protected Space mSpace;
+    private Space mSpace;
 
     @SerializedName("quota")
-    protected Quota mQuota;
+    private Quota mQuota;
 
     public Space getSpace() {
         return mSpace;
@@ -71,7 +71,7 @@ public class UploadQuota implements Serializable {
      */
     public long getFreeUploadSpace() {
         if (mSpace != null) {
-            return mSpace.mFree;
+            return mSpace.getFree();
         } else {
             return Vimeo.NOT_FOUND;
         }

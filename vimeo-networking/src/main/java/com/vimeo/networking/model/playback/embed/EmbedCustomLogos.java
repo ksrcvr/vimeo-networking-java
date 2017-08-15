@@ -43,14 +43,14 @@ public class EmbedCustomLogos implements Serializable {
     private static final long serialVersionUID = -8919686101651093878L;
 
     @SerializedName("active")
-    protected boolean mActive;
+    private boolean mActive;
 
     @Nullable
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     @SerializedName("sticky")
-    protected boolean mSticky;
+    private boolean mSticky;
 
     public boolean isActive() {
         return mActive;

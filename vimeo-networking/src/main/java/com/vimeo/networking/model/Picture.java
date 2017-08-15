@@ -37,13 +37,13 @@ public class Picture implements Serializable {
     private static final long serialVersionUID = -2933756384207338583L;
 
     @SerializedName("width")
-    protected int mWidth;
+    private int mWidth;
 
     @SerializedName("height")
-    protected int mHeight;
+    private int mHeight;
 
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     public int getWidth() {
         return mWidth;
@@ -55,5 +55,17 @@ public class Picture implements Serializable {
 
     public String getLink() {
         return mLink;
+    }
+
+    public void setWidth(int width) {
+        mWidth = width;
+    }
+
+    public void setHeight(int height) {
+        mHeight = height;
+    }
+
+    public void setLink(String link) {
+        mLink = link;
     }
 }

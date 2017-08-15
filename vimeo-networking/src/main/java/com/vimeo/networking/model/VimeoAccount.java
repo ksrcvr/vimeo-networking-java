@@ -46,16 +46,16 @@ public class VimeoAccount implements Serializable {
     //    private static final String TOKEN_TYPE_BEARER = "bearer";
 
     @SerializedName("access_token")
-    protected String mAccessToken;
+    private String mAccessToken;
 
     @SerializedName("token_type")
-    protected String mTokenType;
+    private String mTokenType;
 
     @SerializedName("scope")
-    protected String mScope;
+    private String mScope;
 
     @SerializedName("user")
-    protected User mUser;
+    private User mUser;
 
     private String mUserJSON;
 
@@ -122,5 +122,21 @@ public class VimeoAccount implements Serializable {
         mUserJSON = gson.toJson(mUser);
 
         return mUserJSON;
+    }
+
+    public void setAccessToken(String accessToken) {
+        mAccessToken = accessToken;
+    }
+
+    public void setTokenType(String tokenType) {
+        mTokenType = tokenType;
+    }
+
+    public void setScope(String scope) {
+        mScope = scope;
+    }
+
+    public void setUserJSON(String userJSON) {
+        mUserJSON = userJSON;
     }
 }

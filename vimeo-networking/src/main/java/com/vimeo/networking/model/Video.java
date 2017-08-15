@@ -48,6 +48,7 @@ public class Video implements Serializable {
 
     private static final long serialVersionUID = -1282907783845240057L;
 
+    @SuppressWarnings("WeakerAccess")
     public enum ContentRating // TODO: use this enum [AH] 4/24/2015
     {
         SAFE,
@@ -58,6 +59,7 @@ public class Video implements Serializable {
         VIOLENCE
     }
 
+    @SuppressWarnings("WeakerAccess")
     public enum LicenseValue // TODO: use this, https://developer.vimeo.com/api/playground/creativecommons [AH] 4/24/2015
     {
         ATTRIBUTION,
@@ -69,6 +71,7 @@ public class Video implements Serializable {
         PUBLIC_DOMAIN_DEDICATION
     }
 
+    @SuppressWarnings("WeakerAccess")
     public enum TvodVideoType {
         NONE,
         TRAILER,
@@ -120,25 +123,25 @@ public class Video implements Serializable {
     }
 
     @SerializedName("uri")
-    public String mUri;
+    private String mUri;
 
     @SerializedName("name")
-    public String mName;
+    private String mName;
 
     @SerializedName("description")
-    public String mDescription;
+    private String mDescription;
 
     @SerializedName("link")
-    public String mLink;
+    private String mLink;
 
     @SerializedName("duration")
-    public int mDuration;
+    private int mDuration;
 
     @SerializedName("width")
-    public int mWidth;
+    private int mWidth;
 
     @SerializedName("height")
-    public int mHeight;
+    private int mHeight;
 
     /**
      * @deprecated The Embed field is in the process of moving on to the {@link #mPlay} field
@@ -149,76 +152,76 @@ public class Video implements Serializable {
      */
     @Deprecated
     @SerializedName("embed")
-    public Embed mEmbed;
+    private Embed mEmbed;
 
     @SerializedName("language")
-    public String mLanguage;
+    private String mLanguage;
 
     @SerializedName("created_time")
-    public Date mCreatedTime;
+    private Date mCreatedTime;
 
     @SerializedName("modified_time")
-    public Date mModifiedTime;
+    private Date mModifiedTime;
 
     @SerializedName("release_time")
-    public Date mReleaseTime;
+    private Date mReleaseTime;
 
     @SerializedName("content_rating")
-    public ArrayList<String> mContentRating;
+    private ArrayList<String> mContentRating;
 
     @SerializedName("license")
-    public String mLicense;
+    private String mLicense;
 
     @SerializedName("privacy")
-    public Privacy mPrivacy;
+    private Privacy mPrivacy;
 
     @SerializedName("pictures")
-    public PictureCollection mPictures;
+    private PictureCollection mPictures;
 
     @SerializedName("tags")
-    public ArrayList<Tag> mTags;
+    private ArrayList<Tag> mTags;
 
     @SerializedName("stats")
-    public StatsCollection mStats;
+    private StatsCollection mStats;
 
     @SerializedName("metadata")
-    public Metadata mMetadata;
+    private Metadata mMetadata;
 
     @SerializedName("user")
-    public User mUser;
+    private User mUser;
 
     @SerializedName("status")
-    public Status mStatus;
+    private Status mStatus;
 
     @SerializedName("categories")
-    public ArrayList<Category> mCategories;
+    private ArrayList<Category> mCategories;
 
     @Nullable
     @SerializedName("password")
-    public String mPassword;
+    private String mPassword;
 
     @Nullable
     @SerializedName("review_link")
-    public String mReviewLink;
+    private String mReviewLink;
 
     @Nullable
     @SerializedName("play")
-    public Play mPlay;
+    private Play mPlay;
 
     @Nullable
     @SerializedName(value = "badge", alternate = "m_video_badge")
-    public VideoBadge mVideoBadge;
+    private VideoBadge mVideoBadge;
 
     @Nullable
     @SerializedName("spatial")
-    public Spatial mSpatial;
+    private Spatial mSpatial;
 
     /**
      * The resource_key field is the unique identifier for a Video object. It may be used for object
      * comparison.
      */
     @SerializedName("resource_key")
-    public String mResourceKey;
+    private String mResourceKey;
 
     // -----------------------------------------------------------------------------------------------------
     // Getters
@@ -416,8 +419,8 @@ public class Video implements Serializable {
     // <editor-fold desc="Watch Later">
     @Nullable
     public Interaction getWatchLaterInteraction() {
-        if (mMetadata != null && mMetadata.mInteractions != null && mMetadata.mInteractions.mWatchLater != null) {
-            return mMetadata.mInteractions.mWatchLater;
+        if (mMetadata != null && mMetadata.getInteractions() != null && mMetadata.getInteractions().getWatchLater() != null) {
+            return mMetadata.getInteractions().getWatchLater();
         }
         return null;
     }
@@ -427,13 +430,13 @@ public class Video implements Serializable {
     }
 
     public boolean isWatchLater() {
-        return getWatchLaterInteraction() != null && getWatchLaterInteraction().mAdded;
+        return getWatchLaterInteraction() != null && getWatchLaterInteraction().isAdded();
     }
 
     @Nullable
     public Connection getWatchLaterConnection() {
-        if (mMetadata != null && mMetadata.mConnections != null && mMetadata.mConnections.mWatchlater != null) {
-            return mMetadata.mConnections.mWatchlater;
+        if (mMetadata != null && mMetadata.getConnections() != null && mMetadata.getConnections().getWatchlater() != null) {
+            return mMetadata.getConnections().getWatchlater();
         }
         return null;
     }
@@ -445,8 +448,8 @@ public class Video implements Serializable {
     // <editor-fold desc="Like">
     @Nullable
     public Interaction getLikeInteraction() {
-        if (mMetadata != null && mMetadata.mInteractions != null && mMetadata.mInteractions.mLike != null) {
-            return mMetadata.mInteractions.mLike;
+        if (mMetadata != null && mMetadata.getInteractions() != null && mMetadata.getInteractions().getLike() != null) {
+            return mMetadata.getInteractions().getLike();
         }
         return null;
     }
@@ -456,28 +459,28 @@ public class Video implements Serializable {
     }
 
     public boolean isLiked() {
-        return getLikeInteraction() != null && getLikeInteraction().mAdded;
+        return getLikeInteraction() != null && getLikeInteraction().isAdded();
     }
 
     @Nullable
     public Connection getLikesConnection() {
-        if ((mMetadata != null) && (mMetadata.mConnections != null) && (mMetadata.mConnections.mLikes != null)) {
-            return mMetadata.mConnections.mLikes;
+        if ((mMetadata != null) && (mMetadata.getConnections() != null) && (mMetadata.getConnections().getLikes() != null)) {
+            return mMetadata.getConnections().getLikes();
         }
         return null;
     }
 
     @Nullable
     public Connection getRelatedConnection() {
-        if ((mMetadata != null) && (mMetadata.mConnections != null)) {
-            return mMetadata.mConnections.mRelated;
+        if ((mMetadata != null) && (mMetadata.getConnections() != null)) {
+            return mMetadata.getConnections().getRelated();
         }
         return null;
     }
 
     public int likeCount() {
         if (getLikesConnection() != null) {
-            return getLikesConnection().mTotal;
+            return getLikesConnection().getTotal();
         }
         return 0;
     }
@@ -494,7 +497,7 @@ public class Video implements Serializable {
      */
     @Nullable
     public Integer playCount() {
-        return mStats != null ? mStats.mPlays : null;
+        return mStats != null ? mStats.getPlays() : null;
     }
     // </editor-fold>
 
@@ -504,8 +507,8 @@ public class Video implements Serializable {
     // <editor-fold desc="Comments">
     @Nullable
     public Connection getCommentsConnection() {
-        if ((mMetadata != null) && (mMetadata.mConnections != null) && (mMetadata.mConnections.mComments != null)) {
-            return mMetadata.mConnections.mComments;
+        if ((mMetadata != null) && (mMetadata.getConnections() != null) && (mMetadata.getConnections().getComments() != null)) {
+            return mMetadata.getConnections().getComments();
         }
         return null;
     }
@@ -518,9 +521,9 @@ public class Video implements Serializable {
     // <editor-fold desc="Recommendation">
     public String recommendationsUri() {
         String recommendationsUri = null;
-        if (mMetadata != null && mMetadata.mConnections != null &&
-            mMetadata.mConnections.mRecommendations != null) {
-            recommendationsUri = mMetadata.mConnections.mRecommendations.mUri;
+        if (mMetadata != null && mMetadata.getConnections() != null &&
+            mMetadata.getConnections().getRecommendations() != null) {
+            recommendationsUri = mMetadata.getConnections().getRecommendations().getUri();
         }
         if (recommendationsUri == null) {
             recommendationsUri = mUri + Vimeo.ENDPOINT_RECOMMENDATIONS;
@@ -672,7 +675,7 @@ public class Video implements Serializable {
      * @return true if the user has purchased the interaction, false otherwise.
      */
     private static boolean isInteractionPurchased(@Nullable Interaction interaction) {
-        return (interaction != null && interaction.mStream == Stream.PURCHASED);
+        return (interaction != null && interaction.getStream() == Stream.PURCHASED);
     }
 
     /**
@@ -705,8 +708,8 @@ public class Video implements Serializable {
     public Date getTvodRentalExpiration() {
         if (isTvodRental()) {
             // isTvodRental will validate and prevent possible npes
-            assert mMetadata.mInteractions.mRent != null;
-            return mMetadata.mInteractions.mRent.mExpiration;
+            assert mMetadata.getInteractions().getRent() != null;
+            return mMetadata.getInteractions().getRent().getExpiration();
         }
         return null;
     }
@@ -715,8 +718,8 @@ public class Video implements Serializable {
     public Date getTvodSubscriptionExpiration() {
         if (isTvodSubscription()) {
             // isTvodSubscription will validate and prevent possible npes
-            assert mMetadata.mInteractions.mSubscribe != null;
-            return mMetadata.mInteractions.mSubscribe.mExpiration;
+            assert mMetadata.getInteractions().getSubscribe() != null;
+            return mMetadata.getInteractions().getSubscribe().getExpiration();
         }
         return null;
     }
@@ -730,7 +733,7 @@ public class Video implements Serializable {
      * that might be purchased, false otherwise.
      */
     private boolean isPossibleTvodPurchase() {
-        return (isTvod() && !isTrailer() && mMetadata != null && mMetadata.mInteractions != null);
+        return (isTvod() && !isTrailer() && mMetadata != null && mMetadata.getInteractions() != null);
     }
 
     /**
@@ -741,9 +744,9 @@ public class Video implements Serializable {
      */
     @Nullable
     public String getTvodSeasonName() {
-        if (mMetadata != null && mMetadata.mConnections != null &&
-            mMetadata.mConnections.mSeason != null) {
-            return mMetadata.mConnections.mSeason.getName();
+        if (mMetadata != null && mMetadata.getConnections() != null &&
+            mMetadata.getConnections().getSeason() != null) {
+            return mMetadata.getConnections().getSeason().getName();
         }
         return null;
     }
@@ -756,7 +759,7 @@ public class Video implements Serializable {
      * the user has rented it, false otherwise.
      */
     public boolean isTvodRental() {
-        return isPossibleTvodPurchase() && isInteractionPurchased(mMetadata.mInteractions.mRent);
+        return isPossibleTvodPurchase() && isInteractionPurchased(mMetadata.getInteractions().getRent());
     }
 
     /**
@@ -768,7 +771,7 @@ public class Video implements Serializable {
      * and the user has subscribed to it, false otherwise.
      */
     public boolean isTvodSubscription() {
-        return isPossibleTvodPurchase() && isInteractionPurchased(mMetadata.mInteractions.mSubscribe);
+        return isPossibleTvodPurchase() && isInteractionPurchased(mMetadata.getInteractions().getSubscribe());
     }
 
     /**
@@ -780,7 +783,7 @@ public class Video implements Serializable {
      * and the user has bought it, false otherwise.
      */
     public boolean isTvodPurchase() {
-        return isPossibleTvodPurchase() && isInteractionPurchased(mMetadata.mInteractions.mBuy);
+        return isPossibleTvodPurchase() && isInteractionPurchased(mMetadata.getInteractions().getBuy());
     }
 
     /**
@@ -791,7 +794,7 @@ public class Video implements Serializable {
      * false otherwise.
      */
     public boolean isTvod() {
-        return mMetadata != null && mMetadata.mConnections != null && mMetadata.mConnections.mTvod != null;
+        return mMetadata != null && mMetadata.getConnections() != null && mMetadata.getConnections().getTvod() != null;
     }
 
     /**
@@ -811,15 +814,15 @@ public class Video implements Serializable {
      * and is a TVOD video, false otherwise.
      */
     public boolean isTrailer() {
-        return isTvod() && mMetadata.mConnections.mTrailer == null;
+        return isTvod() && mMetadata.getConnections().getTrailer() == null;
     }
 
     @Nullable
     public String getTrailerUri() {
-        if (mMetadata != null && mMetadata.mConnections != null &&
-            mMetadata.mConnections.mTrailer != null) {
+        if (mMetadata != null && mMetadata.getConnections() != null &&
+            mMetadata.getConnections().getTrailer() != null) {
 
-            return mMetadata.mConnections.mTrailer.mUri;
+            return mMetadata.getConnections().getTrailer().getUri();
         }
         return null;
     }
@@ -857,9 +860,9 @@ public class Video implements Serializable {
     @Nullable
     public String getPlaybackFailureUri() {
         String playbackFailureUri = null;
-        if (mMetadata != null && mMetadata.mConnections != null &&
-            mMetadata.mConnections.mPlaybackFailureReason != null) {
-            playbackFailureUri = mMetadata.mConnections.mPlaybackFailureReason.mUri;
+        if (mMetadata != null && mMetadata.getConnections() != null &&
+            mMetadata.getConnections().getPlaybackFailureReason() != null) {
+            playbackFailureUri = mMetadata.getConnections().getPlaybackFailureReason().getUri();
         }
         return playbackFailureUri;
     }
@@ -890,4 +893,93 @@ public class Video implements Serializable {
     }
     // </editor-fold>
 
+
+    // -----------------------------------------------------------------------------------------------------
+    // Getters/Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters/Setters">
+    public void setLink(String link) {
+        mLink = link;
+    }
+
+    public void setDuration(int duration) {
+        mDuration = duration;
+    }
+
+    public void setWidth(int width) {
+        mWidth = width;
+    }
+
+    public void setHeight(int height) {
+        mHeight = height;
+    }
+
+    public void setEmbed(Embed embed) {
+        mEmbed = embed;
+    }
+
+    public void setLanguage(String language) {
+        mLanguage = language;
+    }
+
+    public void setCreatedTime(Date createdTime) {
+        mCreatedTime = createdTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        mModifiedTime = modifiedTime;
+    }
+
+    public void setReleaseTime(Date releaseTime) {
+        mReleaseTime = releaseTime;
+    }
+
+    public void setContentRating(ArrayList<String> contentRating) {
+        mContentRating = contentRating;
+    }
+
+    public void setLicense(String license) {
+        mLicense = license;
+    }
+
+    public void setPrivacy(Privacy privacy) {
+        mPrivacy = privacy;
+    }
+
+    public void setPictures(PictureCollection pictures) {
+        mPictures = pictures;
+    }
+
+    public void setTags(ArrayList<Tag> tags) {
+        mTags = tags;
+    }
+
+    public void setStats(StatsCollection stats) {
+        mStats = stats;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
+    }
+
+    public void setCategories(ArrayList<Category> categories) {
+        mCategories = categories;
+    }
+
+    public void setPassword(@Nullable String password) {
+        mPassword = password;
+    }
+
+    public void setReviewLink(@Nullable String reviewLink) {
+        mReviewLink = reviewLink;
+    }
+
+    public void setVideoBadge(@Nullable VideoBadge videoBadge) {
+        mVideoBadge = videoBadge;
+    }
+
+    public void setSpatial(@Nullable Spatial spatial) {
+        mSpatial = spatial;
+    }
+    // </editor-fold>
 }

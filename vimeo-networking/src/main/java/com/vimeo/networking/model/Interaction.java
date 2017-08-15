@@ -71,23 +71,23 @@ public class Interaction implements Serializable {
     }
 
     @SerializedName("added")
-    protected boolean mAdded;
+    private boolean mAdded;
 
     @Nullable
     @SerializedName("added_time")
-    protected Date mAddedTime;
+    private Date mAddedTime;
 
     @Nullable
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @Nullable
     @SerializedName("stream")
-    protected Stream mStream;
+    private Stream mStream;
 
     @Nullable
     @SerializedName("expires_time")
-    protected Date mExpiration;
+    private Date mExpiration;
 
     public boolean isAdded() {
         return mAdded;
@@ -115,5 +115,25 @@ public class Interaction implements Serializable {
 
     public void setIsAdded(boolean added) {
         mAdded = added;
+    }
+
+    public void setAdded(boolean added) {
+        mAdded = added;
+    }
+
+    public void setAddedTime(@Nullable Date addedTime) {
+        mAddedTime = addedTime;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
+    public void setStream(@Nullable Stream stream) {
+        mStream = stream;
+    }
+
+    public void setExpiration(@Nullable Date expiration) {
+        mExpiration = expiration;
     }
 }

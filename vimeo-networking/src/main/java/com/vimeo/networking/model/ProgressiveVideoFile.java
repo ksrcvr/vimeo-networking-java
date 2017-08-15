@@ -69,30 +69,30 @@ public class ProgressiveVideoFile extends VideoFile {
 
     @Nullable
     @SerializedName("type")
-    protected MimeType mMimeType;
+    private MimeType mMimeType;
 
     @SerializedName("fps")
-    protected double mFps;
+    private double mFps;
 
     @SerializedName("width")
-    protected int mWidth;
+    private int mWidth;
 
     @SerializedName("height")
-    protected int mHeight;
+    private int mHeight;
 
     @SerializedName("size")
-    protected long mSize; // size of the file, in bytes
+    private long mSize; // size of the file, in bytes
 
     /**
      * The md5 provides us with a way to uniquely identify video files at {@link #getLink()}
      */
     @Nullable
     @SerializedName("md5")
-    protected String mMd5;
+    private String mMd5;
 
     @Nullable
     @SerializedName("created_time")
-    protected Date mCreatedTime; // time indicating when this transcode was completed
+    private Date mCreatedTime; // time indicating when this transcode was completed
 
     public MimeType getType() {
         return mMimeType == null ? MimeType.NONE : mMimeType;
@@ -139,5 +139,38 @@ public class ProgressiveVideoFile extends VideoFile {
         } else {
             return VideoQuality.SD;
         }
+    }
+
+    @Nullable
+    public MimeType getMimeType() {
+        return mMimeType;
+    }
+
+    public void setMimeType(@Nullable MimeType mimeType) {
+        mMimeType = mimeType;
+    }
+
+    public void setFps(double fps) {
+        mFps = fps;
+    }
+
+    public void setWidth(int width) {
+        mWidth = width;
+    }
+
+    public void setHeight(int height) {
+        mHeight = height;
+    }
+
+    public void setSize(long size) {
+        mSize = size;
+    }
+
+    public void setMd5(@Nullable String md5) {
+        mMd5 = md5;
+    }
+
+    public void setCreatedTime(@Nullable Date createdTime) {
+        mCreatedTime = createdTime;
     }
 }

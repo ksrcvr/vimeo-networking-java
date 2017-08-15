@@ -48,29 +48,29 @@ public class Embed implements Serializable {
 
     @Nullable
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @Nullable
     @SerializedName("html")
-    protected EmbedHtml mHtml;
+    private EmbedHtml mHtml;
 
     @Nullable
     @SerializedName("buttons")
-    protected EmbedButtons mButtons;
+    private EmbedButtons mButtons;
 
     @Nullable
     @SerializedName("title")
-    protected EmbedTitle mTitle;
+    private EmbedTitle mTitle;
 
     @SerializedName("playbar")
-    protected boolean mPlayBar;
+    private boolean mPlayBar;
 
     @SerializedName("volume")
-    protected boolean mVolume;
+    private boolean mVolume;
 
     @Nullable
     @SerializedName("color")
-    protected String mColor;
+    private String mColor;
 
     @Nullable
     public String getUri() {
@@ -138,5 +138,13 @@ public class Embed implements Serializable {
      */
     public void setColor(@Nullable String color) {
         this.mColor = color;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
+    public void setHtml(@Nullable EmbedHtml html) {
+        mHtml = html;
     }
 }

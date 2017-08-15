@@ -43,23 +43,23 @@ public class VideoBadge implements Serializable {
 
     @Nullable
     @SerializedName("type")
-    protected String mType;
+    private String mType;
 
     @Nullable
     @SerializedName("festival")
-    protected String mFestival;
+    private String mFestival;
 
     @Nullable
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     @Nullable
     @SerializedName("text")
-    protected String mText;
+    private String mText;
 
     @Nullable
     @SerializedName("pictures")
-    protected PictureCollection mPictureCollection;
+    private PictureCollection mPictureCollection;
 
     // -----------------------------------------------------------------------------------------------------
     // Getters
@@ -111,6 +111,26 @@ public class VideoBadge implements Serializable {
     @Nullable
     public PictureCollection getPictureCollection() {
         return mPictureCollection;
+    }
+
+    public void setType(@Nullable String type) {
+        mType = type;
+    }
+
+    public void setFestival(@Nullable String festival) {
+        mFestival = festival;
+    }
+
+    public void setLink(@Nullable String link) {
+        mLink = link;
+    }
+
+    public void setText(@Nullable String text) {
+        mText = text;
+    }
+
+    public void setPictureCollection(@Nullable PictureCollection pictureCollection) {
+        mPictureCollection = pictureCollection;
     }
     // </editor-fold>
 }

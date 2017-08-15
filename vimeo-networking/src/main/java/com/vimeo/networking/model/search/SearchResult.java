@@ -48,48 +48,48 @@ public class SearchResult implements Serializable {
     private static final long serialVersionUID = -1607389617833091383L;
 
     @SerializedName("is_staffpick")
-    protected boolean mIsStaffPick;
+    private boolean mIsStaffPick;
 
     @SerializedName("is_featured")
-    protected boolean mIsFeatured;
+    private boolean mIsFeatured;
 
     @SerializedName("type")
-    protected SearchType mSearchType;
+    private SearchType mSearchType;
 
     /**
      * Non-null when {@link #mSearchType} is {@link SearchType#VIDEO}
      */
     @Nullable
     @SerializedName("clip")
-    protected Video mVideo;
+    private Video mVideo;
 
     /**
      * Non-null when {@link #mSearchType} is {@link SearchType#USER}
      */
     @Nullable
     @SerializedName("people")
-    protected User mUser;
+    private User mUser;
 
     /**
      * Non-null when {@link #mSearchType} is {@link SearchType#CHANNEL}
      */
     @Nullable
     @SerializedName("channel")
-    protected Channel mChannel;
+    private Channel mChannel;
 
     /**
      * Non-null when {@link #mSearchType} is {@link SearchType#GROUP}
      */
     @Nullable
     @SerializedName("group")
-    protected Group mGroup;
+    private Group mGroup;
 
     /**
      * Non-null when {@link #mSearchType} is {@link SearchType#TVOD}
      */
     @Nullable
     @SerializedName("ondemand")
-    protected TvodItem mTvod;
+    private TvodItem mTvod;
 
     public boolean isStaffPick() {
         return mIsStaffPick;
@@ -126,5 +126,37 @@ public class SearchResult implements Serializable {
     @Nullable
     public TvodItem getTvod() {
         return mTvod;
+    }
+
+    public void setStaffPick(boolean staffPick) {
+        mIsStaffPick = staffPick;
+    }
+
+    public void setFeatured(boolean featured) {
+        mIsFeatured = featured;
+    }
+
+    public void setSearchType(SearchType searchType) {
+        mSearchType = searchType;
+    }
+
+    public void setVideo(@Nullable Video video) {
+        mVideo = video;
+    }
+
+    public void setUser(@Nullable User user) {
+        mUser = user;
+    }
+
+    public void setChannel(@Nullable Channel channel) {
+        mChannel = channel;
+    }
+
+    public void setGroup(@Nullable Group group) {
+        mGroup = group;
+    }
+
+    public void setTvod(@Nullable TvodItem tvod) {
+        mTvod = tvod;
     }
 }

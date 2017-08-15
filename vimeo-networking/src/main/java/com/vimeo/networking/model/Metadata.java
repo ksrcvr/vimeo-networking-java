@@ -37,10 +37,10 @@ public class Metadata implements Serializable {
     private static final long serialVersionUID = 6626539965452151962L;
 
     @SerializedName("connections")
-    protected ConnectionCollection mConnections;
+    private ConnectionCollection mConnections;
 
     @SerializedName("interactions")
-    protected InteractionCollection mInteractions;
+    private InteractionCollection mInteractions;
 
     public ConnectionCollection getConnections() {
         return mConnections;
@@ -52,5 +52,9 @@ public class Metadata implements Serializable {
 
     public void setInteractions(InteractionCollection interactions) {
         mInteractions = interactions;
+    }
+
+    public void setConnections(ConnectionCollection connections) {
+        mConnections = connections;
     }
 }

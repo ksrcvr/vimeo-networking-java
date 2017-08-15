@@ -59,47 +59,47 @@ public class User implements Serializable, Followable {
     }
 
     @SerializedName("uri")
-    public String mUri;
+    private String mUri;
 
     @SerializedName("name")
-    public String mName;
+    private String mName;
 
     @SerializedName("link")
-    public String mLink;
+    private String mLink;
 
     @SerializedName("location")
-    public String mLocation;
+    private String mLocation;
 
     @SerializedName("bio")
-    public String mBio;
+    private String mBio;
 
     @SerializedName("created_time")
-    public Date mCreatedTime;
+    private Date mCreatedTime;
 
     @SerializedName("account")
-    public String mAccount;
+    private String mAccount;
 
     @SerializedName("pictures")
-    public PictureCollection mPictures;
+    private PictureCollection mPictures;
 
     @SerializedName("emails")
-    public ArrayList<Email> mEmails;
+    private ArrayList<Email> mEmails;
 
     @SerializedName("websites")
-    public ArrayList<Website> mWebsites;
+    private ArrayList<Website> mWebsites;
 
     @SerializedName("metadata")
-    public Metadata mMetadata;
+    private Metadata mMetadata;
 
     @SerializedName("upload_quota")
-    public UploadQuota mUploadQuota;
+    private UploadQuota mUploadQuota;
 
     @Nullable
     @SerializedName("preferences")
-    public Preferences mPreferences;
+    private Preferences mPreferences;
     @Nullable
     @SerializedName("badge")
-    public UserBadge mBadge;
+    private UserBadge mBadge;
 
     @Nullable
     public UserBadge getBadge() {
@@ -154,7 +154,7 @@ public class User implements Serializable, Followable {
     @Override
     public boolean isFollowing() {
         Interaction follow = getFollowInteraction();
-        return follow != null && follow.mAdded;
+        return follow != null && follow.isAdded();
     }
 
     @Nullable
@@ -282,12 +282,12 @@ public class User implements Serializable, Followable {
     @Nullable
     public Connection getVideosConnection() {
         ConnectionCollection connections = getMetadataConnections();
-        return connections != null ? connections.mVideos : null;
+        return connections != null ? connections.getVideos() : null;
     }
 
     public int getVideoCount() {
         Connection videos = getVideosConnection();
-        return videos != null ? videos.mTotal : 0;
+        return videos != null ? videos.getTotal() : 0;
     }
 
     public boolean isPlusOrPro() {
@@ -310,10 +310,10 @@ public class User implements Serializable, Followable {
 
     public boolean canUploadPicture() {
         return mMetadata != null &&
-               mMetadata.mConnections != null &&
-               mMetadata.mConnections.mPictures != null &&
-               mMetadata.mConnections.mPictures.mOptions != null &&
-               mMetadata.mConnections.mPictures.mOptions.contains(Vimeo.OPTIONS_POST);
+               mMetadata.getConnections() != null &&
+               mMetadata.getConnections().getPictures() != null &&
+               mMetadata.getConnections().getPictures().getOptions() != null &&
+               mMetadata.getConnections().getPictures().getOptions().contains(Vimeo.OPTIONS_POST);
     }
 
     public UploadQuota getUploadQuota() {
@@ -421,5 +421,45 @@ public class User implements Serializable, Followable {
     @Override
     public int hashCode() {
         return this.mUri != null ? this.mUri.hashCode() : 0;
+    }
+
+    public void setLink(String link) {
+        mLink = link;
+    }
+
+    public void setCreatedTime(Date createdTime) {
+        mCreatedTime = createdTime;
+    }
+
+    public void setAccount(String account) {
+        mAccount = account;
+    }
+
+    public ArrayList<Email> getEmails() {
+        return mEmails;
+    }
+
+    public void setEmails(ArrayList<Email> emails) {
+        mEmails = emails;
+    }
+
+    public void setWebsites(ArrayList<Website> websites) {
+        mWebsites = websites;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
+    }
+
+    public void setUploadQuota(UploadQuota uploadQuota) {
+        mUploadQuota = uploadQuota;
+    }
+
+    public void setPreferences(@Nullable Preferences preferences) {
+        mPreferences = preferences;
+    }
+
+    public void setBadge(@Nullable UserBadge badge) {
+        mBadge = badge;
     }
 }

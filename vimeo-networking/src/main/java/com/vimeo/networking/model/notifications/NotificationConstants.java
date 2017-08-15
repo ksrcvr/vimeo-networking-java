@@ -27,6 +27,7 @@ package com.vimeo.networking.model.notifications;
  * <p>
  * Created by zetterstromk on 1/11/17.
  */
+@SuppressWarnings("WeakerAccess")
 public final class NotificationConstants {
 
     public static final String NOTIFICATION_COMMENT = "comment";

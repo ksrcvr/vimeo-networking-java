@@ -45,9 +45,9 @@ public class VideoTest {
     @NotNull
     private static Video createVideoWithConnectionCollection(@Nullable ConnectionCollection connectionCollection) {
         Metadata metadata = new Metadata();
-        metadata.mConnections = connectionCollection;
+        metadata.setConnections(connectionCollection);
         Video video = new Video();
-        video.mMetadata = metadata;
+        video.setMetadata(metadata);
 
         return video;
     }
@@ -55,7 +55,7 @@ public class VideoTest {
     @Test
     public void test_isTvod_Tvod() throws Exception {
         ConnectionCollection connectionCollection = new ConnectionCollection();
-        connectionCollection.mTvod = new Connection();
+        connectionCollection.setTvod(new Connection());
         Video tvod = createVideoWithConnectionCollection(connectionCollection);
 
         Assert.assertTrue(tvod.isTvod());
@@ -65,7 +65,7 @@ public class VideoTest {
     public void test_isTvod_NotTvod() throws Exception {
         // Null tvod field
         ConnectionCollection connectionCollection = new ConnectionCollection();
-        connectionCollection.mTvod = null;
+        connectionCollection.setTvod(null);
         Video nonTvod1 = createVideoWithConnectionCollection(connectionCollection);
 
         Assert.assertFalse(nonTvod1.isTvod());
@@ -77,7 +77,7 @@ public class VideoTest {
 
         // Null connection collection field
         Video nonTvod3 = new Video();
-        nonTvod3.mMetadata = new Metadata();
+        nonTvod3.setMetadata(new Metadata());
 
         Assert.assertFalse(nonTvod3.isTvod());
     }
@@ -85,11 +85,11 @@ public class VideoTest {
     @Test
     public void test_isTrailer_TvodNonTrailer() throws Exception {
         ConnectionCollection connectionCollection = new ConnectionCollection();
-        connectionCollection.mTvod = new Connection();
+        connectionCollection.setTvod(new Connection());
         Video tvod = createVideoWithConnectionCollection(connectionCollection);
         Assert.assertTrue(tvod.isTvod());
 
-        tvod.mMetadata.mConnections.mTrailer = new Connection();
+        tvod.getMetadata().getConnections().setTrailer(new Connection());
 
         Assert.assertFalse(tvod.isTrailer());
     }
@@ -97,11 +97,11 @@ public class VideoTest {
     @Test
     public void test_isTrailer_TvodTrailer() throws Exception {
         ConnectionCollection connectionCollection = new ConnectionCollection();
-        connectionCollection.mTvod = new Connection();
+        connectionCollection.setTvod(new Connection());
         Video tvod = createVideoWithConnectionCollection(connectionCollection);
         Assert.assertTrue(tvod.isTvod());
 
-        tvod.mMetadata.mConnections.mTrailer = null;
+        tvod.getMetadata().getConnections().setTrailer(null);
         Assert.assertTrue(tvod.isTrailer());
     }
 
@@ -111,9 +111,9 @@ public class VideoTest {
 
         Assert.assertFalse(video.isTrailer());
 
-        video.mMetadata = new Metadata();
-        video.mMetadata.mConnections = new ConnectionCollection();
-        video.mMetadata.mConnections.mTrailer = null;
+        video.setMetadata(new Metadata());
+        video.getMetadata().setConnections(new ConnectionCollection());
+        video.getMetadata().getConnections().setTrailer(null);
 
         Assert.assertFalse(video.isTrailer());
     }
@@ -121,30 +121,30 @@ public class VideoTest {
     @Test
     public void test_isPlayable_Playable() throws Exception {
         Video video = new Video();
-        video.mPlay = new Play();
+        video.setPlay(new Play());
 
-        video.mPlay.setStatus(Status.PLAYABLE);
+        video.getPlay().setStatus(Status.PLAYABLE);
         Assert.assertTrue(video.isPlayable());
     }
 
     @Test
     public void test_isPlayable_NotPlayable() throws Exception {
         Video video = new Video();
-        video.mPlay = new Play();
+        video.setPlay(new Play());
 
-        video.mPlay.setStatus(Status.PURCHASE_REQUIRED);
+        video.getPlay().setStatus(Status.PURCHASE_REQUIRED);
         Assert.assertFalse(video.isPlayable());
 
-        video.mPlay.setStatus(Status.RESTRICTED);
+        video.getPlay().setStatus(Status.RESTRICTED);
         Assert.assertFalse(video.isPlayable());
 
-        video.mPlay.setStatus(Status.UNAVAILABLE);
+        video.getPlay().setStatus(Status.UNAVAILABLE);
         Assert.assertFalse(video.isPlayable());
 
-        video.mPlay.setStatus(null);
+        video.getPlay().setStatus(null);
         Assert.assertFalse(video.isPlayable());
 
-        video.mPlay = null;
+        video.setPlay(null);
         Assert.assertFalse(video.isPlayable());
     }
 }

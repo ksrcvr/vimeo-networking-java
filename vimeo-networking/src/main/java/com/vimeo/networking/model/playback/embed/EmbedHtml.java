@@ -44,14 +44,14 @@ public class EmbedHtml implements Serializable {
     private static final long serialVersionUID = 3752755790501317766L;
 
     @SerializedName("width")
-    protected int mWidth;
+    private int mWidth;
 
     @SerializedName("height")
-    protected int mHeight;
+    private int mHeight;
 
     @Nullable
     @SerializedName("html")
-    protected String mHtml;
+    private String mHtml;
 
     public int getWidth() {
         return mWidth;
@@ -64,5 +64,17 @@ public class EmbedHtml implements Serializable {
     @Nullable
     public String getHtml() {
         return mHtml;
+    }
+
+    public void setWidth(int width) {
+        mWidth = width;
+    }
+
+    public void setHeight(int height) {
+        mHeight = height;
+    }
+
+    public void setHtml(@Nullable String html) {
+        mHtml = html;
     }
 }

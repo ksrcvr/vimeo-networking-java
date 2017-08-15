@@ -48,37 +48,37 @@ public class Notification implements Serializable {
 
     @Nullable
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @Nullable
     @SerializedName("created_time")
-    protected Date mCreatedDate;
+    private Date mCreatedDate;
 
     @NotNull
     @SerializedName("type")
-    protected String mType;
+    private String mType;
 
     @Nullable
     @SerializedName("user")
-    protected User mUser;
+    private User mUser;
 
     @Nullable
     @SerializedName("comment")
-    protected Comment mComment;
+    private Comment mComment;
 
     @Nullable
     @SerializedName("clip")
-    protected Video mVideo;
+    private Video mVideo;
 
     @Nullable
     @SerializedName("credit")
-    protected Credit mCredit;
+    private Credit mCredit;
 
     @SerializedName("new")
-    protected boolean mIsNew;
+    private boolean mIsNew;
 
     @SerializedName("seen")
-    protected boolean mIsSeen;
+    private boolean mIsSeen;
 
     @Nullable
     public String getUri() {
@@ -195,5 +195,30 @@ public class Notification implements Serializable {
                ", video=" + mVideo +
                ", credit=" + mCredit +
                '}';
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
+    public void setCreatedDate(@Nullable Date createdDate) {
+        mCreatedDate = createdDate;
+    }
+
+    @NotNull
+    public String getType() {
+        return mType;
+    }
+
+    public void setType(@NotNull String type) {
+        mType = type;
+    }
+
+    public void setNew(boolean aNew) {
+        mIsNew = aNew;
+    }
+
+    public void setSeen(boolean seen) {
+        mIsSeen = seen;
     }
 }

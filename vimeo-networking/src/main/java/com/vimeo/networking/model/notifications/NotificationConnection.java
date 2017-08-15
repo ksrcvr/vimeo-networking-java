@@ -42,14 +42,14 @@ public class NotificationConnection extends Connection {
     private static final long serialVersionUID = 4908222195478449252L;
 
     @SerializedName("new_total")
-    protected int mNewTotal;
+    private int mNewTotal;
 
     @SerializedName("unread_total")
-    protected int mUnreadTotal;
+    private int mUnreadTotal;
 
     @Nullable
     @SerializedName("type_count")
-    protected NotificationTypeCount mTypeCount;
+    private NotificationTypeCount mTypeCount;
 
     public int getNewTotal() {
         return mNewTotal;
@@ -73,9 +73,9 @@ public class NotificationConnection extends Connection {
 
         if (mNewTotal != that.mNewTotal) { return false; }
         if (mUnreadTotal != that.mUnreadTotal) { return false; }
-        if (mTotal != that.mTotal) { return false; }
+        if (getTotal() != that.getTotal()) { return false; }
         if (mTypeCount != null ? !mTypeCount.equals(that.mTypeCount) : that.mTypeCount != null) { return false; }
-        return mUri != null ? mUri.equals(that.mUri) : that.mUri == null;
+        return getUri() != null ? getUri().equals(that.getUri()) : that.getUri() == null;
 
     }
 
@@ -84,8 +84,8 @@ public class NotificationConnection extends Connection {
         int result = mNewTotal;
         result = 31 * result + mUnreadTotal;
         result = 31 * result + (mTypeCount != null ? mTypeCount.hashCode() : 0);
-        result = 31 * result + (mUri != null ? mUri.hashCode() : 0);
-        result = 31 * result + mTotal;
+        result = 31 * result + (getUri() != null ? getUri().hashCode() : 0);
+        result = 31 * result + getTotal();
         return result;
     }
 
@@ -95,9 +95,21 @@ public class NotificationConnection extends Connection {
                "newTotal=" + mNewTotal +
                ", unreadTotal=" + mUnreadTotal +
                ", mTypeCount=" + mTypeCount +
-               ", uri='" + mUri + '\'' +
-               ", total=" + mTotal +
+               ", uri='" + getUri() + '\'' +
+               ", total=" + getTotal() +
                '}';
+    }
+
+    public void setNewTotal(int newTotal) {
+        mNewTotal = newTotal;
+    }
+
+    public void setUnreadTotal(int unreadTotal) {
+        mUnreadTotal = unreadTotal;
+    }
+
+    public void setTypeCount(@Nullable NotificationTypeCount typeCount) {
+        mTypeCount = typeCount;
     }
 
     @UseStag(FieldOption.SERIALIZED_NAME)
@@ -106,46 +118,46 @@ public class NotificationConnection extends Connection {
         private static final long serialVersionUID = 6893381498380227512L;
 
         @SerializedName(NotificationConstants.NOTIFICATION_COMMENT)
-        protected int mCommentTotal;
+        private int mCommentTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_CREDIT)
-        protected int mCreditTotal;
+        private int mCreditTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_LIKE)
-        protected int mLikeTotal;
+        private int mLikeTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_SHARE)
-        protected int mShareTotal;
+        private int mShareTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_VIDEO_AVAILABLE)
-        protected int mVideoAvailableTotal;
+        private int mVideoAvailableTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_FOLLOWED_USER_VIDEO_AVAILABLE)
-        protected int mFollowedUserVideoAvailableTotal;
+        private int mFollowedUserVideoAvailableTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_MENTION)
-        protected int mMentionTotal;
+        private int mMentionTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_REPLY)
-        protected int mReplyTotal;
+        private int mReplyTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_STORAGE_WARNING)
-        protected int mStorageWarningTotal;
+        private int mStorageWarningTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_FOLLOW)
-        protected int mFollowTotal;
+        private int mFollowTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_ACCOUNT_EXPIRATION_WARNING)
-        protected int mAccountExpirationWarningTotal;
+        private int mAccountExpirationWarningTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_TVOD_PURCHASE)
-        protected int mTvodPurchaseTotal;
+        private int mTvodPurchaseTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_TVOD_PREORDER_AVAILABLE)
-        protected int mTvodPreorderAvailableTotal;
+        private int mTvodPreorderAvailableTotal;
 
         @SerializedName(NotificationConstants.NOTIFICATION_TVOD_RENTAL_EXPIRATION_WARNING)
-        protected int mTvodRentailExpirationWarningTotal;
+        private int mTvodRentailExpirationWarningTotal;
 
         public int getCommentTotal() {
             return mCommentTotal;
@@ -204,6 +216,62 @@ public class NotificationConnection extends Connection {
 
         public int getTvodRentailExpirationWarningTotal() {
             return mTvodRentailExpirationWarningTotal;
+        }
+
+        public void setCommentTotal(int commentTotal) {
+            mCommentTotal = commentTotal;
+        }
+
+        public void setCreditTotal(int creditTotal) {
+            mCreditTotal = creditTotal;
+        }
+
+        public void setLikeTotal(int likeTotal) {
+            mLikeTotal = likeTotal;
+        }
+
+        public void setShareTotal(int shareTotal) {
+            mShareTotal = shareTotal;
+        }
+
+        public void setVideoAvailableTotal(int videoAvailableTotal) {
+            mVideoAvailableTotal = videoAvailableTotal;
+        }
+
+        public void setFollowedUserVideoAvailableTotal(int followedUserVideoAvailableTotal) {
+            mFollowedUserVideoAvailableTotal = followedUserVideoAvailableTotal;
+        }
+
+        public void setMentionTotal(int mentionTotal) {
+            mMentionTotal = mentionTotal;
+        }
+
+        public void setReplyTotal(int replyTotal) {
+            mReplyTotal = replyTotal;
+        }
+
+        public void setStorageWarningTotal(int storageWarningTotal) {
+            mStorageWarningTotal = storageWarningTotal;
+        }
+
+        public void setFollowTotal(int followTotal) {
+            mFollowTotal = followTotal;
+        }
+
+        public void setAccountExpirationWarningTotal(int accountExpirationWarningTotal) {
+            mAccountExpirationWarningTotal = accountExpirationWarningTotal;
+        }
+
+        public void setTvodPurchaseTotal(int tvodPurchaseTotal) {
+            mTvodPurchaseTotal = tvodPurchaseTotal;
+        }
+
+        public void setTvodPreorderAvailableTotal(int tvodPreorderAvailableTotal) {
+            mTvodPreorderAvailableTotal = tvodPreorderAvailableTotal;
+        }
+
+        public void setTvodRentailExpirationWarningTotal(int tvodRentailExpirationWarningTotal) {
+            mTvodRentailExpirationWarningTotal = tvodRentailExpirationWarningTotal;
         }
     }
 }

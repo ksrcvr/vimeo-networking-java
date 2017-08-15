@@ -38,31 +38,31 @@ public class Group implements Serializable {
     private static final long serialVersionUID = -3604741570351063891L;
 
     @SerializedName("uri")
-    protected String mUri;
+    private String mUri;
 
     @SerializedName("created_time")
-    protected Date mCreatedTime;
+    private Date mCreatedTime;
 
     @SerializedName("group_description")
-    protected String mGroupDescription;
+    private String mGroupDescription;
 
     @SerializedName("link")
-    protected String mLink;
+    private String mLink;
 
     @SerializedName("name")
-    protected String mName;
+    private String mName;
 
     @SerializedName("picture_collection")
-    protected PictureCollection mPictureCollection;
+    private PictureCollection mPictureCollection;
 
     @SerializedName("privacy")
-    protected Privacy mPrivacy;
+    private Privacy mPrivacy;
 
     @SerializedName("user")
-    protected User mUser;
+    private User mUser;
 
     @SerializedName("metadata")
-    protected Metadata mMetadata;
+    private Metadata mMetadata;
 
     public String getUri() {
         return mUri;
@@ -98,5 +98,41 @@ public class Group implements Serializable {
 
     public Metadata getMetadata() {
         return mMetadata;
+    }
+
+    public void setUri(String uri) {
+        mUri = uri;
+    }
+
+    public void setCreatedTime(Date createdTime) {
+        mCreatedTime = createdTime;
+    }
+
+    public void setGroupDescription(String groupDescription) {
+        mGroupDescription = groupDescription;
+    }
+
+    public void setLink(String link) {
+        mLink = link;
+    }
+
+    public void setName(String name) {
+        mName = name;
+    }
+
+    public void setPictureCollection(PictureCollection pictureCollection) {
+        mPictureCollection = pictureCollection;
+    }
+
+    public void setPrivacy(Privacy privacy) {
+        mPrivacy = privacy;
+    }
+
+    public void setUser(User user) {
+        mUser = user;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
     }
 }
