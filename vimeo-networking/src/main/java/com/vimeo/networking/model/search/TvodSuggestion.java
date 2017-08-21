@@ -62,6 +62,13 @@ public final class TvodSuggestion extends BaseSuggestion implements Serializable
     }
 
     @Override
+    public int hashCode() {
+        int result = getText().hashCode();
+        result = 31 * result + (mMetadata != null ? mMetadata.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) { return true; }
         if (o == null || getClass() != o.getClass()) { return false; }
@@ -71,13 +78,6 @@ public final class TvodSuggestion extends BaseSuggestion implements Serializable
         if (!getText().equals(that.getText())) { return false; }
         return mMetadata != null ? mMetadata.equals(that.mMetadata) : that.mMetadata == null;
 
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getText().hashCode();
-        result = 31 * result + (mMetadata != null ? mMetadata.hashCode() : 0);
-        return result;
     }
 
     @Override

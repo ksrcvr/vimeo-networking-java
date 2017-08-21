@@ -56,13 +56,13 @@ public class SearchFacet implements Serializable {
         return mName;
     }
 
+    public void setName(@Nullable String name) {
+        mName = name;
+    }
+
     @Nullable
     public ArrayList<FacetOption> getOptions() {
         return mOptions;
-    }
-
-    public void setName(@Nullable String name) {
-        mName = name;
     }
 
     public void setOptions(@Nullable ArrayList<FacetOption> options) {

@@ -72,14 +72,26 @@ public class Embed implements Serializable {
     @SerializedName("color")
     private String mColor;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public String getUri() {
         return mUri;
     }
 
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
     @Nullable
     public EmbedHtml getHtml() {
         return mHtml;
+    }
+
+    public void setHtml(@Nullable EmbedHtml html) {
+        mHtml = html;
     }
 
     @Nullable
@@ -139,12 +151,5 @@ public class Embed implements Serializable {
     public void setColor(@Nullable String color) {
         this.mColor = color;
     }
-
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
-    }
-
-    public void setHtml(@Nullable EmbedHtml html) {
-        mHtml = html;
-    }
+    // </editor-fold>
 }

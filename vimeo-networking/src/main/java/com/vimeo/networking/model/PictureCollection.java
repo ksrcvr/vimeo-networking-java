@@ -94,12 +94,21 @@ public class PictureCollection implements Serializable {
         return null;
     }
 
+
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     /**
      * Return the uri representing this object
      */
     @Nullable
     public String getUri() {
         return mUri;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
     }
 
     /**
@@ -115,12 +124,20 @@ public class PictureCollection implements Serializable {
         return mIsActive;
     }
 
+    public void setActive(boolean active) {
+        mIsActive = active;
+    }
+
     /**
      * Returns the array of {@link Picture}s in this collection
      */
     @Nullable
     public ArrayList<Picture> getPictures() {
         return mPictures;
+    }
+
+    public void setPictures(@Nullable ArrayList<Picture> pictures) {
+        mPictures = pictures;
     }
 
     /**
@@ -147,14 +164,6 @@ public class PictureCollection implements Serializable {
         }
     }
 
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
-    }
-
-    public void setActive(boolean active) {
-        mIsActive = active;
-    }
-
     @Nullable
     public String getType() {
         return mType;
@@ -163,8 +172,5 @@ public class PictureCollection implements Serializable {
     public void setType(@Nullable String type) {
         mType = type;
     }
-
-    public void setPictures(@Nullable ArrayList<Picture> pictures) {
-        mPictures = pictures;
-    }
+    // </editor-fold>
 }

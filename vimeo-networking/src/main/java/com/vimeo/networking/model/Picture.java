@@ -45,27 +45,32 @@ public class Picture implements Serializable {
     @SerializedName("link")
     private String mLink;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public int getWidth() {
         return mWidth;
-    }
-
-    public int getHeight() {
-        return mHeight;
-    }
-
-    public String getLink() {
-        return mLink;
     }
 
     public void setWidth(int width) {
         mWidth = width;
     }
 
+    public int getHeight() {
+        return mHeight;
+    }
+
     public void setHeight(int height) {
         mHeight = height;
+    }
+
+    public String getLink() {
+        return mLink;
     }
 
     public void setLink(String link) {
         mLink = link;
     }
+    // </editor-fold>
 }

@@ -51,40 +51,50 @@ public class FeaturesConfiguration {
         return mIapEnabled;
     }
 
-    public boolean isAutoUploadEnabled() {
-        return mAutoUploadEnabled;
-    }
-
-    public boolean isComScoreEnabled() {
-        return mComScoreEnabled;
-    }
-
-    public boolean isPlayTrackingEnabled() {
-        return mPlayTrackingEnabled;
-    }
-
-    public String getChromecastReceiverAppID() {
-        return mChromecastReceiverAppID;
-    }
-
     public void setIapEnabled(boolean iapEnabled) {
         mIapEnabled = iapEnabled;
+    }
+
+    public boolean isAutoUploadEnabled() {
+        return mAutoUploadEnabled;
     }
 
     public void setAutoUploadEnabled(boolean autoUploadEnabled) {
         mAutoUploadEnabled = autoUploadEnabled;
     }
 
+    public boolean isComScoreEnabled() {
+        return mComScoreEnabled;
+    }
+
     public void setComScoreEnabled(boolean comScoreEnabled) {
         mComScoreEnabled = comScoreEnabled;
+    }
+
+    public boolean isPlayTrackingEnabled() {
+        return mPlayTrackingEnabled;
     }
 
     public void setPlayTrackingEnabled(boolean playTrackingEnabled) {
         mPlayTrackingEnabled = playTrackingEnabled;
     }
 
+    public String getChromecastReceiverAppID() {
+        return mChromecastReceiverAppID;
+    }
+
     public void setChromecastReceiverAppID(String chromecastReceiverAppID) {
         mChromecastReceiverAppID = chromecastReceiverAppID;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (mIapEnabled ? 1 : 0);
+        result = 31 * result + (mAutoUploadEnabled ? 1 : 0);
+        result = 31 * result + (mComScoreEnabled ? 1 : 0);
+        result = 31 * result + (mPlayTrackingEnabled ? 1 : 0);
+        result = 31 * result + (mChromecastReceiverAppID != null ? mChromecastReceiverAppID.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -115,15 +125,5 @@ public class FeaturesConfiguration {
         } else {
             return mChromecastReceiverAppID == null && that.mChromecastReceiverAppID == null;
         }
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (mIapEnabled ? 1 : 0);
-        result = 31 * result + (mAutoUploadEnabled ? 1 : 0);
-        result = 31 * result + (mComScoreEnabled ? 1 : 0);
-        result = 31 * result + (mPlayTrackingEnabled ? 1 : 0);
-        result = 31 * result + (mChromecastReceiverAppID != null ? mChromecastReceiverAppID.hashCode() : 0);
-        return result;
     }
 }

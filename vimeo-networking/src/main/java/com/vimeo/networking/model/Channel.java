@@ -72,56 +72,96 @@ public class Channel implements Serializable, Followable {
     @SerializedName("metadata")
     private Metadata mMetadata;
 
-    public void setUri(String uri) {
-        mUri = uri;
-    }
-
-    public void setUser(User user) {
-        mUser = user;
-    }
-
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public String getUri() {
         return mUri;
+    }
+
+    public void setUri(String uri) {
+        mUri = uri;
     }
 
     public String getName() {
         return mName;
     }
 
+    public void setName(String name) {
+        mName = name;
+    }
+
     public String getDescription() {
         return mDescription;
+    }
+
+    public void setDescription(String description) {
+        mDescription = description;
     }
 
     public String getLink() {
         return mLink;
     }
 
+    public void setLink(String link) {
+        mLink = link;
+    }
+
     public Date getCreatedTime() {
         return mCreatedTime;
+    }
+
+    public void setCreatedTime(Date createdTime) {
+        mCreatedTime = createdTime;
     }
 
     public Date getModifiedTime() {
         return mModifiedTime;
     }
 
+    public void setModifiedTime(Date modifiedTime) {
+        mModifiedTime = modifiedTime;
+    }
+
     public User getUser() {
         return mUser;
+    }
+
+    public void setUser(User user) {
+        mUser = user;
     }
 
     public PictureCollection getPictures() {
         return mPictures;
     }
 
+    public void setPictures(PictureCollection pictures) {
+        mPictures = pictures;
+    }
+
     public PictureCollection getHeader() {
         return mHeader;
+    }
+
+    public void setHeader(PictureCollection header) {
+        mHeader = header;
     }
 
     public Privacy getPrivacy() {
         return mPrivacy;
     }
 
+    public void setPrivacy(Privacy privacy) {
+        mPrivacy = privacy;
+    }
+
     public Metadata getMetadata() {
         return mMetadata;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
     }
 
     @Nullable
@@ -174,6 +214,13 @@ public class Channel implements Serializable, Followable {
         return 0;
     }
 
+    // </editor-fold>
+
+    @Override
+    public int hashCode() {
+        return this.mUri != null ? this.mUri.hashCode() : 0;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -186,46 +233,5 @@ public class Channel implements Serializable, Followable {
         Channel that = (Channel) o;
 
         return ((this.mUri != null && that.mUri != null) && this.mUri.equals(that.mUri));
-    }
-
-    @Override
-    public int hashCode() {
-        return this.mUri != null ? this.mUri.hashCode() : 0;
-    }
-
-    public void setName(String name) {
-        mName = name;
-    }
-
-    public void setDescription(String description) {
-        mDescription = description;
-    }
-
-    public void setLink(String link) {
-        mLink = link;
-    }
-
-    public void setCreatedTime(Date createdTime) {
-        mCreatedTime = createdTime;
-    }
-
-    public void setModifiedTime(Date modifiedTime) {
-        mModifiedTime = modifiedTime;
-    }
-
-    public void setPictures(PictureCollection pictures) {
-        mPictures = pictures;
-    }
-
-    public void setHeader(PictureCollection header) {
-        mHeader = header;
-    }
-
-    public void setPrivacy(Privacy privacy) {
-        mPrivacy = privacy;
-    }
-
-    public void setMetadata(Metadata metadata) {
-        mMetadata = metadata;
     }
 }

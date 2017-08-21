@@ -62,6 +62,10 @@ public class EmbedButtons implements Serializable {
     @SerializedName("scaling")
     private boolean mScaling;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public boolean isLike() {
         return mLike;
     }
@@ -138,4 +142,5 @@ public class EmbedButtons implements Serializable {
     public void setScaling(boolean scaling) {
         this.mScaling = scaling;
     }
+    // </editor-fold>
 }

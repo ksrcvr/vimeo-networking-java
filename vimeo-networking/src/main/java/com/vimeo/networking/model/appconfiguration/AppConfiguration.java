@@ -41,28 +41,36 @@ public class AppConfiguration {
     @SerializedName("features")
     private FeaturesConfiguration mFeatures;
 
-    public void setFacebook(FacebookConfiguration facebook) {
-        mFacebook = facebook;
-    }
-
-    public void setApi(ApiConfiguration api) {
-        mApi = api;
-    }
-
-    public void setFeatures(FeaturesConfiguration features) {
-        mFeatures = features;
-    }
-
     public FacebookConfiguration getFacebook() {
         return mFacebook;
+    }
+
+    public void setFacebook(FacebookConfiguration facebook) {
+        mFacebook = facebook;
     }
 
     public ApiConfiguration getApi() {
         return mApi;
     }
 
+    public void setApi(ApiConfiguration api) {
+        mApi = api;
+    }
+
     public FeaturesConfiguration getFeatures() {
         return mFeatures;
+    }
+
+    public void setFeatures(FeaturesConfiguration features) {
+        mFeatures = features;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = mFacebook != null ? mFacebook.hashCode() : 0;
+        result = 31 * result + (mApi != null ? mApi.hashCode() : 0);
+        result = 31 * result + (mFeatures != null ? mFeatures.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -84,13 +92,5 @@ public class AppConfiguration {
         }
         return !(mFeatures != null ? !mFeatures.equals(that.mFeatures) : that.mFeatures != null);
 
-    }
-
-    @Override
-    public int hashCode() {
-        int result = mFacebook != null ? mFacebook.hashCode() : 0;
-        result = 31 * result + (mApi != null ? mApi.hashCode() : 0);
-        result = 31 * result + (mFeatures != null ? mFeatures.hashCode() : 0);
-        return result;
     }
 }

@@ -41,6 +41,8 @@ import java.util.Date;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public abstract class VideoFile implements Serializable {
 
+    private static final long serialVersionUID = -5256416394912086020L;
+
     public enum VideoQuality {
         NONE("N/A"),
         DASH("dash"),
@@ -61,11 +63,6 @@ public abstract class VideoFile implements Serializable {
         }
     }
 
-    private static final long serialVersionUID = -5256416394912086020L;
-
-    @NotNull
-    public abstract VideoQuality getQuality();
-
     // -----------------------------------------------------------------------------------------------------
     // Fields common between all file types - HLS, Dash, Progressive
     // -----------------------------------------------------------------------------------------------------
@@ -81,9 +78,16 @@ public abstract class VideoFile implements Serializable {
     @SerializedName("log")
     private String mLog;
 
+    @NotNull
+    public abstract VideoQuality getQuality();
+
     @Nullable
     public Date getLinkExpirationTime() {
         return mLinkExpirationTime;
+    }
+
+    public void setLinkExpirationTime(@Nullable Date linkExpirationTime) {
+        mLinkExpirationTime = linkExpirationTime;
     }
 
     /** @return true if this VideoFile doesn't have an expired field or if the expires date is before the current date */
@@ -96,11 +100,18 @@ public abstract class VideoFile implements Serializable {
         return mLink;
     }
 
+    public void setLink(String link) {
+        mLink = link;
+    }
+
     @Nullable
     public String getLog() {
         return mLog;
     }
 
+    public void setLog(@Nullable String log) {
+        mLog = log;
+    }
     // </editor-fold>
 
     // -----------------------------------------------------------------------------------------------------
@@ -123,16 +134,5 @@ public abstract class VideoFile implements Serializable {
         return mLink != null ? mLink.hashCode() : 0;
     }
 
-    public void setLinkExpirationTime(@Nullable Date linkExpirationTime) {
-        mLinkExpirationTime = linkExpirationTime;
-    }
-
-    public void setLink(String link) {
-        mLink = link;
-    }
-
-    public void setLog(@Nullable String log) {
-        mLog = log;
-    }
     // </editor-fold>
 }

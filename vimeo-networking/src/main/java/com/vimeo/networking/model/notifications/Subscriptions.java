@@ -44,7 +44,6 @@ public class Subscriptions implements Serializable {
 
     private static final long serialVersionUID = 3088065484753327987L;
 
-
     @SerializedName(NotificationConstants.NOTIFICATION_COMMENT)
     private boolean mComment;
 
@@ -66,6 +65,10 @@ public class Subscriptions implements Serializable {
     @SerializedName(NotificationConstants.NOTIFICATION_FOLLOWED_USER_VIDEO_AVAILABLE)
     private boolean mFollowedUserVideoAvailable;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public boolean isReceivingComment() {
         return mComment;
     }
@@ -202,4 +205,5 @@ public class Subscriptions implements Serializable {
     public void setFollowedUserVideoAvailable(boolean followedUserVideoAvailable) {
         mFollowedUserVideoAvailable = followedUserVideoAvailable;
     }
+    // </editor-fold>
 }

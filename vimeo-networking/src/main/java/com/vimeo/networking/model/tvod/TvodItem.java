@@ -48,6 +48,7 @@ import java.util.Date;
 @UseStag
 public class TvodItem implements Serializable {
 
+    private static final long serialVersionUID = 8360150766347816073L;
     private static final String S_FILM = "film";
     private static final String S_SERIES = "series";
 
@@ -71,30 +72,9 @@ public class TvodItem implements Serializable {
         }
     }
 
-    public void setLink(@Nullable String link) {
-        mLink = link;
-    }
-
-    @UseStag
-    public static class Publish implements Serializable {
-
-        private static final long serialVersionUID = -994389241935894370L;
-
-        @Nullable
-        @SerializedName("time")
-        private Date mTime;
-
-        @Nullable
-        public Date getTime() {
-            return mTime;
-        }
-
-        public void setTime(@Nullable Date time) {
-            mTime = time;
-        }
-    }
-
-    private static final long serialVersionUID = 8360150766347816073L;
+    @Nullable
+    @SerializedName("trailer")
+    protected Video mTrailer;
 
     @Nullable
     @SerializedName("name")
@@ -132,13 +112,17 @@ public class TvodItem implements Serializable {
     @SerializedName("film")
     private Video mFilm;
 
-    @Nullable
-    @SerializedName("trailer")
-    protected Video mTrailer;
-
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public String getName() {
         return mName;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
     }
 
     @Nullable
@@ -146,9 +130,17 @@ public class TvodItem implements Serializable {
         return mDescription;
     }
 
+    public void setDescription(@Nullable String description) {
+        mDescription = description;
+    }
+
     @Nullable
     public Publish getPublish() {
         return mPublish;
+    }
+
+    public void setPublish(@Nullable Publish publish) {
+        mPublish = publish;
     }
 
     @Nullable
@@ -156,9 +148,17 @@ public class TvodItem implements Serializable {
         return mPictures;
     }
 
+    public void setPictures(@Nullable PictureCollection pictures) {
+        mPictures = pictures;
+    }
+
     @Nullable
     public Metadata getMetadata() {
         return mMetadata;
+    }
+
+    public void setMetadata(@Nullable Metadata metadata) {
+        mMetadata = metadata;
     }
 
     @Nullable
@@ -176,9 +176,17 @@ public class TvodItem implements Serializable {
         return mUser;
     }
 
+    public void setUser(@Nullable User user) {
+        mUser = user;
+    }
+
     @Nullable
     public Video getFilm() {
         return mFilm;
+    }
+
+    public void setFilm(@Nullable Video film) {
+        mFilm = film;
     }
 
     @Nullable
@@ -186,14 +194,26 @@ public class TvodItem implements Serializable {
         return mTrailer;
     }
 
+    public void setTrailer(@Nullable Video trailer) {
+        mTrailer = trailer;
+    }
+
     @Nullable
     public String getLink() {
         return mLink;
     }
 
+    public void setLink(@Nullable String link) {
+        mLink = link;
+    }
+
     @Nullable
     public TvodType getType() {
         return mType;
+    }
+
+    public void setType(@Nullable TvodType type) {
+        mType = type;
     }
 
     public int getViewableVideoCount() {
@@ -224,41 +244,11 @@ public class TvodItem implements Serializable {
         Connection seasons = getSeasonsConnection();
         return seasons != null ? seasons.getUri() : null;
     }
+    // </editor-fold>
 
-    public void setName(@Nullable String name) {
-        mName = name;
-    }
-
-    public void setDescription(@Nullable String description) {
-        mDescription = description;
-    }
-
-    public void setType(@Nullable TvodType type) {
-        mType = type;
-    }
-
-    public void setPublish(@Nullable Publish publish) {
-        mPublish = publish;
-    }
-
-    public void setPictures(@Nullable PictureCollection pictures) {
-        mPictures = pictures;
-    }
-
-    public void setMetadata(@Nullable Metadata metadata) {
-        mMetadata = metadata;
-    }
-
-    public void setUser(@Nullable User user) {
-        mUser = user;
-    }
-
-    public void setFilm(@Nullable Video film) {
-        mFilm = film;
-    }
-
-    public void setTrailer(@Nullable Video trailer) {
-        mTrailer = trailer;
+    @Override
+    public int hashCode() {
+        return mLink != null ? mLink.hashCode() : 0;
     }
 
     @Override
@@ -274,8 +264,22 @@ public class TvodItem implements Serializable {
         return (mLink != null && that.getLink() != null) && mLink.equals(that.getLink());
     }
 
-    @Override
-    public int hashCode() {
-        return mLink != null ? mLink.hashCode() : 0;
+    @UseStag
+    public static class Publish implements Serializable {
+
+        private static final long serialVersionUID = -994389241935894370L;
+
+        @Nullable
+        @SerializedName("time")
+        private Date mTime;
+
+        @Nullable
+        public Date getTime() {
+            return mTime;
+        }
+
+        public void setTime(@Nullable Date time) {
+            mTime = time;
+        }
     }
 }

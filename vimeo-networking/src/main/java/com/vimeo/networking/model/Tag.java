@@ -51,43 +51,48 @@ public class Tag implements Serializable {
     @SerializedName("metadata")
     private Metadata mMetadata;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public String getUri() {
         return mUri;
-    }
-
-    public String getName() {
-        return mName;
-    }
-
-    public String getTag() {
-        return mTag;
-    }
-
-    public String getCanonical() {
-        return mCanonical;
-    }
-
-    public Metadata getMetadata() {
-        return mMetadata;
     }
 
     public void setUri(String uri) {
         mUri = uri;
     }
 
+    public String getName() {
+        return mName;
+    }
+
     public void setName(String name) {
         mName = name;
+    }
+
+    public String getTag() {
+        return mTag;
     }
 
     public void setTag(String tag) {
         mTag = tag;
     }
 
+    public String getCanonical() {
+        return mCanonical;
+    }
+
     public void setCanonical(String canonical) {
         mCanonical = canonical;
+    }
+
+    public Metadata getMetadata() {
+        return mMetadata;
     }
 
     public void setMetadata(Metadata metadata) {
         mMetadata = metadata;
     }
+    // </editor-fold>
 }

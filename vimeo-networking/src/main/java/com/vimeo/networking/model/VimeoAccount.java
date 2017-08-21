@@ -43,7 +43,6 @@ import java.io.Serializable;
 public class VimeoAccount implements Serializable {
 
     private static final long serialVersionUID = -8341071767843490585L;
-    //    private static final String TOKEN_TYPE_BEARER = "bearer";
 
     @SerializedName("access_token")
     private String mAccessToken;
@@ -82,6 +81,10 @@ public class VimeoAccount implements Serializable {
         mUser = gson.fromJson(userJSON, User.class);
     }
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public boolean isAuthenticated() {
         return (mAccessToken != null && !mAccessToken.isEmpty());
     }
@@ -90,12 +93,24 @@ public class VimeoAccount implements Serializable {
         return mAccessToken;
     }
 
+    public void setAccessToken(String accessToken) {
+        mAccessToken = accessToken;
+    }
+
     public String getTokenType() {
         return mTokenType;
     }
 
+    public void setTokenType(String tokenType) {
+        mTokenType = tokenType;
+    }
+
     public String getScope() {
         return mScope;
+    }
+
+    public void setScope(String scope) {
+        mScope = scope;
     }
 
     @Nullable
@@ -124,19 +139,8 @@ public class VimeoAccount implements Serializable {
         return mUserJSON;
     }
 
-    public void setAccessToken(String accessToken) {
-        mAccessToken = accessToken;
-    }
-
-    public void setTokenType(String tokenType) {
-        mTokenType = tokenType;
-    }
-
-    public void setScope(String scope) {
-        mScope = scope;
-    }
-
     public void setUserJSON(String userJSON) {
         mUserJSON = userJSON;
     }
+    // </editor-fold>
 }

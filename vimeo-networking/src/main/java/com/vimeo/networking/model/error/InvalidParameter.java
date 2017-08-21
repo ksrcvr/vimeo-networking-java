@@ -58,35 +58,41 @@ public class InvalidParameter {
         this.mDeveloperMessage = developerMessage;
     }
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public String getField() {
         return mField;
-    }
-
-    public ErrorCode getErrorCode() {
-        return mErrorCode == null ? ErrorCode.DEFAULT : mErrorCode;
-    }
-
-    public String getUserMessage() {
-        return mUserMessage;
-    }
-
-    public String getDeveloperMessage() {
-        return mDeveloperMessage;
     }
 
     public void setField(String field) {
         mField = field;
     }
 
+    public ErrorCode getErrorCode() {
+        return mErrorCode == null ? ErrorCode.DEFAULT : mErrorCode;
+    }
+
     public void setErrorCode(ErrorCode errorCode) {
         mErrorCode = errorCode;
+    }
+
+    public String getUserMessage() {
+        return mUserMessage;
     }
 
     public void setUserMessage(String userMessage) {
         mUserMessage = userMessage;
     }
 
+    public String getDeveloperMessage() {
+        return mDeveloperMessage;
+    }
+
     public void setDeveloperMessage(String developerMessage) {
         mDeveloperMessage = developerMessage;
     }
+    // </editor-fold>
 }
+

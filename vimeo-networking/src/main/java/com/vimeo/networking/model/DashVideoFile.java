@@ -55,22 +55,22 @@ public class DashVideoFile extends VideoFile {
         return mToken;
     }
 
+    public void setToken(@Nullable String token) {
+        mToken = token;
+    }
+
     @Nullable
     public String getLicenseLink() {
         return mLicenseLink;
+    }
+
+    public void setLicenseLink(@Nullable String licenseLink) {
+        mLicenseLink = licenseLink;
     }
 
     @NotNull
     @Override
     public VideoQuality getQuality() {
         return VideoQuality.DASH;
-    }
-
-    public void setToken(@Nullable String token) {
-        mToken = token;
-    }
-
-    public void setLicenseLink(@Nullable String licenseLink) {
-        mLicenseLink = licenseLink;
     }
 }

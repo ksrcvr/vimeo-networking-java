@@ -54,6 +54,13 @@ public final class VideoSuggestion extends BaseSuggestion implements Serializabl
     }
 
     @Override
+    public int hashCode() {
+        int result = getText().hashCode();
+        result = 31 * result + (mMetadata != null ? mMetadata.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) { return true; }
         if (o == null || getClass() != o.getClass()) { return false; }
@@ -66,27 +73,11 @@ public final class VideoSuggestion extends BaseSuggestion implements Serializabl
     }
 
     @Override
-    public int hashCode() {
-        int result = getText().hashCode();
-        result = 31 * result + (mMetadata != null ? mMetadata.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "VideoSuggestion{" +
                "mText='" + getText() + '\'' +
                ", mMetadata=" + mMetadata +
                '}';
-    }
-
-    @UseStag(FieldOption.SERIALIZED_NAME)
-    public final static class VideoSuggestionMetadata implements Serializable {
-
-        private static final long serialVersionUID = -5853739822133424630L;
-
-        @SerializedName("score")
-        int mScore;
     }
 
     @Nullable
@@ -96,5 +87,14 @@ public final class VideoSuggestion extends BaseSuggestion implements Serializabl
 
     public void setMetadata(@Nullable VideoSuggestionMetadata metadata) {
         mMetadata = metadata;
+    }
+
+    @UseStag(FieldOption.SERIALIZED_NAME)
+    public final static class VideoSuggestionMetadata implements Serializable {
+
+        private static final long serialVersionUID = -5853739822133424630L;
+
+        @SerializedName("score")
+        int mScore;
     }
 }

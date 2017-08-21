@@ -52,46 +52,51 @@ public abstract class BaseResponseList<T> implements Serializable {
     @SerializedName("data")
     private ArrayList<T> mData;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getter and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getter and Setters">'
     public int getTotal() {
         return mTotal;
+    }
+
+    public void setTotal(int total) {
+        mTotal = total;
     }
 
     public int getPage() {
         return mPage;
     }
 
-    public int getPerPage() {
-        return mPerPage;
-    }
-
-    public Paging getPaging() {
-        return mPaging;
-    }
-
-    public ArrayList<T> getData() {
-        return mData;
-    }
-
-    // TODO: maybe don't need
-    public abstract Class<T> getModelClass();
-
-    public void setTotal(int total) {
-        mTotal = total;
-    }
-
     public void setPage(int page) {
         mPage = page;
+    }
+
+    public int getPerPage() {
+        return mPerPage;
     }
 
     public void setPerPage(int perPage) {
         mPerPage = perPage;
     }
 
+    public Paging getPaging() {
+        return mPaging;
+    }
+
     public void setPaging(Paging paging) {
         mPaging = paging;
+    }
+
+    public ArrayList<T> getData() {
+        return mData;
     }
 
     public void setData(ArrayList<T> data) {
         mData = data;
     }
+    // </editor-fold>
+
+    // TODO: maybe don't need
+    public abstract Class<T> getModelClass();
 }

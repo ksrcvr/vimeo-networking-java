@@ -59,9 +59,17 @@ public class Credit implements Serializable {
     @SerializedName("user")
     private User mUser;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public String getUri() {
         return mUri;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
     }
 
     @Nullable
@@ -69,9 +77,17 @@ public class Credit implements Serializable {
         return mRole;
     }
 
+    public void setRole(@Nullable String role) {
+        mRole = role;
+    }
+
     @Nullable
     public String getName() {
         return mName;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
     }
 
     @Nullable
@@ -90,6 +106,17 @@ public class Credit implements Serializable {
 
     public void setUser(@Nullable User user) {
         this.mUser = user;
+    }
+    // </editor-fold>
+
+    @Override
+    public int hashCode() {
+        int result = mUri != null ? mUri.hashCode() : 0;
+        result = 31 * result + (mRole != null ? mRole.hashCode() : 0);
+        result = 31 * result + (mName != null ? mName.hashCode() : 0);
+        result = 31 * result + (mVideo != null ? mVideo.hashCode() : 0);
+        result = 31 * result + (mUser != null ? mUser.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -120,16 +147,6 @@ public class Credit implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int result = mUri != null ? mUri.hashCode() : 0;
-        result = 31 * result + (mRole != null ? mRole.hashCode() : 0);
-        result = 31 * result + (mName != null ? mName.hashCode() : 0);
-        result = 31 * result + (mVideo != null ? mVideo.hashCode() : 0);
-        result = 31 * result + (mUser != null ? mUser.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "Credit{" +
                "uri='" + mUri + '\'' +
@@ -138,17 +155,5 @@ public class Credit implements Serializable {
                ", video=" + mVideo +
                ", user=" + mUser +
                '}';
-    }
-
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
-    }
-
-    public void setRole(@Nullable String role) {
-        mRole = role;
-    }
-
-    public void setName(@Nullable String name) {
-        mName = name;
     }
 }

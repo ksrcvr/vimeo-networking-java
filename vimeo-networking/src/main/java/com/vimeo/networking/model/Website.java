@@ -49,20 +49,20 @@ public class Website implements Serializable {
         return mName;
     }
 
-    public String getLink() {
-        return mLink;
-    }
-
-    public String getDescription() {
-        return mDescription;
-    }
-
     public void setName(String name) {
         mName = name;
     }
 
+    public String getLink() {
+        return mLink;
+    }
+
     public void setLink(String link) {
         mLink = link;
+    }
+
+    public String getDescription() {
+        return mDescription;
     }
 
     public void setDescription(String description) {

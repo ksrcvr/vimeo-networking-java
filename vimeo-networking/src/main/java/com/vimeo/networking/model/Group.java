@@ -64,75 +64,80 @@ public class Group implements Serializable {
     @SerializedName("metadata")
     private Metadata mMetadata;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public String getUri() {
         return mUri;
-    }
-
-    public Date getCreatedTime() {
-        return mCreatedTime;
-    }
-
-    public String getGroupDescription() {
-        return mGroupDescription;
-    }
-
-    public String getLink() {
-        return mLink;
-    }
-
-    public String getName() {
-        return mName;
-    }
-
-    public PictureCollection getPictureCollection() {
-        return mPictureCollection;
-    }
-
-    public Privacy getPrivacy() {
-        return mPrivacy;
-    }
-
-    public User getUser() {
-        return mUser;
-    }
-
-    public Metadata getMetadata() {
-        return mMetadata;
     }
 
     public void setUri(String uri) {
         mUri = uri;
     }
 
+    public Date getCreatedTime() {
+        return mCreatedTime;
+    }
+
     public void setCreatedTime(Date createdTime) {
         mCreatedTime = createdTime;
+    }
+
+    public String getGroupDescription() {
+        return mGroupDescription;
     }
 
     public void setGroupDescription(String groupDescription) {
         mGroupDescription = groupDescription;
     }
 
+    public String getLink() {
+        return mLink;
+    }
+
     public void setLink(String link) {
         mLink = link;
+    }
+
+    public String getName() {
+        return mName;
     }
 
     public void setName(String name) {
         mName = name;
     }
 
+    public PictureCollection getPictureCollection() {
+        return mPictureCollection;
+    }
+
     public void setPictureCollection(PictureCollection pictureCollection) {
         mPictureCollection = pictureCollection;
+    }
+
+    public Privacy getPrivacy() {
+        return mPrivacy;
     }
 
     public void setPrivacy(Privacy privacy) {
         mPrivacy = privacy;
     }
 
+    public User getUser() {
+        return mUser;
+    }
+
     public void setUser(User user) {
         mUser = user;
+    }
+
+    public Metadata getMetadata() {
+        return mMetadata;
     }
 
     public void setMetadata(Metadata metadata) {
         mMetadata = metadata;
     }
+    // </editor-fold>
 }

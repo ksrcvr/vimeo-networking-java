@@ -82,48 +82,80 @@ public class FeedItem implements Serializable {
     @SerializedName("metadata")
     private Metadata mMetadata;
 
-    public void setClip(@Nullable Video video) {
-        mClip = video;
-    }
-
-    public void setUser(User user) {
-        mUser = user;
-    }
-
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public String getUri() {
         return mUri;
+    }
+
+    public void setUri(String uri) {
+        mUri = uri;
     }
 
     public Video getClip() {
         return mClip;
     }
 
+    public void setClip(@Nullable Video video) {
+        mClip = video;
+    }
+
     public Date getTime() {
         return mTime;
+    }
+
+    public void setTime(Date time) {
+        mTime = time;
     }
 
     public User getUser() {
         return mUser;
     }
 
+    public void setUser(User user) {
+        mUser = user;
+    }
+
     public Channel getChannel() {
         return mChannel;
+    }
+
+    public void setChannel(Channel channel) {
+        mChannel = channel;
     }
 
     public Category getCategory() {
         return mCategory;
     }
 
+    public void setCategory(Category category) {
+        mCategory = category;
+    }
+
     public Tag getTag() {
         return mTag;
+    }
+
+    public void setTag(Tag tag) {
+        mTag = tag;
     }
 
     public Group getGroup() {
         return mGroup;
     }
 
+    public void setGroup(Group group) {
+        mGroup = group;
+    }
+
     public Metadata getMetadata() {
         return mMetadata;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
     }
 
     public AttributionType getType() {
@@ -150,6 +182,16 @@ public class FeedItem implements Serializable {
         return AttributionType.NONE;
     }
 
+    public void setType(String type) {
+        mType = type;
+    }
+    // </editor-fold>
+
+    @Override
+    public int hashCode() {
+        return this.mClip.getResourceKey() != null ? this.mClip.getResourceKey().hashCode() : 0;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -164,43 +206,6 @@ public class FeedItem implements Serializable {
         return ((this.mClip != null && that.mClip != null) &&
                 (this.mClip.getResourceKey() != null && that.mClip.getResourceKey() != null) &&
                 this.mClip.getResourceKey().equals(that.mClip.getResourceKey()));
-    }
-
-    @Override
-    public int hashCode() {
-        return this.mClip.getResourceKey() != null ? this.mClip.getResourceKey().hashCode() : 0;
-    }
-
-    public void setUri(String uri) {
-        mUri = uri;
-    }
-
-    public void setType(String type) {
-        mType = type;
-    }
-
-    public void setTime(Date time) {
-        mTime = time;
-    }
-
-    public void setChannel(Channel channel) {
-        mChannel = channel;
-    }
-
-    public void setCategory(Category category) {
-        mCategory = category;
-    }
-
-    public void setTag(Tag tag) {
-        mTag = tag;
-    }
-
-    public void setGroup(Group group) {
-        mGroup = group;
-    }
-
-    public void setMetadata(Metadata metadata) {
-        mMetadata = metadata;
     }
 }
 

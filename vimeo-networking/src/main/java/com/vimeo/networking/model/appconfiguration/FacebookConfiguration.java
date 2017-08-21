@@ -36,12 +36,17 @@ public class FacebookConfiguration {
     @SerializedName("required_scopes")
     private String[] mRequiredScopes;
 
+    public String[] getRequiredScopes() {
+        return mRequiredScopes;
+    }
+
     public void setRequiredScopes(String[] requiredScopes) {
         mRequiredScopes = requiredScopes;
     }
 
-    public String[] getRequiredScopes() {
-        return mRequiredScopes;
+    @Override
+    public int hashCode() {
+        return mRequiredScopes != null ? Arrays.hashCode(mRequiredScopes) : 0;
     }
 
     @Override
@@ -57,10 +62,5 @@ public class FacebookConfiguration {
 
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
         return Arrays.deepEquals(mRequiredScopes, that.mRequiredScopes);
-    }
-
-    @Override
-    public int hashCode() {
-        return mRequiredScopes != null ? Arrays.hashCode(mRequiredScopes) : 0;
     }
 }

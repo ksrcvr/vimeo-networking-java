@@ -55,6 +55,33 @@ public class ProgramContentItem implements Serializable {
     private static final long serialVersionUID = -3929762661095254821L;
     private static final String S_CATEGORY = "category";
     private static final String S_CHANNEL = "channel";
+    @Nullable
+    @SerializedName("uri")
+    private String mUri;
+    @Nullable
+    @SerializedName("name")
+    private String mName;
+    @Nullable
+    @SerializedName("type")
+    private Type mType;
+    @Nullable
+    @SerializedName("content")
+    private ArrayList<Video> mVideoList;
+    @Nullable
+    @SerializedName("metadata")
+    private Metadata mMetadata;
+    /**
+     * Non-null when {@link #mType} is {@link Type#CHANNEL}
+     */
+    @Nullable
+    @SerializedName("channel")
+    private Channel mChannel;
+    /**
+     * Non-null when {@link #mType} is {@link Type#CATEGORY}
+     */
+    @Nullable
+    @SerializedName("category")
+    private Category mCategory;
 
     @UseStag
     public enum Type {
@@ -75,40 +102,6 @@ public class ProgramContentItem implements Serializable {
         }
     }
 
-    @Nullable
-    @SerializedName("uri")
-    private String mUri;
-
-    @Nullable
-    @SerializedName("name")
-    private String mName;
-
-    @Nullable
-    @SerializedName("type")
-    private Type mType;
-
-    @Nullable
-    @SerializedName("content")
-    private ArrayList<Video> mVideoList;
-
-    @Nullable
-    @SerializedName("metadata")
-    private Metadata mMetadata;
-
-    /**
-     * Non-null when {@link #mType} is {@link Type#CHANNEL}
-     */
-    @Nullable
-    @SerializedName("channel")
-    private Channel mChannel;
-
-    /**
-     * Non-null when {@link #mType} is {@link Type#CATEGORY}
-     */
-    @Nullable
-    @SerializedName("category")
-    private Category mCategory;
-
     /**
      * @return The uri to the original data source (as a String)
      */
@@ -117,12 +110,20 @@ public class ProgramContentItem implements Serializable {
         return mUri;
     }
 
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
     /**
      * @return The display name of the content item.
      */
     @Nullable
     public String getName() {
         return mName;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
     }
 
     /**
@@ -135,6 +136,10 @@ public class ProgramContentItem implements Serializable {
         return mType;
     }
 
+    public void setType(@Nullable Type type) {
+        mType = type;
+    }
+
     /**
      * @return A short (currently 5 count) {@link VideoList} containing the first page of video content for the
      * content item.
@@ -142,6 +147,10 @@ public class ProgramContentItem implements Serializable {
     @Nullable
     public List<Video> getVideoList() {
         return mVideoList;
+    }
+
+    public void setVideoList(@Nullable ArrayList<Video> videoList) {
+        mVideoList = videoList;
     }
 
     /**
@@ -153,6 +162,10 @@ public class ProgramContentItem implements Serializable {
         return mMetadata;
     }
 
+    public void setMetadata(@Nullable Metadata metadata) {
+        mMetadata = metadata;
+    }
+
     /**
      * @return A {@link Channel} when {@link #getType()} returns {@link Type#CHANNEL}, otherwise null
      */
@@ -161,12 +174,20 @@ public class ProgramContentItem implements Serializable {
         return mChannel;
     }
 
+    public void setChannel(@Nullable Channel channel) {
+        mChannel = channel;
+    }
+
     /**
      * @return A {@link Category} when {@link #getType()} returns {@link Type#CATEGORY}, otherwise null
      */
     @Nullable
     public Category getCategory() {
         return mCategory;
+    }
+
+    public void setCategory(@Nullable Category category) {
+        mCategory = category;
     }
 
     /**
@@ -179,33 +200,5 @@ public class ProgramContentItem implements Serializable {
         Connection contents = connections != null ? connections.getContents() : null;
 
         return contents != null ? contents.getUri() : null;
-    }
-
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
-    }
-
-    public void setName(@Nullable String name) {
-        mName = name;
-    }
-
-    public void setType(@Nullable Type type) {
-        mType = type;
-    }
-
-    public void setVideoList(@Nullable ArrayList<Video> videoList) {
-        mVideoList = videoList;
-    }
-
-    public void setMetadata(@Nullable Metadata metadata) {
-        mMetadata = metadata;
-    }
-
-    public void setChannel(@Nullable Channel channel) {
-        mChannel = channel;
-    }
-
-    public void setCategory(@Nullable Category category) {
-        mCategory = category;
     }
 }

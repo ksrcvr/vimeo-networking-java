@@ -50,6 +50,13 @@ public class SuggestionResponse implements Serializable {
     private ArrayList<VideoSuggestion> mVideoSuggestions;
 
     @Override
+    public int hashCode() {
+        int result = mTvodSuggestions != null ? mTvodSuggestions.hashCode() : 0;
+        result = 31 * result + (mVideoSuggestions != null ? mVideoSuggestions.hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) { return true; }
         if (o == null || getClass() != o.getClass()) { return false; }
@@ -61,13 +68,6 @@ public class SuggestionResponse implements Serializable {
         }
         return mVideoSuggestions != null ? mVideoSuggestions.equals(that.mVideoSuggestions) : that.mVideoSuggestions == null;
 
-    }
-
-    @Override
-    public int hashCode() {
-        int result = mTvodSuggestions != null ? mTvodSuggestions.hashCode() : 0;
-        result = 31 * result + (mVideoSuggestions != null ? mVideoSuggestions.hashCode() : 0);
-        return result;
     }
 
     @Override
@@ -83,13 +83,13 @@ public class SuggestionResponse implements Serializable {
         return mTvodSuggestions;
     }
 
+    public void setTvodSuggestions(@Nullable ArrayList<TvodSuggestion> tvodSuggestions) {
+        mTvodSuggestions = tvodSuggestions;
+    }
+
     @Nullable
     public ArrayList<VideoSuggestion> getVideoSuggestions() {
         return mVideoSuggestions;
-    }
-
-    public void setTvodSuggestions(@Nullable ArrayList<TvodSuggestion> tvodSuggestions) {
-        mTvodSuggestions = tvodSuggestions;
     }
 
     public void setVideoSuggestions(@Nullable ArrayList<VideoSuggestion> videoSuggestions) {

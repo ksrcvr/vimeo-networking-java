@@ -57,21 +57,21 @@ public class EmbedHtml implements Serializable {
         return mWidth;
     }
 
+    public void setWidth(int width) {
+        mWidth = width;
+    }
+
     public int getHeight() {
         return mHeight;
+    }
+
+    public void setHeight(int height) {
+        mHeight = height;
     }
 
     @Nullable
     public String getHtml() {
         return mHtml;
-    }
-
-    public void setWidth(int width) {
-        mWidth = width;
-    }
-
-    public void setHeight(int height) {
-        mHeight = height;
     }
 
     public void setHtml(@Nullable String html) {

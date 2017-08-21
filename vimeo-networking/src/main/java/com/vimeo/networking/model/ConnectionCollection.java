@@ -173,9 +173,17 @@ public class ConnectionCollection implements Serializable {
     @SerializedName("contents")
     private Connection mContents;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public Connection getVideos() {
         return mVideos;
+    }
+
+    public void setVideos(@Nullable Connection videos) {
+        mVideos = videos;
     }
 
     @Nullable
@@ -183,9 +191,17 @@ public class ConnectionCollection implements Serializable {
         return mCategories;
     }
 
+    public void setCategories(@Nullable Connection categories) {
+        mCategories = categories;
+    }
+
     @Nullable
     public Connection getComments() {
         return mComments;
+    }
+
+    public void setComments(@Nullable Connection comments) {
+        mComments = comments;
     }
 
     @Nullable
@@ -193,9 +209,17 @@ public class ConnectionCollection implements Serializable {
         return mCredits;
     }
 
+    public void setCredits(@Nullable Connection credits) {
+        mCredits = credits;
+    }
+
     @Nullable
     public Connection getLikes() {
         return mLikes;
+    }
+
+    public void setLikes(@Nullable Connection likes) {
+        mLikes = likes;
     }
 
     @Nullable
@@ -203,9 +227,17 @@ public class ConnectionCollection implements Serializable {
         return mPictures;
     }
 
+    public void setPictures(@Nullable Connection pictures) {
+        mPictures = pictures;
+    }
+
     @Nullable
     public Connection getTexttracks() {
         return mTexttracks;
+    }
+
+    public void setTexttracks(@Nullable Connection texttracks) {
+        mTexttracks = texttracks;
     }
 
     @Nullable
@@ -213,9 +245,17 @@ public class ConnectionCollection implements Serializable {
         return mActivities;
     }
 
+    public void setActivities(@Nullable Connection activities) {
+        mActivities = activities;
+    }
+
     @Nullable
     public Connection getAlbums() {
         return mAlbums;
+    }
+
+    public void setAlbums(@Nullable Connection albums) {
+        mAlbums = albums;
     }
 
     @Nullable
@@ -223,9 +263,17 @@ public class ConnectionCollection implements Serializable {
         return mChannels;
     }
 
+    public void setChannels(@Nullable Connection channels) {
+        mChannels = channels;
+    }
+
     @Nullable
     public Connection getModeratedChannels() {
         return mModeratedChannels;
+    }
+
+    public void setModeratedChannels(@Nullable Connection moderatedChannels) {
+        mModeratedChannels = moderatedChannels;
     }
 
     @Nullable
@@ -233,9 +281,17 @@ public class ConnectionCollection implements Serializable {
         return mFeed;
     }
 
+    public void setFeed(@Nullable Connection feed) {
+        mFeed = feed;
+    }
+
     @Nullable
     public Connection getFollowers() {
         return mFollowers;
+    }
+
+    public void setFollowers(@Nullable Connection followers) {
+        mFollowers = followers;
     }
 
     @Nullable
@@ -243,9 +299,17 @@ public class ConnectionCollection implements Serializable {
         return mFollowing;
     }
 
+    public void setFollowing(@Nullable Connection following) {
+        mFollowing = following;
+    }
+
     @Nullable
     public Connection getGroups() {
         return mGroups;
+    }
+
+    public void setGroups(@Nullable Connection groups) {
+        mGroups = groups;
     }
 
     @Nullable
@@ -253,9 +317,17 @@ public class ConnectionCollection implements Serializable {
         return mPortfolios;
     }
 
+    public void setPortfolios(@Nullable Connection portfolios) {
+        mPortfolios = portfolios;
+    }
+
     @Nullable
     public Connection getShared() {
         return mShared;
+    }
+
+    public void setShared(@Nullable Connection shared) {
+        mShared = shared;
     }
 
     @Nullable
@@ -263,9 +335,17 @@ public class ConnectionCollection implements Serializable {
         return mRecommendations;
     }
 
+    public void setRecommendations(@Nullable Connection recommendations) {
+        mRecommendations = recommendations;
+    }
+
     @Nullable
     public Connection getAppearances() {
         return mAppearances;
+    }
+
+    public void setAppearances(@Nullable Connection appearances) {
+        mAppearances = appearances;
     }
 
     @Nullable
@@ -273,9 +353,17 @@ public class ConnectionCollection implements Serializable {
         return mRelated;
     }
 
+    public void setRelated(@Nullable Connection related) {
+        mRelated = related;
+    }
+
     @Nullable
     public Connection getReplies() {
         return mReplies;
+    }
+
+    public void setReplies(@Nullable Connection replies) {
+        mReplies = replies;
     }
 
     @Nullable
@@ -283,9 +371,17 @@ public class ConnectionCollection implements Serializable {
         return mUsers;
     }
 
+    public void setUsers(@Nullable Connection users) {
+        mUsers = users;
+    }
+
     @Nullable
     public Connection getWatchlater() {
         return mWatchlater;
+    }
+
+    public void setWatchlater(@Nullable Connection watchlater) {
+        mWatchlater = watchlater;
     }
 
     @Nullable
@@ -293,9 +389,17 @@ public class ConnectionCollection implements Serializable {
         return mTvod;
     }
 
+    public void setTvod(@Nullable Connection tvod) {
+        mTvod = tvod;
+    }
+
     @Nullable
     public Connection getSeason() {
         return mSeason;
+    }
+
+    public void setSeason(@Nullable Connection season) {
+        mSeason = season;
     }
 
     @Nullable
@@ -303,9 +407,17 @@ public class ConnectionCollection implements Serializable {
         return mSeasons;
     }
 
+    public void setSeasons(@Nullable Connection seasons) {
+        mSeasons = seasons;
+    }
+
     @Nullable
     public Connection getTrailer() {
         return mTrailer;
+    }
+
+    public void setTrailer(@Nullable Connection trailer) {
+        mTrailer = trailer;
     }
 
     @Nullable
@@ -313,9 +425,17 @@ public class ConnectionCollection implements Serializable {
         return mPlaybackFailureReason;
     }
 
+    public void setPlaybackFailureReason(@Nullable Connection playbackFailureReason) {
+        mPlaybackFailureReason = playbackFailureReason;
+    }
+
     @Nullable
     public Connection getRecommendedChannels() {
         return mRecommendedChannels;
+    }
+
+    public void setRecommendedChannels(@Nullable Connection recommendedChannels) {
+        mRecommendedChannels = recommendedChannels;
     }
 
     @Nullable
@@ -323,9 +443,17 @@ public class ConnectionCollection implements Serializable {
         return mRecommendedUsers;
     }
 
+    public void setRecommendedUsers(@Nullable Connection recommendedUsers) {
+        mRecommendedUsers = recommendedUsers;
+    }
+
     @Nullable
     public Connection getWatchedVideos() {
         return mWatchedVideos;
+    }
+
+    public void setWatchedVideos(@Nullable Connection watchedVideos) {
+        mWatchedVideos = watchedVideos;
     }
 
     @Nullable
@@ -333,140 +461,17 @@ public class ConnectionCollection implements Serializable {
         return mNotifications;
     }
 
+    public void setNotifications(@Nullable NotificationConnection notifications) {
+        mNotifications = notifications;
+    }
+
     @Nullable
     public Connection getContents() {
         return mContents;
     }
 
-    public void setVideos(@Nullable Connection videos) {
-        mVideos = videos;
-    }
-
-    public void setCategories(@Nullable Connection categories) {
-        mCategories = categories;
-    }
-
-    public void setComments(@Nullable Connection comments) {
-        mComments = comments;
-    }
-
-    public void setCredits(@Nullable Connection credits) {
-        mCredits = credits;
-    }
-
-    public void setLikes(@Nullable Connection likes) {
-        mLikes = likes;
-    }
-
-    public void setPictures(@Nullable Connection pictures) {
-        mPictures = pictures;
-    }
-
-    public void setTexttracks(@Nullable Connection texttracks) {
-        mTexttracks = texttracks;
-    }
-
-    public void setActivities(@Nullable Connection activities) {
-        mActivities = activities;
-    }
-
-    public void setAlbums(@Nullable Connection albums) {
-        mAlbums = albums;
-    }
-
-    public void setChannels(@Nullable Connection channels) {
-        mChannels = channels;
-    }
-
-    public void setModeratedChannels(@Nullable Connection moderatedChannels) {
-        mModeratedChannels = moderatedChannels;
-    }
-
-    public void setFeed(@Nullable Connection feed) {
-        mFeed = feed;
-    }
-
-    public void setFollowers(@Nullable Connection followers) {
-        mFollowers = followers;
-    }
-
-    public void setFollowing(@Nullable Connection following) {
-        mFollowing = following;
-    }
-
-    public void setGroups(@Nullable Connection groups) {
-        mGroups = groups;
-    }
-
-    public void setPortfolios(@Nullable Connection portfolios) {
-        mPortfolios = portfolios;
-    }
-
-    public void setShared(@Nullable Connection shared) {
-        mShared = shared;
-    }
-
-    public void setRecommendations(@Nullable Connection recommendations) {
-        mRecommendations = recommendations;
-    }
-
-    public void setAppearances(@Nullable Connection appearances) {
-        mAppearances = appearances;
-    }
-
-    public void setRelated(@Nullable Connection related) {
-        mRelated = related;
-    }
-
-    public void setReplies(@Nullable Connection replies) {
-        mReplies = replies;
-    }
-
-    public void setUsers(@Nullable Connection users) {
-        mUsers = users;
-    }
-
-    public void setWatchlater(@Nullable Connection watchlater) {
-        mWatchlater = watchlater;
-    }
-
-    public void setTvod(@Nullable Connection tvod) {
-        mTvod = tvod;
-    }
-
-    public void setSeason(@Nullable Connection season) {
-        mSeason = season;
-    }
-
-    public void setSeasons(@Nullable Connection seasons) {
-        mSeasons = seasons;
-    }
-
-    public void setTrailer(@Nullable Connection trailer) {
-        mTrailer = trailer;
-    }
-
-    public void setPlaybackFailureReason(@Nullable Connection playbackFailureReason) {
-        mPlaybackFailureReason = playbackFailureReason;
-    }
-
-    public void setRecommendedChannels(@Nullable Connection recommendedChannels) {
-        mRecommendedChannels = recommendedChannels;
-    }
-
-    public void setRecommendedUsers(@Nullable Connection recommendedUsers) {
-        mRecommendedUsers = recommendedUsers;
-    }
-
-    public void setWatchedVideos(@Nullable Connection watchedVideos) {
-        mWatchedVideos = watchedVideos;
-    }
-
-    public void setNotifications(@Nullable NotificationConnection notifications) {
-        mNotifications = notifications;
-    }
-
     public void setContents(@Nullable Connection contents) {
         mContents = contents;
     }
+    // </editor-fold>
 }

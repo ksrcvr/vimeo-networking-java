@@ -60,22 +60,22 @@ public class SubscriptionCollection implements Serializable {
         return mUri;
     }
 
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
     @Nullable
     public Date getModifiedTime() {
         return mModifiedTime;
     }
 
+    public void setModifiedTime(@Nullable Date modifiedTime) {
+        mModifiedTime = modifiedTime;
+    }
+
     @Nullable
     public Subscriptions getSubscriptions() {
         return mSubscriptions;
-    }
-
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
-    }
-
-    public void setModifiedTime(@Nullable Date modifiedTime) {
-        mModifiedTime = modifiedTime;
     }
 
     public void setSubscriptions(@Nullable Subscriptions subscriptions) {

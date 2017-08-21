@@ -66,9 +66,17 @@ public class SearchFacetCollection implements Serializable {
     @SerializedName("user_type")
     private SearchFacet mUserTypeFacet;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public SearchFacet getTypeFacet() {
         return mTypeFacet;
+    }
+
+    public void setTypeFacet(@Nullable SearchFacet typeFacet) {
+        mTypeFacet = typeFacet;
     }
 
     @Nullable
@@ -76,9 +84,17 @@ public class SearchFacetCollection implements Serializable {
         return mCategoryFacet;
     }
 
+    public void setCategoryFacet(@Nullable SearchFacet categoryFacet) {
+        mCategoryFacet = categoryFacet;
+    }
+
     @Nullable
     public SearchFacet getDurationFacet() {
         return mDurationFacet;
+    }
+
+    public void setDurationFacet(@Nullable SearchFacet durationFacet) {
+        mDurationFacet = durationFacet;
     }
 
     @Nullable
@@ -86,9 +102,17 @@ public class SearchFacetCollection implements Serializable {
         return mLicenseFacet;
     }
 
+    public void setLicenseFacet(@Nullable SearchFacet licenseFacet) {
+        mLicenseFacet = licenseFacet;
+    }
+
     @Nullable
     public SearchFacet getUploadedFacet() {
         return mUploadedFacet;
+    }
+
+    public void setUploadedFacet(@Nullable SearchFacet uploadedFacet) {
+        mUploadedFacet = uploadedFacet;
     }
 
     @Nullable
@@ -96,27 +120,8 @@ public class SearchFacetCollection implements Serializable {
         return mUserTypeFacet;
     }
 
-    public void setTypeFacet(@Nullable SearchFacet typeFacet) {
-        mTypeFacet = typeFacet;
-    }
-
-    public void setCategoryFacet(@Nullable SearchFacet categoryFacet) {
-        mCategoryFacet = categoryFacet;
-    }
-
-    public void setDurationFacet(@Nullable SearchFacet durationFacet) {
-        mDurationFacet = durationFacet;
-    }
-
-    public void setLicenseFacet(@Nullable SearchFacet licenseFacet) {
-        mLicenseFacet = licenseFacet;
-    }
-
-    public void setUploadedFacet(@Nullable SearchFacet uploadedFacet) {
-        mUploadedFacet = uploadedFacet;
-    }
-
     public void setUserTypeFacet(@Nullable SearchFacet userTypeFacet) {
         mUserTypeFacet = userTypeFacet;
     }
+    // </editor-fold>
 }

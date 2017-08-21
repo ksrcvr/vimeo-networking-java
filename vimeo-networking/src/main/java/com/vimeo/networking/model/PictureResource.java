@@ -45,27 +45,32 @@ public class PictureResource implements Serializable {
     @SerializedName("link")
     private String mLink;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public String getUri() {
         return mUri;
-    }
-
-    public boolean isActive() {
-        return mActive;
-    }
-
-    public String getLink() {
-        return mLink;
     }
 
     public void setUri(String uri) {
         mUri = uri;
     }
 
+    public boolean isActive() {
+        return mActive;
+    }
+
     public void setActive(boolean active) {
         mActive = active;
+    }
+
+    public String getLink() {
+        return mLink;
     }
 
     public void setLink(String link) {
         mLink = link;
     }
+    // </editor-fold>
 }

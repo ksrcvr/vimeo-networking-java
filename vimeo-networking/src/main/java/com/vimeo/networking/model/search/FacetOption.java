@@ -62,21 +62,21 @@ public class FacetOption implements Serializable {
         return mName;
     }
 
+    public void setName(@Nullable String name) {
+        mName = name;
+    }
+
     public int getTotal() {
         return mTotal;
+    }
+
+    public void setTotal(int total) {
+        mTotal = total;
     }
 
     @Nullable
     public String getText() {
         return mText;
-    }
-
-    public void setName(@Nullable String name) {
-        mName = name;
-    }
-
-    public void setTotal(int total) {
-        mTotal = total;
     }
 
     public void setText(@Nullable String text) {

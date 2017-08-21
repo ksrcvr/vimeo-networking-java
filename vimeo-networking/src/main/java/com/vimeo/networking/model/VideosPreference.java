@@ -55,6 +55,10 @@ public class VideosPreference implements Serializable {
         return mPassword;
     }
 
+    public void setPassword(@Nullable String password) {
+        mPassword = password;
+    }
+
     /**
      * Return the default {@link Privacy} the user has set up for their videos
      */
@@ -65,9 +69,5 @@ public class VideosPreference implements Serializable {
 
     public void setPrivacy(@Nullable Privacy privacy) {
         mPrivacy = privacy;
-    }
-
-    public void setPassword(@Nullable String password) {
-        mPassword = password;
     }
 }

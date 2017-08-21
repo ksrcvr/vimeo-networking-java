@@ -53,6 +53,10 @@ public class EmbedLogos implements Serializable {
         return mVimeoLogoVisible;
     }
 
+    public void setVimeoLogoVisible(boolean vimeoLogoVisible) {
+        mVimeoLogoVisible = vimeoLogoVisible;
+    }
+
     /**
      * @param visible Show or hide the vimeo logo
      */
@@ -70,9 +74,5 @@ public class EmbedLogos implements Serializable {
      */
     public void setCustom(@Nullable EmbedCustomLogos custom) {
         this.mCustom = custom;
-    }
-
-    public void setVimeoLogoVisible(boolean vimeoLogoVisible) {
-        mVimeoLogoVisible = vimeoLogoVisible;
     }
 }

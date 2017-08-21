@@ -77,16 +77,32 @@ public class UserBadge implements Serializable {
     @SerializedName(value = "url", alternate = "m_url")
     private String mUrl;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public String getText() {
         return mText;
+    }
+
+    public void setText(String text) {
+        mText = text;
     }
 
     public String getAlternateText() {
         return mAlternateText;
     }
 
+    public void setAlternateText(String alternateText) {
+        mAlternateText = alternateText;
+    }
+
     public String getUrl() {
         return mUrl;
+    }
+
+    public void setUrl(String url) {
+        mUrl = url;
     }
 
     @NotNull
@@ -120,16 +136,5 @@ public class UserBadge implements Serializable {
     public void setBadgeType(String badgeType) {
         mBadgeType = badgeType;
     }
-
-    public void setText(String text) {
-        mText = text;
-    }
-
-    public void setAlternateText(String alternateText) {
-        mAlternateText = alternateText;
-    }
-
-    public void setUrl(String url) {
-        mUrl = url;
-    }
+    // </editor-fold>
 }

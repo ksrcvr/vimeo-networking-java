@@ -89,8 +89,16 @@ public class Interaction implements Serializable {
     @SerializedName("expires_time")
     private Date mExpiration;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public boolean isAdded() {
         return mAdded;
+    }
+
+    public void setAdded(boolean added) {
+        mAdded = added;
     }
 
     @Nullable
@@ -98,9 +106,17 @@ public class Interaction implements Serializable {
         return mAddedTime;
     }
 
+    public void setAddedTime(@Nullable Date addedTime) {
+        mAddedTime = addedTime;
+    }
+
     @Nullable
     public String getUri() {
         return mUri;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
     }
 
     @Nullable
@@ -108,32 +124,21 @@ public class Interaction implements Serializable {
         return mStream;
     }
 
+    public void setStream(@Nullable Stream stream) {
+        mStream = stream;
+    }
+
     @Nullable
     public Date getExpiration() {
         return mExpiration;
     }
 
-    public void setIsAdded(boolean added) {
-        mAdded = added;
-    }
-
-    public void setAdded(boolean added) {
-        mAdded = added;
-    }
-
-    public void setAddedTime(@Nullable Date addedTime) {
-        mAddedTime = addedTime;
-    }
-
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
-    }
-
-    public void setStream(@Nullable Stream stream) {
-        mStream = stream;
-    }
-
     public void setExpiration(@Nullable Date expiration) {
         mExpiration = expiration;
     }
+
+    public void setIsAdded(boolean added) {
+        mAdded = added;
+    }
+    // </editor-fold>
 }

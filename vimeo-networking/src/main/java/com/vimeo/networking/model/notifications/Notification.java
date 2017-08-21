@@ -80,14 +80,26 @@ public class Notification implements Serializable {
     @SerializedName("seen")
     private boolean mIsSeen;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public String getUri() {
         return mUri;
     }
 
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
+    }
+
     @Nullable
     public Date getCreatedDate() {
         return mCreatedDate;
+    }
+
+    public void setCreatedDate(@Nullable Date createdDate) {
+        mCreatedDate = createdDate;
     }
 
     @NotNull
@@ -135,8 +147,38 @@ public class Notification implements Serializable {
         return mIsNew;
     }
 
+    public void setNew(boolean aNew) {
+        mIsNew = aNew;
+    }
+
     public boolean isSeen() {
         return mIsSeen;
+    }
+
+    public void setSeen(boolean seen) {
+        mIsSeen = seen;
+    }
+
+    @NotNull
+    public String getType() {
+        return mType;
+    }
+
+    public void setType(@NotNull String type) {
+        mType = type;
+    }
+    // </editor-fold>
+
+    @Override
+    public int hashCode() {
+        int result = mUri != null ? mUri.hashCode() : 0;
+        result = 31 * result + (mCreatedDate != null ? mCreatedDate.hashCode() : 0);
+        result = 31 * result + mType.hashCode();
+        result = 31 * result + (mUser != null ? mUser.hashCode() : 0);
+        result = 31 * result + (mComment != null ? mComment.hashCode() : 0);
+        result = 31 * result + (mVideo != null ? mVideo.hashCode() : 0);
+        result = 31 * result + (mCredit != null ? mCredit.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -173,18 +215,6 @@ public class Notification implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int result = mUri != null ? mUri.hashCode() : 0;
-        result = 31 * result + (mCreatedDate != null ? mCreatedDate.hashCode() : 0);
-        result = 31 * result + mType.hashCode();
-        result = 31 * result + (mUser != null ? mUser.hashCode() : 0);
-        result = 31 * result + (mComment != null ? mComment.hashCode() : 0);
-        result = 31 * result + (mVideo != null ? mVideo.hashCode() : 0);
-        result = 31 * result + (mCredit != null ? mCredit.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "Notification{" +
                "uri='" + mUri + '\'' +
@@ -195,30 +225,5 @@ public class Notification implements Serializable {
                ", video=" + mVideo +
                ", credit=" + mCredit +
                '}';
-    }
-
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
-    }
-
-    public void setCreatedDate(@Nullable Date createdDate) {
-        mCreatedDate = createdDate;
-    }
-
-    @NotNull
-    public String getType() {
-        return mType;
-    }
-
-    public void setType(@NotNull String type) {
-        mType = type;
-    }
-
-    public void setNew(boolean aNew) {
-        mIsNew = aNew;
-    }
-
-    public void setSeen(boolean seen) {
-        mIsSeen = seen;
     }
 }

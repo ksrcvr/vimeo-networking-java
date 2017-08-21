@@ -51,20 +51,20 @@ public class Space implements Serializable {
         return mFree;
     }
 
-    public long getMax() {
-        return mMax;
-    }
-
-    public long getUsed() {
-        return mUsed;
-    }
-
     public void setFree(long free) {
         mFree = free;
     }
 
+    public long getMax() {
+        return mMax;
+    }
+
     public void setMax(long max) {
         mMax = max;
+    }
+
+    public long getUsed() {
+        return mUsed;
     }
 
     public void setUsed(long used) {

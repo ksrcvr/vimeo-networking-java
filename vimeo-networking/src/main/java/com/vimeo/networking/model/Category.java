@@ -74,9 +74,17 @@ public class Category implements Serializable, Followable {
     @SerializedName("metadata")
     private Metadata mMetadata;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public String getUri() {
         return mUri;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
     }
 
     @Nullable
@@ -84,13 +92,25 @@ public class Category implements Serializable, Followable {
         return mName;
     }
 
+    public void setName(@Nullable String name) {
+        mName = name;
+    }
+
     @Nullable
     public String getLink() {
         return mLink;
     }
 
+    public void setLink(@Nullable String link) {
+        mLink = link;
+    }
+
     public boolean isTopLevel() {
         return mTopLevel;
+    }
+
+    public void setTopLevel(boolean topLevel) {
+        mTopLevel = topLevel;
     }
 
     @Nullable
@@ -98,9 +118,17 @@ public class Category implements Serializable, Followable {
         return mPictures;
     }
 
+    public void setPictures(@Nullable PictureCollection pictures) {
+        mPictures = pictures;
+    }
+
     @Nullable
     public ArrayList<Category> getSubcategories() {
         return mSubcategories;
+    }
+
+    public void setSubcategories(@Nullable ArrayList<Category> subcategories) {
+        mSubcategories = subcategories;
     }
 
     @Nullable
@@ -108,9 +136,17 @@ public class Category implements Serializable, Followable {
         return mParent;
     }
 
+    public void setParent(@Nullable Category parent) {
+        mParent = parent;
+    }
+
     @Nullable
     public Metadata getMetadata() {
         return mMetadata;
+    }
+
+    public void setMetadata(@Nullable Metadata metadata) {
+        mMetadata = metadata;
     }
 
     @Nullable
@@ -171,8 +207,14 @@ public class Category implements Serializable, Followable {
         return mIcon;
     }
 
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
+    public void setIcon(@Nullable PictureCollection icon) {
+        mIcon = icon;
+    }
+    // </editor-fold>
+
+    @Override
+    public int hashCode() {
+        return this.mUri != null ? this.mUri.hashCode() : 0;
     }
 
     @Override
@@ -187,42 +229,5 @@ public class Category implements Serializable, Followable {
         Category that = (Category) o;
 
         return ((this.mUri != null && that.mUri != null) && this.mUri.equals(that.mUri));
-    }
-
-    @Override
-    public int hashCode() {
-        return this.mUri != null ? this.mUri.hashCode() : 0;
-    }
-
-    public void setName(@Nullable String name) {
-        mName = name;
-    }
-
-    public void setLink(@Nullable String link) {
-        mLink = link;
-    }
-
-    public void setTopLevel(boolean topLevel) {
-        mTopLevel = topLevel;
-    }
-
-    public void setPictures(@Nullable PictureCollection pictures) {
-        mPictures = pictures;
-    }
-
-    public void setIcon(@Nullable PictureCollection icon) {
-        mIcon = icon;
-    }
-
-    public void setSubcategories(@Nullable ArrayList<Category> subcategories) {
-        mSubcategories = subcategories;
-    }
-
-    public void setParent(@Nullable Category parent) {
-        mParent = parent;
-    }
-
-    public void setMetadata(@Nullable Metadata metadata) {
-        mMetadata = metadata;
     }
 }

@@ -39,6 +39,7 @@ import java.io.Serializable;
 public class Privacy implements Serializable {
 
     private static final long serialVersionUID = -1679908652622815871L;
+
     private static final String PRIVACY_NOBODY = "nobody";
     private static final String PRIVACY_USERS = "users";
     private static final String PRIVACY_ANYBODY = "anybody";
@@ -74,11 +75,6 @@ public class Privacy implements Serializable {
             this.text = text;
         }
 
-        @NotNull
-        public String getText() {
-            return this.text;
-        }
-
         @Nullable
         public static PrivacyValue privacyValueFromString(String string) {
             if (string != null) {
@@ -89,6 +85,11 @@ public class Privacy implements Serializable {
                 }
             }
             return null;
+        }
+
+        @NotNull
+        public String getText() {
+            return this.text;
         }
     }
 
@@ -110,9 +111,17 @@ public class Privacy implements Serializable {
     @SerializedName("comments")
     private PrivacyValue mComments;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public PrivacyValue getView() {
         return mView;
+    }
+
+    public void setView(@Nullable PrivacyValue view) {
+        mView = view;
     }
 
     @Nullable
@@ -120,12 +129,24 @@ public class Privacy implements Serializable {
         return mEmbed;
     }
 
+    public void setEmbed(@Nullable String embed) {
+        mEmbed = embed;
+    }
+
     public boolean isDownload() {
         return mDownload;
     }
 
+    public void setDownload(boolean download) {
+        mDownload = download;
+    }
+
     public boolean isAdd() {
         return mAdd;
+    }
+
+    public void setAdd(boolean add) {
+        mAdd = add;
     }
 
     @Nullable
@@ -133,23 +154,8 @@ public class Privacy implements Serializable {
         return mComments;
     }
 
-    public void setView(@Nullable PrivacyValue view) {
-        mView = view;
-    }
-
-    public void setEmbed(@Nullable String embed) {
-        mEmbed = embed;
-    }
-
-    public void setDownload(boolean download) {
-        mDownload = download;
-    }
-
-    public void setAdd(boolean add) {
-        mAdd = add;
-    }
-
     public void setComments(@Nullable PrivacyValue comments) {
         mComments = comments;
     }
+    // </editor-fold>
 }

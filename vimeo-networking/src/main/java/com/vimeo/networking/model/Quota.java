@@ -48,12 +48,12 @@ public class Quota implements Serializable {
         return mHd;
     }
 
-    public boolean isSd() {
-        return mSd;
-    }
-
     public void setHd(boolean hd) {
         mHd = hd;
+    }
+
+    public boolean isSd() {
+        return mSd;
     }
 
     public void setSd(boolean sd) {

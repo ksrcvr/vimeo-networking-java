@@ -62,10 +62,9 @@ public class VideoBadge implements Serializable {
     private PictureCollection mPictureCollection;
 
     // -----------------------------------------------------------------------------------------------------
-    // Getters
+    // Getters and Setters
     // -----------------------------------------------------------------------------------------------------
-    // <editor-fold desc="Getters">
-
+    // <editor-fold desc="Getters and Setters">
     /**
      * A type of the badge, such as "staffpick", "vod", or "weekendchallenge". These are
      * not meant to be user-facing. These types may change over time, which is why this is
@@ -78,12 +77,20 @@ public class VideoBadge implements Serializable {
         return mType;
     }
 
+    public void setType(@Nullable String type) {
+        mType = type;
+    }
+
     /**
      * @return The non-user-facing festival description, null if the award is not from a festival
      */
     @Nullable
     public String getFestival() {
         return mFestival;
+    }
+
+    public void setFestival(@Nullable String festival) {
+        mFestival = festival;
     }
 
     /**
@@ -95,6 +102,10 @@ public class VideoBadge implements Serializable {
         return mLink;
     }
 
+    public void setLink(@Nullable String link) {
+        mLink = link;
+    }
+
     /**
      * @return The human-readable name of the badge such as "Staff Pick",
      * "Vimeo On Demand" or "Weekend Challenge"
@@ -104,6 +115,10 @@ public class VideoBadge implements Serializable {
         return mText;
     }
 
+    public void setText(@Nullable String text) {
+        mText = text;
+    }
+
     /**
      * @return The {@link PictureCollection} representing
      * the badge - it should be used to show badge's image
@@ -111,22 +126,6 @@ public class VideoBadge implements Serializable {
     @Nullable
     public PictureCollection getPictureCollection() {
         return mPictureCollection;
-    }
-
-    public void setType(@Nullable String type) {
-        mType = type;
-    }
-
-    public void setFestival(@Nullable String festival) {
-        mFestival = festival;
-    }
-
-    public void setLink(@Nullable String link) {
-        mLink = link;
-    }
-
-    public void setText(@Nullable String text) {
-        mText = text;
     }
 
     public void setPictureCollection(@Nullable PictureCollection pictureCollection) {

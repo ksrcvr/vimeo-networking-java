@@ -59,9 +59,17 @@ public class PinCodeInfo {
     @SerializedName("interval")
     private int mInterval;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public String getDeviceCode() {
         return mDeviceCode;
+    }
+
+    public void setDeviceCode(@Nullable String deviceCode) {
+        mDeviceCode = deviceCode;
     }
 
     @Nullable
@@ -69,9 +77,17 @@ public class PinCodeInfo {
         return mUserCode;
     }
 
+    public void setUserCode(@Nullable String userCode) {
+        mUserCode = userCode;
+    }
+
     @Nullable
     public String getAuthorizeLink() {
         return mAuthorizeLink;
+    }
+
+    public void setAuthorizeLink(@Nullable String authorizeLink) {
+        mAuthorizeLink = authorizeLink;
     }
 
     @Nullable
@@ -79,35 +95,24 @@ public class PinCodeInfo {
         return mActivateLink;
     }
 
-    public int getExpiresIn() {
-        return mExpiresIn;
-    }
-
-    public int getInterval() {
-        return mInterval;
-    }
-
-    public void setDeviceCode(@Nullable String deviceCode) {
-        mDeviceCode = deviceCode;
-    }
-
-    public void setUserCode(@Nullable String userCode) {
-        mUserCode = userCode;
-    }
-
-    public void setAuthorizeLink(@Nullable String authorizeLink) {
-        mAuthorizeLink = authorizeLink;
-    }
-
     public void setActivateLink(@Nullable String activateLink) {
         mActivateLink = activateLink;
+    }
+
+    public int getExpiresIn() {
+        return mExpiresIn;
     }
 
     public void setExpiresIn(int expiresIn) {
         mExpiresIn = expiresIn;
     }
 
+    public int getInterval() {
+        return mInterval;
+    }
+
     public void setInterval(int interval) {
         mInterval = interval;
     }
+    // </editor-fold>
 }

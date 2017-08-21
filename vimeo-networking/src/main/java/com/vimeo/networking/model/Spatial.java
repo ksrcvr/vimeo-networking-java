@@ -65,6 +65,10 @@ public class Spatial implements Serializable {
     @SerializedName(value = "stereo_format", alternate = "m_stereo_format")
     private String mStereoFormat;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @NotNull
     public Projection getProjection() {
         switch (mProjection) {
@@ -83,6 +87,19 @@ public class Spatial implements Serializable {
         }
     }
 
+    public void setProjection(@NotNull String projection) {
+        mProjection = projection;
+    }
+
+    @NotNull
+    public String getStereoFormat() {
+        return mStereoFormat;
+    }
+
+    public void setStereoFormat(@NotNull String stereoFormat) {
+        mStereoFormat = stereoFormat;
+    }
+
     @NotNull
     public Format getFormat() {
         switch (mStereoFormat) {
@@ -96,6 +113,7 @@ public class Spatial implements Serializable {
                 return Format.UNKNOWN;
         }
     }
+    // </editor-fold>
 
     @Override
     public boolean equals(Object o) {
@@ -125,18 +143,5 @@ public class Spatial implements Serializable {
         result = 31 * result + mStereoFormat.hashCode();
         result = 31 * result + super.hashCode();
         return result;
-    }
-
-    public void setProjection(@NotNull String projection) {
-        mProjection = projection;
-    }
-
-    @NotNull
-    public String getStereoFormat() {
-        return mStereoFormat;
-    }
-
-    public void setStereoFormat(@NotNull String stereoFormat) {
-        mStereoFormat = stereoFormat;
     }
 }

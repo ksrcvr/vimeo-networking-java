@@ -47,6 +47,8 @@ import java.io.Serializable;
 @UseStag
 public class Season implements Serializable {
 
+    private static final long serialVersionUID = 2770200708069413413L;
+
     private static final String SEASON_TYPE_MAIN = "main";
     private static final String SEASON_TYPE_EXTRAS = "extras";
 
@@ -55,8 +57,6 @@ public class Season implements Serializable {
         MAIN,
         EXTRAS
     }
-
-    private static final long serialVersionUID = 2770200708069413413L;
 
     @Nullable
     @SerializedName("uri")
@@ -90,18 +90,26 @@ public class Season implements Serializable {
     private String mResourceKey;
 
     // -----------------------------------------------------------------------------------------------------
-    // Getters
+    // Getters and Setters
     // -----------------------------------------------------------------------------------------------------
-    // <editor-fold desc="Getters">
+    // <editor-fold desc="Getters and Setters">
 
     @Nullable
     public String getType() {
         return mType;
     }
 
+    public void setType(@Nullable String type) {
+        mType = type;
+    }
+
     @Nullable
     public String getUri() {
         return mUri;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
     }
 
     /**
@@ -110,6 +118,10 @@ public class Season implements Serializable {
     @Nullable
     public String getName() {
         return mName;
+    }
+
+    public void setName(@Nullable String name) {
+        mName = name;
     }
 
     /**
@@ -134,12 +146,27 @@ public class Season implements Serializable {
         return mDescription;
     }
 
+    public void setDescription(@Nullable String description) {
+        mDescription = description;
+    }
+
+    // </editor-fold>
+
+    // -----------------------------------------------------------------------------------------------------
+    // Helpers
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Helpers">
+
     /**
      * @return the Creator of this content
      */
     @Nullable
     public User getUser() {
         return mUser;
+    }
+
+    public void setUser(@Nullable User user) {
+        mUser = user;
     }
 
     /**
@@ -151,6 +178,11 @@ public class Season implements Serializable {
      */
     public int getPosition() {
         return mPosition;
+    }
+    // </editor-fold>
+
+    public void setPosition(int position) {
+        mPosition = position;
     }
 
     /**
@@ -165,17 +197,18 @@ public class Season implements Serializable {
         return mMetadata;
     }
 
+    public void setMetadata(@Nullable Metadata metadata) {
+        mMetadata = metadata;
+    }
+
     @Nullable
     public String getResourceKey() {
         return mResourceKey;
     }
 
-    // </editor-fold>
-
-    // -----------------------------------------------------------------------------------------------------
-    // Helpers
-    // -----------------------------------------------------------------------------------------------------
-    // <editor-fold desc="Helpers">
+    public void setResourceKey(@Nullable String resourceKey) {
+        mResourceKey = resourceKey;
+    }
 
     @Nullable
     public ConnectionCollection getConnections() {
@@ -192,6 +225,11 @@ public class Season implements Serializable {
     public String getVideosUri() {
         Connection videos = getVideosConnection();
         return videos != null ? videos.getUri() : null;
+    }
+
+    @Override
+    public int hashCode() {
+        return mUri != null ? mUri.hashCode() : 0;
     }
     // </editor-fold>
 
@@ -210,43 +248,6 @@ public class Season implements Serializable {
         Season that = (Season) obj;
 
         return (mUri != null && that.getUri() != null) && mUri.equals(that.getUri());
-    }
-
-    @Override
-    public int hashCode() {
-        return mUri != null ? mUri.hashCode() : 0;
-    }
-
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
-    }
-
-    public void setName(@Nullable String name) {
-        mName = name;
-    }
-
-    public void setType(@Nullable String type) {
-        mType = type;
-    }
-
-    public void setDescription(@Nullable String description) {
-        mDescription = description;
-    }
-
-    public void setUser(@Nullable User user) {
-        mUser = user;
-    }
-
-    public void setPosition(int position) {
-        mPosition = position;
-    }
-
-    public void setMetadata(@Nullable Metadata metadata) {
-        mMetadata = metadata;
-    }
-
-    public void setResourceKey(@Nullable String resourceKey) {
-        mResourceKey = resourceKey;
     }
     // </editor-fold>
 }

@@ -44,6 +44,9 @@ public class ProgressiveVideoFile extends VideoFile {
 
     private static final long serialVersionUID = 2834083637971280026L;
 
+    private static final int HEIGHT_720P = 720;
+    private static final int WIDTH_720P = 1280;
+
     @UseStag
     public enum MimeType {
         NONE("None"),
@@ -94,6 +97,10 @@ public class ProgressiveVideoFile extends VideoFile {
     @SerializedName("created_time")
     private Date mCreatedTime; // time indicating when this transcode was completed
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public MimeType getType() {
         return mMimeType == null ? MimeType.NONE : mMimeType;
     }
@@ -106,16 +113,32 @@ public class ProgressiveVideoFile extends VideoFile {
         return mWidth;
     }
 
+    public void setWidth(int width) {
+        mWidth = width;
+    }
+
     public int getHeight() {
         return mHeight;
+    }
+
+    public void setHeight(int height) {
+        mHeight = height;
     }
 
     public long getSize() {
         return mSize;
     }
 
+    public void setSize(long size) {
+        mSize = size;
+    }
+
     public double getFps() {
         return mFps;
+    }
+
+    public void setFps(double fps) {
+        mFps = fps;
     }
 
     @Nullable
@@ -123,13 +146,18 @@ public class ProgressiveVideoFile extends VideoFile {
         return mMd5;
     }
 
+    public void setMd5(@Nullable String md5) {
+        mMd5 = md5;
+    }
+
     @Nullable
     public Date getCreatedTime() {
         return mCreatedTime;
     }
 
-    private static final int HEIGHT_720P = 720;
-    private static final int WIDTH_720P = 1280;
+    public void setCreatedTime(@Nullable Date createdTime) {
+        mCreatedTime = createdTime;
+    }
 
     @NotNull
     @Override
@@ -149,28 +177,5 @@ public class ProgressiveVideoFile extends VideoFile {
     public void setMimeType(@Nullable MimeType mimeType) {
         mMimeType = mimeType;
     }
-
-    public void setFps(double fps) {
-        mFps = fps;
-    }
-
-    public void setWidth(int width) {
-        mWidth = width;
-    }
-
-    public void setHeight(int height) {
-        mHeight = height;
-    }
-
-    public void setSize(long size) {
-        mSize = size;
-    }
-
-    public void setMd5(@Nullable String md5) {
-        mMd5 = md5;
-    }
-
-    public void setCreatedTime(@Nullable Date createdTime) {
-        mCreatedTime = createdTime;
-    }
+    // </editor-fold>
 }

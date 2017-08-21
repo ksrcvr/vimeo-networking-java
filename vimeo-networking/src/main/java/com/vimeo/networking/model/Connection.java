@@ -65,12 +65,16 @@ public class Connection implements Serializable {
     private String mName;
 
     // -----------------------------------------------------------------------------------------------------
-    // Getters
+    // Getters and Setters
     // -----------------------------------------------------------------------------------------------------
-    // <editor-fold desc="Getters">
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public String getUri() {
         return mUri;
+    }
+
+    public void setUri(@Nullable String uri) {
+        mUri = uri;
     }
 
     @Nullable
@@ -78,54 +82,49 @@ public class Connection implements Serializable {
         return mOptions;
     }
 
+    public void setOptions(@Nullable ArrayList<String> options) {
+        mOptions = options;
+    }
+
     public int getTotal() {
         return mTotal;
+    }
+
+    public void setTotal(int total) {
+        mTotal = total;
     }
 
     public int getMainTotal() {
         return mMainTotal;
     }
 
-    public int getExtraTotal() {
-        return mExtraTotal;
-    }
-
-    public int getViewableTotal() {
-        return mViewableTotal;
-    }
-
-    @Nullable
-    public String getName() {
-        return mName;
-    }
-    // </editor-fold>
-
-
-    public void setTotal(int total) {
-        mTotal = total;
-    }
-
-    public void setUri(@Nullable String uri) {
-        mUri = uri;
-    }
-
-    public void setOptions(@Nullable ArrayList<String> options) {
-        mOptions = options;
-    }
-
     public void setMainTotal(int mainTotal) {
         mMainTotal = mainTotal;
+    }
+
+    public int getExtraTotal() {
+        return mExtraTotal;
     }
 
     public void setExtraTotal(int extraTotal) {
         mExtraTotal = extraTotal;
     }
 
+    public int getViewableTotal() {
+        return mViewableTotal;
+    }
+
     public void setViewableTotal(int viewableTotal) {
         mViewableTotal = viewableTotal;
+    }
+
+    @Nullable
+    public String getName() {
+        return mName;
     }
 
     public void setName(@Nullable String name) {
         mName = name;
     }
+    // </editor-fold>
 }

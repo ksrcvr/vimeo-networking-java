@@ -104,6 +104,10 @@ public class Play implements Serializable {
     @SerializedName(value = "drm", alternate = "m_drm")
     private Drm mDrm;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">'
     @Nullable
     public Embed getEmbed() {
         return mEmbed;
@@ -142,6 +146,10 @@ public class Play implements Serializable {
         return mDrm;
     }
 
+    public void setDrm(@Nullable Drm drm) {
+        mDrm = drm;
+    }
+
     @Nullable
     public Status getStatus() {
         return mStatus;
@@ -149,27 +157,6 @@ public class Play implements Serializable {
 
     public void setStatus(@Nullable Status status) {
         mStatus = status;
-    }
-
-    // -----------------------------------------------------------------------------------------------------
-    // Helpers
-    // -----------------------------------------------------------------------------------------------------
-    // <editor-fold desc="Helpers">
-    public int getFileCount() {
-        int count = 0;
-        if (mHls != null) {
-            count++;
-        }
-        if (mDash != null) {
-            count++;
-        }
-        if (mProgressive != null) {
-            count += mProgressive.size();
-        }
-        if (mDrm != null && mDrm.getWidevine() != null) {
-            count++;
-        }
-        return count;
     }
 
     @Nullable
@@ -198,9 +185,27 @@ public class Play implements Serializable {
     public void setProgressive(@Nullable ArrayList<ProgressiveVideoFile> progressive) {
         mProgressive = progressive;
     }
+    // </editor-fold>
 
-    public void setDrm(@Nullable Drm drm) {
-        mDrm = drm;
+    // -----------------------------------------------------------------------------------------------------
+    // Helpers
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Helpers">
+    public int getFileCount() {
+        int count = 0;
+        if (mHls != null) {
+            count++;
+        }
+        if (mDash != null) {
+            count++;
+        }
+        if (mProgressive != null) {
+            count += mProgressive.size();
+        }
+        if (mDrm != null && mDrm.getWidevine() != null) {
+            count++;
+        }
+        return count;
     }
     // </editor-fold>
 }

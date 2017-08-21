@@ -231,28 +231,56 @@ public class Video implements Serializable {
         return mUri;
     }
 
+    public void setUri(String uri) {
+        mUri = uri;
+    }
+
     public String getName() {
         return mName;
+    }
+
+    public void setName(String name) {
+        mName = name;
     }
 
     public String getDescription() {
         return mDescription;
     }
 
+    public void setDescription(String description) {
+        mDescription = description;
+    }
+
     public String getLink() {
         return mLink;
+    }
+
+    public void setLink(String link) {
+        mLink = link;
     }
 
     public int getDuration() {
         return mDuration;
     }
 
+    public void setDuration(int duration) {
+        mDuration = duration;
+    }
+
     public int getWidth() {
         return mWidth;
     }
 
+    public void setWidth(int width) {
+        mWidth = width;
+    }
+
     public int getHeight() {
         return mHeight;
+    }
+
+    public void setHeight(int height) {
+        mHeight = height;
     }
 
     @Deprecated
@@ -260,87 +288,121 @@ public class Video implements Serializable {
         return mEmbed;
     }
 
+    public void setEmbed(Embed embed) {
+        mEmbed = embed;
+    }
+
     public String getLanguage() {
         return mLanguage;
+    }
+
+    public void setLanguage(String language) {
+        mLanguage = language;
     }
 
     public Date getCreatedTime() {
         return mCreatedTime;
     }
 
+    public void setCreatedTime(Date createdTime) {
+        mCreatedTime = createdTime;
+    }
+
     public Date getModifiedTime() {
         return mModifiedTime;
+    }
+
+    public void setModifiedTime(Date modifiedTime) {
+        mModifiedTime = modifiedTime;
     }
 
     public Date getReleaseTime() {
         return mReleaseTime;
     }
 
+    public void setReleaseTime(Date releaseTime) {
+        mReleaseTime = releaseTime;
+    }
+
     public ArrayList<String> getContentRating() {
         return mContentRating;
+    }
+
+    public void setContentRating(ArrayList<String> contentRating) {
+        mContentRating = contentRating;
     }
 
     public String getLicense() {
         return mLicense;
     }
 
+    public void setLicense(String license) {
+        mLicense = license;
+    }
+
     public Privacy getPrivacy() {
         return mPrivacy;
+    }
+
+    public void setPrivacy(Privacy privacy) {
+        mPrivacy = privacy;
     }
 
     public PictureCollection getPictures() {
         return mPictures;
     }
 
+    public void setPictures(PictureCollection pictures) {
+        mPictures = pictures;
+    }
+
     public ArrayList<Tag> getTags() {
         return mTags;
+    }
+
+    public void setTags(ArrayList<Tag> tags) {
+        mTags = tags;
     }
 
     public StatsCollection getStats() {
         return mStats;
     }
 
+    public void setStats(StatsCollection stats) {
+        mStats = stats;
+    }
+
     public Metadata getMetadata() {
         return mMetadata;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
     }
 
     public User getUser() {
         return mUser;
     }
 
+    public void setUser(User user) {
+        mUser = user;
+    }
+
     public ArrayList<Category> getCategories() {
         return mCategories;
+    }
+
+    public void setCategories(ArrayList<Category> categories) {
+        mCategories = categories;
     }
 
     @Nullable
     public Spatial getSpatial() {
         return mSpatial;
     }
-    // </editor-fold>
 
-    // -----------------------------------------------------------------------------------------------------
-    // Setters
-    // -----------------------------------------------------------------------------------------------------
-    // <editor-fold desc="Setters">
-
-    public void setDescription(String description) {
-        mDescription = description;
-    }
-
-    public void setName(String name) {
-        mName = name;
-    }
-
-    public void setPlay(@Nullable Play play) {
-        mPlay = play;
-    }
-
-    public void setUri(String uri) {
-        mUri = uri;
-    }
-
-    public void setUser(User user) {
-        mUser = user;
+    public void setSpatial(@Nullable Spatial spatial) {
+        mSpatial = spatial;
     }
     // </editor-fold>
 
@@ -551,6 +613,10 @@ public class Video implements Serializable {
     public String getPassword() {
         return mPassword;
     }
+
+    public void setPassword(@Nullable String password) {
+        mPassword = password;
+    }
     // </editor-fold>
 
     // -----------------------------------------------------------------------------------------------------
@@ -561,6 +627,10 @@ public class Video implements Serializable {
     public String getReviewLink() {
         return mReviewLink;
     }
+
+    public void setReviewLink(@Nullable String reviewLink) {
+        mReviewLink = reviewLink;
+    }
     // </editor-fold>
 
     // -----------------------------------------------------------------------------------------------------
@@ -570,6 +640,10 @@ public class Video implements Serializable {
     @Nullable
     public Play getPlay() {
         return mPlay;
+    }
+
+    public void setPlay(@Nullable Play play) {
+        mPlay = play;
     }
 
     @Nullable
@@ -840,6 +914,10 @@ public class Video implements Serializable {
     public VideoBadge getVideoBadge() {
         return mVideoBadge;
     }
+
+    public void setVideoBadge(@Nullable VideoBadge videoBadge) {
+        mVideoBadge = videoBadge;
+    }
     // </editor-fold>
 
     // -----------------------------------------------------------------------------------------------------
@@ -890,96 +968,6 @@ public class Video implements Serializable {
     @Override
     public int hashCode() {
         return this.mResourceKey != null ? this.mResourceKey.hashCode() : 0;
-    }
-    // </editor-fold>
-
-
-    // -----------------------------------------------------------------------------------------------------
-    // Getters/Setters
-    // -----------------------------------------------------------------------------------------------------
-    // <editor-fold desc="Getters/Setters">
-    public void setLink(String link) {
-        mLink = link;
-    }
-
-    public void setDuration(int duration) {
-        mDuration = duration;
-    }
-
-    public void setWidth(int width) {
-        mWidth = width;
-    }
-
-    public void setHeight(int height) {
-        mHeight = height;
-    }
-
-    public void setEmbed(Embed embed) {
-        mEmbed = embed;
-    }
-
-    public void setLanguage(String language) {
-        mLanguage = language;
-    }
-
-    public void setCreatedTime(Date createdTime) {
-        mCreatedTime = createdTime;
-    }
-
-    public void setModifiedTime(Date modifiedTime) {
-        mModifiedTime = modifiedTime;
-    }
-
-    public void setReleaseTime(Date releaseTime) {
-        mReleaseTime = releaseTime;
-    }
-
-    public void setContentRating(ArrayList<String> contentRating) {
-        mContentRating = contentRating;
-    }
-
-    public void setLicense(String license) {
-        mLicense = license;
-    }
-
-    public void setPrivacy(Privacy privacy) {
-        mPrivacy = privacy;
-    }
-
-    public void setPictures(PictureCollection pictures) {
-        mPictures = pictures;
-    }
-
-    public void setTags(ArrayList<Tag> tags) {
-        mTags = tags;
-    }
-
-    public void setStats(StatsCollection stats) {
-        mStats = stats;
-    }
-
-    public void setMetadata(Metadata metadata) {
-        mMetadata = metadata;
-    }
-
-    public void setCategories(ArrayList<Category> categories) {
-        mCategories = categories;
-    }
-
-    public void setPassword(@Nullable String password) {
-        mPassword = password;
-    }
-
-    public void setReviewLink(@Nullable String reviewLink) {
-        mReviewLink = reviewLink;
-    }
-
-    public void setVideoBadge(@Nullable VideoBadge videoBadge) {
-        mVideoBadge = videoBadge;
-    }
-
-    public void setSpatial(@Nullable Spatial spatial) {
-        mSpatial = spatial;
     }
     // </editor-fold>
 }

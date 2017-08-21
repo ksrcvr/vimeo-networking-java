@@ -46,15 +46,15 @@ public class Metadata implements Serializable {
         return mConnections;
     }
 
+    public void setConnections(ConnectionCollection connections) {
+        mConnections = connections;
+    }
+
     public InteractionCollection getInteractions() {
         return mInteractions;
     }
 
     public void setInteractions(InteractionCollection interactions) {
         mInteractions = interactions;
-    }
-
-    public void setConnections(ConnectionCollection connections) {
-        mConnections = connections;
     }
 }

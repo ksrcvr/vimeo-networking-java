@@ -51,17 +51,45 @@ public class NotificationConnection extends Connection {
     @SerializedName("type_count")
     private NotificationTypeCount mTypeCount;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public int getNewTotal() {
         return mNewTotal;
+    }
+
+    public void setNewTotal(int newTotal) {
+        mNewTotal = newTotal;
     }
 
     public int getUnreadTotal() {
         return mUnreadTotal;
     }
 
+    public void setUnreadTotal(int unreadTotal) {
+        mUnreadTotal = unreadTotal;
+    }
+
     @Nullable
     public NotificationTypeCount getTypeCount() {
         return mTypeCount;
+    }
+
+    public void setTypeCount(@Nullable NotificationTypeCount typeCount) {
+        mTypeCount = typeCount;
+    }
+
+    // </editor-fold>
+
+    @Override
+    public int hashCode() {
+        int result = mNewTotal;
+        result = 31 * result + mUnreadTotal;
+        result = 31 * result + (mTypeCount != null ? mTypeCount.hashCode() : 0);
+        result = 31 * result + (getUri() != null ? getUri().hashCode() : 0);
+        result = 31 * result + getTotal();
+        return result;
     }
 
     @Override
@@ -80,16 +108,6 @@ public class NotificationConnection extends Connection {
     }
 
     @Override
-    public int hashCode() {
-        int result = mNewTotal;
-        result = 31 * result + mUnreadTotal;
-        result = 31 * result + (mTypeCount != null ? mTypeCount.hashCode() : 0);
-        result = 31 * result + (getUri() != null ? getUri().hashCode() : 0);
-        result = 31 * result + getTotal();
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "NotificationConnection{" +
                "newTotal=" + mNewTotal +
@@ -98,18 +116,6 @@ public class NotificationConnection extends Connection {
                ", uri='" + getUri() + '\'' +
                ", total=" + getTotal() +
                '}';
-    }
-
-    public void setNewTotal(int newTotal) {
-        mNewTotal = newTotal;
-    }
-
-    public void setUnreadTotal(int unreadTotal) {
-        mUnreadTotal = unreadTotal;
-    }
-
-    public void setTypeCount(@Nullable NotificationTypeCount typeCount) {
-        mTypeCount = typeCount;
     }
 
     @UseStag(FieldOption.SERIALIZED_NAME)
@@ -159,24 +165,48 @@ public class NotificationConnection extends Connection {
         @SerializedName(NotificationConstants.NOTIFICATION_TVOD_RENTAL_EXPIRATION_WARNING)
         private int mTvodRentailExpirationWarningTotal;
 
+        // -----------------------------------------------------------------------------------------------------
+        // Getters and Setters
+        // -----------------------------------------------------------------------------------------------------
+        // <editor-fold desc="Getters and Setters">
         public int getCommentTotal() {
             return mCommentTotal;
+        }
+
+        public void setCommentTotal(int commentTotal) {
+            mCommentTotal = commentTotal;
         }
 
         public int getCreditTotal() {
             return mCreditTotal;
         }
 
+        public void setCreditTotal(int creditTotal) {
+            mCreditTotal = creditTotal;
+        }
+
         public int getLikeTotal() {
             return mLikeTotal;
+        }
+
+        public void setLikeTotal(int likeTotal) {
+            mLikeTotal = likeTotal;
         }
 
         public int getShareTotal() {
             return mShareTotal;
         }
 
+        public void setShareTotal(int shareTotal) {
+            mShareTotal = shareTotal;
+        }
+
         public int getVideoAvailableTotal() {
             return mVideoAvailableTotal;
+        }
+
+        public void setVideoAvailableTotal(int videoAvailableTotal) {
+            mVideoAvailableTotal = videoAvailableTotal;
         }
 
         /**
@@ -186,92 +216,73 @@ public class NotificationConnection extends Connection {
             return mFollowedUserVideoAvailableTotal;
         }
 
-        public int getMentionTotal() {
-            return mMentionTotal;
-        }
-
-        public int getReplyTotal() {
-            return mReplyTotal;
-        }
-
-        public int getStorageWarningTotal() {
-            return mStorageWarningTotal;
-        }
-
-        public int getFollowTotal() {
-            return mFollowTotal;
-        }
-
-        public int getAccountExpirationWarningTotal() {
-            return mAccountExpirationWarningTotal;
-        }
-
-        public int getTvodPurchaseTotal() {
-            return mTvodPurchaseTotal;
-        }
-
-        public int getTvodPreorderAvailableTotal() {
-            return mTvodPreorderAvailableTotal;
-        }
-
-        public int getTvodRentailExpirationWarningTotal() {
-            return mTvodRentailExpirationWarningTotal;
-        }
-
-        public void setCommentTotal(int commentTotal) {
-            mCommentTotal = commentTotal;
-        }
-
-        public void setCreditTotal(int creditTotal) {
-            mCreditTotal = creditTotal;
-        }
-
-        public void setLikeTotal(int likeTotal) {
-            mLikeTotal = likeTotal;
-        }
-
-        public void setShareTotal(int shareTotal) {
-            mShareTotal = shareTotal;
-        }
-
-        public void setVideoAvailableTotal(int videoAvailableTotal) {
-            mVideoAvailableTotal = videoAvailableTotal;
-        }
-
         public void setFollowedUserVideoAvailableTotal(int followedUserVideoAvailableTotal) {
             mFollowedUserVideoAvailableTotal = followedUserVideoAvailableTotal;
+        }
+
+        public int getMentionTotal() {
+            return mMentionTotal;
         }
 
         public void setMentionTotal(int mentionTotal) {
             mMentionTotal = mentionTotal;
         }
 
+        public int getReplyTotal() {
+            return mReplyTotal;
+        }
+
         public void setReplyTotal(int replyTotal) {
             mReplyTotal = replyTotal;
+        }
+
+        public int getStorageWarningTotal() {
+            return mStorageWarningTotal;
         }
 
         public void setStorageWarningTotal(int storageWarningTotal) {
             mStorageWarningTotal = storageWarningTotal;
         }
 
+        public int getFollowTotal() {
+            return mFollowTotal;
+        }
+
         public void setFollowTotal(int followTotal) {
             mFollowTotal = followTotal;
+        }
+
+        public int getAccountExpirationWarningTotal() {
+            return mAccountExpirationWarningTotal;
         }
 
         public void setAccountExpirationWarningTotal(int accountExpirationWarningTotal) {
             mAccountExpirationWarningTotal = accountExpirationWarningTotal;
         }
 
+        public int getTvodPurchaseTotal() {
+            return mTvodPurchaseTotal;
+        }
+
         public void setTvodPurchaseTotal(int tvodPurchaseTotal) {
             mTvodPurchaseTotal = tvodPurchaseTotal;
+        }
+
+        public int getTvodPreorderAvailableTotal() {
+            return mTvodPreorderAvailableTotal;
         }
 
         public void setTvodPreorderAvailableTotal(int tvodPreorderAvailableTotal) {
             mTvodPreorderAvailableTotal = tvodPreorderAvailableTotal;
         }
 
+        public int getTvodRentailExpirationWarningTotal() {
+            return mTvodRentailExpirationWarningTotal;
+        }
+
         public void setTvodRentailExpirationWarningTotal(int tvodRentailExpirationWarningTotal) {
             mTvodRentailExpirationWarningTotal = tvodRentailExpirationWarningTotal;
         }
+        // </editor-fold>
     }
 }

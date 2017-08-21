@@ -58,12 +58,12 @@ public class SearchResponse extends BaseResponseList<SearchResult> {
         return mFacetCollection;
     }
 
-    public int getMatureHiddenCount() {
-        return mMatureHiddenCount;
-    }
-
     public void setFacetCollection(@Nullable SearchFacetCollection facetCollection) {
         mFacetCollection = facetCollection;
+    }
+
+    public int getMatureHiddenCount() {
+        return mMatureHiddenCount;
     }
 
     public void setMatureHiddenCount(int matureHiddenCount) {

@@ -86,12 +86,16 @@ public class Recommendation implements Serializable {
     private String mResourceKey;
 
     // -----------------------------------------------------------------------------------------------------
-    // Getters
+    // Getters and Setters
     // -----------------------------------------------------------------------------------------------------
-    // <editor-fold desc="Getters">
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public Category getCategory() {
         return mCategory;
+    }
+
+    public void setCategory(@Nullable Category category) {
+        mCategory = category;
     }
 
     @Nullable
@@ -99,9 +103,17 @@ public class Recommendation implements Serializable {
         return mUser;
     }
 
+    public void setUser(@Nullable User user) {
+        mUser = user;
+    }
+
     @Nullable
     public Channel getChannel() {
         return mChannel;
+    }
+
+    public void setChannel(@Nullable Channel channel) {
+        mChannel = channel;
     }
 
     @Nullable
@@ -109,9 +121,17 @@ public class Recommendation implements Serializable {
         return mDescription;
     }
 
+    public void setDescription(@Nullable String description) {
+        mDescription = description;
+    }
+
     @Nullable
     public String getResourceKey() {
         return mResourceKey;
+    }
+
+    public void setResourceKey(@Nullable String resourceKey) {
+        mResourceKey = resourceKey;
     }
 
     @NotNull
@@ -125,29 +145,8 @@ public class Recommendation implements Serializable {
         }
     }
 
-    public void setCategory(@Nullable Category category) {
-        mCategory = category;
-    }
-
     public void setRecommendationType(@Nullable String recommendationType) {
         mRecommendationType = recommendationType;
     }
-
-    public void setUser(@Nullable User user) {
-        mUser = user;
-    }
-
-    public void setChannel(@Nullable Channel channel) {
-        mChannel = channel;
-    }
-
-    public void setDescription(@Nullable String description) {
-        mDescription = description;
-    }
-
-    public void setResourceKey(@Nullable String resourceKey) {
-        mResourceKey = resourceKey;
-    }
     // </editor-fold>
-
 }

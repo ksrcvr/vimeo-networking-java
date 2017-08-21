@@ -36,12 +36,17 @@ public class ApiConfiguration {
     @SerializedName("host")
     private String mHost = Vimeo.VIMEO_BASE_URL_STRING;
 
+    public String getHost() {
+        return mHost;
+    }
+
     public void setHost(String host) {
         mHost = host;
     }
 
-    public String getHost() {
-        return mHost;
+    @Override
+    public int hashCode() {
+        return mHost != null ? mHost.hashCode() : 0;
     }
 
     @Override
@@ -57,10 +62,5 @@ public class ApiConfiguration {
 
         return !(mHost != null ? !mHost.equals(that.mHost) : that.mHost != null);
 
-    }
-
-    @Override
-    public int hashCode() {
-        return mHost != null ? mHost.hashCode() : 0;
     }
 }

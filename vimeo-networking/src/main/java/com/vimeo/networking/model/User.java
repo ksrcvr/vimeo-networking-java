@@ -101,11 +101,6 @@ public class User implements Serializable, Followable {
     @SerializedName("badge")
     private UserBadge mBadge;
 
-    @Nullable
-    public UserBadge getBadge() {
-        return mBadge;
-    }
-
     public AccountType getAccountType() {
         if (this.mAccount == null) {
             //We should assume the account object could be null; also, a User object could be created with
@@ -132,29 +127,12 @@ public class User implements Serializable, Followable {
         return mBadge == null ? UserBadgeType.NONE : mBadge.getBadgeType();
     }
 
-    /**
-     * -----------------------------------------------------------------------------------------------------
-     * Interaction Accessors/Helpers
-     * -----------------------------------------------------------------------------------------------------
-     */
-    // <editor-fold desc="Accessors/Helpers">
-    public void setUri(String uri) {
-        mUri = uri;
-    }
-
     public PictureCollection getPictures() {
         return mPictures;
     }
 
-    @Override
-    public boolean canFollow() {
-        return getFollowInteraction() != null;
-    }
-
-    @Override
-    public boolean isFollowing() {
-        Interaction follow = getFollowInteraction();
-        return follow != null && follow.isAdded();
+    public void setPictures(PictureCollection pictures) {
+        mPictures = pictures;
     }
 
     @Nullable
@@ -178,6 +156,17 @@ public class User implements Serializable, Followable {
     public Interaction getFollowInteraction() {
         InteractionCollection interactions = getMetadataInteractions();
         return interactions != null ? interactions.getFollow() : null;
+    }
+
+    @Override
+    public boolean canFollow() {
+        return getFollowInteraction() != null;
+    }
+
+    @Override
+    public boolean isFollowing() {
+        Interaction follow = getFollowInteraction();
+        return follow != null && follow.isAdded();
     }
 
     @Nullable
@@ -269,7 +258,6 @@ public class User implements Serializable, Followable {
         ConnectionCollection collections = getMetadataConnections();
         return collections != null ? collections.getNotifications() : null;
     }
-    // </editor-fold>
 
     @NotNull
     public ArrayList<Picture> getPicturesList() {
@@ -320,6 +308,10 @@ public class User implements Serializable, Followable {
         return mUploadQuota;
     }
 
+    public void setUploadQuota(UploadQuota uploadQuota) {
+        mUploadQuota = uploadQuota;
+    }
+
     // Returns -1 if there is no space object on this user
     public long getFreeUploadSpace() {
         if (mUploadQuota != null) {
@@ -330,7 +322,7 @@ public class User implements Serializable, Followable {
 
     /**
      * -----------------------------------------------------------------------------------------------------
-     * Getters
+     * Getters and Setters
      * -----------------------------------------------------------------------------------------------------
      */
     // <editor-fold desc="Getters">
@@ -338,28 +330,56 @@ public class User implements Serializable, Followable {
         return mUri;
     }
 
+    public void setUri(String uri) {
+        mUri = uri;
+    }
+
     public String getName() {
         return mName;
+    }
+
+    public void setName(String name) {
+        mName = name;
     }
 
     public String getLink() {
         return mLink;
     }
 
+    public void setLink(String link) {
+        mLink = link;
+    }
+
     public String getLocation() {
         return mLocation;
+    }
+
+    public void setLocation(String location) {
+        mLocation = location;
     }
 
     public String getBio() {
         return mBio;
     }
 
+    public void setBio(String bio) {
+        mBio = bio;
+    }
+
     public Date getCreatedTime() {
         return mCreatedTime;
     }
 
+    public void setCreatedTime(Date createdTime) {
+        mCreatedTime = createdTime;
+    }
+
     public String getAccount() {
         return mAccount;
+    }
+
+    public void setAccount(String account) {
+        mAccount = account;
     }
 
     public ArrayList<Email> getVerifiedEmails() {
@@ -370,8 +390,16 @@ public class User implements Serializable, Followable {
         return mWebsites;
     }
 
+    public void setWebsites(ArrayList<Website> websites) {
+        mWebsites = websites;
+    }
+
     public Metadata getMetadata() {
         return mMetadata;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
     }
 
     @Nullable
@@ -379,30 +407,33 @@ public class User implements Serializable, Followable {
         return mPreferences;
     }
 
+    public void setPreferences(@Nullable Preferences preferences) {
+        mPreferences = preferences;
+    }
+
+    public ArrayList<Email> getEmails() {
+        return mEmails;
+    }
+
+    public void setEmails(ArrayList<Email> emails) {
+        mEmails = emails;
+    }
+
+    @Nullable
+    public UserBadge getBadge() {
+        return mBadge;
+    }
+
+    public void setBadge(@Nullable UserBadge badge) {
+        mBadge = badge;
+    }
+
     // </editor-fold>
 
-    // -----------------------------------------------------------------------------------------------------
-    // Setters
-    // -----------------------------------------------------------------------------------------------------
-    // <editor-fold desc="Setters">
-
-    public void setPictures(PictureCollection pictures) {
-        mPictures = pictures;
+    @Override
+    public int hashCode() {
+        return this.mUri != null ? this.mUri.hashCode() : 0;
     }
-
-    public void setName(String name) {
-        mName = name;
-    }
-
-    public void setLocation(String location) {
-        mLocation = location;
-    }
-
-    public void setBio(String bio) {
-        mBio = bio;
-    }
-
-    // </editor-fold>
 
     @Override
     public boolean equals(Object o) {
@@ -416,50 +447,5 @@ public class User implements Serializable, Followable {
         User that = (User) o;
 
         return ((this.mUri != null && that.mUri != null) && this.mUri.equals(that.mUri));
-    }
-
-    @Override
-    public int hashCode() {
-        return this.mUri != null ? this.mUri.hashCode() : 0;
-    }
-
-    public void setLink(String link) {
-        mLink = link;
-    }
-
-    public void setCreatedTime(Date createdTime) {
-        mCreatedTime = createdTime;
-    }
-
-    public void setAccount(String account) {
-        mAccount = account;
-    }
-
-    public ArrayList<Email> getEmails() {
-        return mEmails;
-    }
-
-    public void setEmails(ArrayList<Email> emails) {
-        mEmails = emails;
-    }
-
-    public void setWebsites(ArrayList<Website> websites) {
-        mWebsites = websites;
-    }
-
-    public void setMetadata(Metadata metadata) {
-        mMetadata = metadata;
-    }
-
-    public void setUploadQuota(UploadQuota uploadQuota) {
-        mUploadQuota = uploadQuota;
-    }
-
-    public void setPreferences(@Nullable Preferences preferences) {
-        mPreferences = preferences;
-    }
-
-    public void setBadge(@Nullable UserBadge badge) {
-        mBadge = badge;
     }
 }

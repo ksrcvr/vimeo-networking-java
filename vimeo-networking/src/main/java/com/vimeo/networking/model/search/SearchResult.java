@@ -91,16 +91,32 @@ public class SearchResult implements Serializable {
     @SerializedName("ondemand")
     private TvodItem mTvod;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getter and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getter and Setters">
     public boolean isStaffPick() {
         return mIsStaffPick;
+    }
+
+    public void setStaffPick(boolean staffPick) {
+        mIsStaffPick = staffPick;
     }
 
     public boolean isFeatured() {
         return mIsFeatured;
     }
 
+    public void setFeatured(boolean featured) {
+        mIsFeatured = featured;
+    }
+
     public SearchType getSearchType() {
         return mSearchType;
+    }
+
+    public void setSearchType(SearchType searchType) {
+        mSearchType = searchType;
     }
 
     @Nullable
@@ -108,9 +124,17 @@ public class SearchResult implements Serializable {
         return mVideo;
     }
 
+    public void setVideo(@Nullable Video video) {
+        mVideo = video;
+    }
+
     @Nullable
     public User getUser() {
         return mUser;
+    }
+
+    public void setUser(@Nullable User user) {
+        mUser = user;
     }
 
     @Nullable
@@ -118,9 +142,17 @@ public class SearchResult implements Serializable {
         return mChannel;
     }
 
+    public void setChannel(@Nullable Channel channel) {
+        mChannel = channel;
+    }
+
     @Nullable
     public Group getGroup() {
         return mGroup;
+    }
+
+    public void setGroup(@Nullable Group group) {
+        mGroup = group;
     }
 
     @Nullable
@@ -128,35 +160,8 @@ public class SearchResult implements Serializable {
         return mTvod;
     }
 
-    public void setStaffPick(boolean staffPick) {
-        mIsStaffPick = staffPick;
-    }
-
-    public void setFeatured(boolean featured) {
-        mIsFeatured = featured;
-    }
-
-    public void setSearchType(SearchType searchType) {
-        mSearchType = searchType;
-    }
-
-    public void setVideo(@Nullable Video video) {
-        mVideo = video;
-    }
-
-    public void setUser(@Nullable User user) {
-        mUser = user;
-    }
-
-    public void setChannel(@Nullable Channel channel) {
-        mChannel = channel;
-    }
-
-    public void setGroup(@Nullable Group group) {
-        mGroup = group;
-    }
-
     public void setTvod(@Nullable TvodItem tvod) {
         mTvod = tvod;
     }
+    // </editor-fold>
 }

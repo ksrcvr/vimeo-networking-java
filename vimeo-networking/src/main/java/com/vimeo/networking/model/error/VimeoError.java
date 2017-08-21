@@ -82,6 +82,10 @@ public class VimeoError extends RuntimeException {
         this.mException = exception;
     }
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public static String getAuthenticationHeader() {
         return AUTHENTICATION_HEADER;
     }
@@ -94,24 +98,20 @@ public class VimeoError extends RuntimeException {
         this.mResponse = response;
     }
 
-    public void setLink(String link) {
-        this.mLink = link;
-    }
-
     public String getLink() {
         return this.mLink;
     }
 
-    public void setErrorMessage(String errorMessage) {
-        this.mErrorMessage = errorMessage;
+    public void setLink(String link) {
+        this.mLink = link;
     }
 
     public String getErrorMessage() {
         return this.mErrorMessage;
     }
 
-    public void setDeveloperMessage(String developerMessage) {
-        this.mDeveloperMessage = developerMessage;
+    public void setErrorMessage(String errorMessage) {
+        this.mErrorMessage = errorMessage;
     }
 
     public String getDeveloperMessage() {
@@ -121,8 +121,8 @@ public class VimeoError extends RuntimeException {
         return this.mDeveloperMessage;
     }
 
-    public void setErrorCode(ErrorCode errorCode) {
-        this.mErrorCode = errorCode;
+    public void setDeveloperMessage(String developerMessage) {
+        this.mDeveloperMessage = developerMessage;
     }
 
     @NotNull
@@ -130,12 +130,16 @@ public class VimeoError extends RuntimeException {
         return mErrorCode == null ? ErrorCode.DEFAULT : this.mErrorCode;
     }
 
-    public void setInvalidParameters(List<InvalidParameter> invalidParameters) {
-        this.mInvalidParameters = invalidParameters;
+    public void setErrorCode(ErrorCode errorCode) {
+        this.mErrorCode = errorCode;
     }
 
     public List<InvalidParameter> getInvalidParameters() {
         return this.mInvalidParameters;
+    }
+
+    public void setInvalidParameters(List<InvalidParameter> invalidParameters) {
+        this.mInvalidParameters = invalidParameters;
     }
 
     /**
@@ -196,6 +200,10 @@ public class VimeoError extends RuntimeException {
         return mIsCanceledError;
     }
 
+    public void setCanceledError(boolean canceledError) {
+        mIsCanceledError = canceledError;
+    }
+
     public boolean isServiceUnavailable() {
         return (mResponse != null) && (mResponse.code() == 503);
     }
@@ -253,8 +261,5 @@ public class VimeoError extends RuntimeException {
         }
         return "";
     }
-
-    public void setCanceledError(boolean canceledError) {
-        mIsCanceledError = canceledError;
-    }
+    // </editor-fold>
 }

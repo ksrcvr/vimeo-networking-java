@@ -63,9 +63,17 @@ public class InteractionCollection implements Serializable {
     @SerializedName("subscribe")
     private Interaction mSubscribe;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     @Nullable
     public Interaction getWatchLater() {
         return mWatchLater;
+    }
+
+    public void setWatchLater(@Nullable Interaction watchLater) {
+        mWatchLater = watchLater;
     }
 
     @Nullable
@@ -73,9 +81,17 @@ public class InteractionCollection implements Serializable {
         return mLike;
     }
 
+    public void setLike(@Nullable Interaction like) {
+        mLike = like;
+    }
+
     @Nullable
     public Interaction getFollow() {
         return mFollow;
+    }
+
+    public void setFollow(@Nullable Interaction follow) {
+        mFollow = follow;
     }
 
     @Nullable
@@ -83,9 +99,17 @@ public class InteractionCollection implements Serializable {
         return mBuy;
     }
 
+    public void setBuy(@Nullable Interaction buy) {
+        mBuy = buy;
+    }
+
     @Nullable
     public Interaction getRent() {
         return mRent;
+    }
+
+    public void setRent(@Nullable Interaction rent) {
+        mRent = rent;
     }
 
     @Nullable
@@ -93,28 +117,9 @@ public class InteractionCollection implements Serializable {
         return mSubscribe;
     }
 
-    public void setLike(@Nullable Interaction like) {
-        mLike = like;
-    }
-
-    public void setWatchLater(@Nullable Interaction watchLater) {
-        mWatchLater = watchLater;
-    }
-
-    public void setFollow(@Nullable Interaction follow) {
-        mFollow = follow;
-    }
-
-    public void setBuy(@Nullable Interaction buy) {
-        mBuy = buy;
-    }
-
-    public void setRent(@Nullable Interaction rent) {
-        mRent = rent;
-    }
-
     public void setSubscribe(@Nullable Interaction subscribe) {
         mSubscribe = subscribe;
     }
+    // </editor-fold>
 
 }

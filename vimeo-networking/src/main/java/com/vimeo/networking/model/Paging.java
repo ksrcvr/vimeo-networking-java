@@ -48,35 +48,40 @@ public class Paging implements Serializable {
     @SerializedName("last")
     private String mLast;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public String getNext() {
         return mNext;
-    }
-
-    public String getPrevious() {
-        return mPrevious;
-    }
-
-    public String getFirst() {
-        return mFirst;
-    }
-
-    public String getLast() {
-        return mLast;
     }
 
     public void setNext(String next) {
         mNext = next;
     }
 
+    public String getPrevious() {
+        return mPrevious;
+    }
+
     public void setPrevious(String previous) {
         mPrevious = previous;
+    }
+
+    public String getFirst() {
+        return mFirst;
     }
 
     public void setFirst(String first) {
         mFirst = first;
     }
 
+    public String getLast() {
+        return mLast;
+    }
+
     public void setLast(String last) {
         mLast = last;
     }
+    // </editor-fold>
 }

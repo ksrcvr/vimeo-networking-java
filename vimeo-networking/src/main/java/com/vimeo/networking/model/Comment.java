@@ -63,33 +63,58 @@ public class Comment implements Serializable {
     @SerializedName("metadata")
     private Metadata mMetadata;
 
+    // -----------------------------------------------------------------------------------------------------
+    // Getters and Setters
+    // -----------------------------------------------------------------------------------------------------
+    // <editor-fold desc="Getters and Setters">
     public String getUri() {
         return mUri;
+    }
+
+    public void setUri(String uri) {
+        mUri = uri;
     }
 
     public CommentType getType() {
         return mType;
     }
 
+    public void setType(CommentType type) {
+        mType = type;
+    }
+
     public Date getCreatedOn() {
         return mCreatedOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        mCreatedOn = createdOn;
     }
 
     public String getText() {
         return mText;
     }
 
+    public void setText(String text) {
+        mText = text;
+    }
+
     public User getUser() {
         return mUser;
+    }
+
+    public void setUser(User user) {
+        mUser = user;
     }
 
     public Metadata getMetadata() {
         return mMetadata;
     }
 
-    public void setUser(User user) {
-        mUser = user;
+    public void setMetadata(Metadata metadata) {
+        mMetadata = metadata;
     }
+    // </editor-fold>
 
     public int replyCount() {
         if (mMetadata != null && mMetadata.getConnections() != null && mMetadata.getConnections().getReplies() != null) {
@@ -107,6 +132,11 @@ public class Comment implements Serializable {
     }
 
     @Override
+    public int hashCode() {
+        return this.mUri != null ? this.mUri.hashCode() : 0;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -118,30 +148,5 @@ public class Comment implements Serializable {
         Comment that = (Comment) o;
 
         return ((this.mUri != null && that.mUri != null) && this.mUri.equals(that.mUri));
-    }
-
-    @Override
-    public int hashCode() {
-        return this.mUri != null ? this.mUri.hashCode() : 0;
-    }
-
-    public void setUri(String uri) {
-        mUri = uri;
-    }
-
-    public void setType(CommentType type) {
-        mType = type;
-    }
-
-    public void setCreatedOn(Date createdOn) {
-        mCreatedOn = createdOn;
-    }
-
-    public void setText(String text) {
-        mText = text;
-    }
-
-    public void setMetadata(Metadata metadata) {
-        mMetadata = metadata;
     }
 }
