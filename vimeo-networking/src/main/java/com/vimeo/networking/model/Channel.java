@@ -37,7 +37,7 @@ import java.util.Date;
 @UseStag
 public class Channel implements Serializable, Followable {
 
-    private static final long serialVersionUID = 3190410523525111858L;
+    private static final long serialVersionUID = -5204851282991754022L;
 
     @SerializedName("uri")
     private String mUri;

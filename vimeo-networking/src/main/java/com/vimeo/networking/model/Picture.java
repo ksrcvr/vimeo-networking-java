@@ -34,7 +34,7 @@ import java.io.Serializable;
 @UseStag
 public class Picture implements Serializable {
 
-    private static final long serialVersionUID = -2933756384207338583L;
+    private static final long serialVersionUID = 1299757865969130942L;
 
     @SerializedName("width")
     private int mWidth;

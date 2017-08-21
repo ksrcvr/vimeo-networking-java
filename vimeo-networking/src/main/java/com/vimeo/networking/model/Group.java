@@ -35,7 +35,7 @@ import java.util.Date;
 @UseStag
 public class Group implements Serializable {
 
-    private static final long serialVersionUID = -3604741570351063891L;
+    private static final long serialVersionUID = -5809583028245473370L;
 
     @SerializedName("uri")
     private String mUri;

@@ -39,7 +39,7 @@ import java.io.Serializable;
 @UseStag
 public class Document implements Serializable {
 
-    private static final long serialVersionUID = -8676604257868932660L;
+    private static final long serialVersionUID = 2915697534545398760L;
 
     @Nullable
     @SerializedName("html")

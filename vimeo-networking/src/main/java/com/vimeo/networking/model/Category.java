@@ -37,7 +37,7 @@ import java.util.ArrayList;
 @UseStag
 public class Category implements Serializable, Followable {
 
-    private static final long serialVersionUID = 441419347585215353L;
+    private static final long serialVersionUID = -2093166655035824913L;
 
     @Nullable
     @SerializedName("uri")

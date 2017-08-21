@@ -39,7 +39,7 @@ import org.jetbrains.annotations.Nullable;
 @UseStag
 public class SearchResponse extends BaseResponseList<SearchResult> {
 
-    private static final long serialVersionUID = -7915082057592438294L;
+    private static final long serialVersionUID = 676005111539925592L;
 
     @Nullable
     @SerializedName("facets")

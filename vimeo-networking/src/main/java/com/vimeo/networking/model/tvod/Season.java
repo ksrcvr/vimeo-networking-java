@@ -47,7 +47,7 @@ import java.io.Serializable;
 @UseStag
 public class Season implements Serializable {
 
-    private static final long serialVersionUID = 2770200708069413413L;
+    private static final long serialVersionUID = 8580165038587916815L;
 
     private static final String SEASON_TYPE_MAIN = "main";
     private static final String SEASON_TYPE_EXTRAS = "extras";

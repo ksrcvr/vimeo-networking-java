@@ -43,7 +43,7 @@ import retrofit2.Response;
 //@UseStag(FieldOption.SERIALIZED_NAME)
 public class VimeoError extends RuntimeException {
 
-    private static final long serialVersionUID = -5252307626841557962L;
+    private static final long serialVersionUID = -2113188656556774802L;
 
     private static final String AUTHENTICATION_HEADER = "WWW-Authenticate";
     private static final String AUTHENTICATION_TOKEN_ERROR = "Bearer error=\"invalid_token\"";

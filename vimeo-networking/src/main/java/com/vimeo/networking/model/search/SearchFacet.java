@@ -41,7 +41,7 @@ import java.util.ArrayList;
 @UseStag
 public class SearchFacet implements Serializable {
 
-    private static final long serialVersionUID = -6507918911819851151L;
+    private static final long serialVersionUID = 5193380603230914513L;
 
     @Nullable
     @SerializedName("name")

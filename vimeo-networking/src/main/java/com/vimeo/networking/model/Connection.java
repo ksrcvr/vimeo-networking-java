@@ -38,7 +38,7 @@ import java.util.ArrayList;
 @UseStag
 public class Connection implements Serializable {
 
-    private static final long serialVersionUID = -840088720891343176L;
+    private static final long serialVersionUID = -4140917291468263467L;
 
     @Nullable
     @SerializedName("uri")

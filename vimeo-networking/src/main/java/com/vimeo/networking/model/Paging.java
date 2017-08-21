@@ -34,7 +34,7 @@ import java.io.Serializable;
 @UseStag
 public class Paging implements Serializable {
 
-    private static final long serialVersionUID = -8547699448016693035L;
+    private static final long serialVersionUID = 4037205136628464138L;
 
     @SerializedName("next")
     private String mNext;

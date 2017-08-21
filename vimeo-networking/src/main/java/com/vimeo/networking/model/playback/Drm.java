@@ -44,7 +44,7 @@ import java.io.Serializable;
 @UseStag
 public class Drm implements Serializable {
 
-    private static final long serialVersionUID = 3048847922257143776L;
+    private static final long serialVersionUID = -6086312750180643204L;
 
     @Nullable
     @SerializedName(value = "widevine", alternate = "m_widevine")

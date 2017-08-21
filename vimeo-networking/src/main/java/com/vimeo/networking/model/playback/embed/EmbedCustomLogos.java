@@ -40,7 +40,7 @@ import java.io.Serializable;
 @UseStag
 public class EmbedCustomLogos implements Serializable {
 
-    private static final long serialVersionUID = -8919686101651093878L;
+    private static final long serialVersionUID = 5169474866171260921L;
 
     @SerializedName("active")
     private boolean mActive;

@@ -40,7 +40,7 @@ import java.io.Serializable;
 @UseStag
 public class EmbedLogos implements Serializable {
 
-    private static final long serialVersionUID = -6946192139468749658L;
+    private static final long serialVersionUID = -2812521911922798310L;
 
     @SerializedName("vimeo")
     private boolean mVimeoLogoVisible;

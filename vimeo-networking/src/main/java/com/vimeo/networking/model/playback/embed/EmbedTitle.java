@@ -40,7 +40,7 @@ import java.io.Serializable;
 @UseStag
 public class EmbedTitle implements Serializable {
 
-    private static final long serialVersionUID = -2543724237726304625L;
+    private static final long serialVersionUID = 4191583240698955127L;
 
     @Nullable
     @SerializedName("name")

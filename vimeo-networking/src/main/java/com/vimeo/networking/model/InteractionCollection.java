@@ -37,7 +37,7 @@ import java.io.Serializable;
 @UseStag
 public class InteractionCollection implements Serializable {
 
-    private static final long serialVersionUID = 489519386122782640L;
+    private static final long serialVersionUID = 1673985602275241413L;
 
     @Nullable
     @SerializedName("watchlater")

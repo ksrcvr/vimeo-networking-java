@@ -40,7 +40,7 @@ import java.io.Serializable;
 @UseStag
 public class Recommendation implements Serializable {
 
-    private static final long serialVersionUID = -1451431453348153582L;
+    private static final long serialVersionUID = 6967333008727998573L;
 
     static final String TYPE_CHANNEL = "channel";
     static final String TYPE_USER = "user";

@@ -31,7 +31,7 @@ import com.vimeo.stag.UseStag;
 @UseStag
 public class VideoList extends BaseResponseList<Video> {
 
-    private static final long serialVersionUID = -5034081563847270372L;
+    private static final long serialVersionUID = -5632552783752575026L;
 
     @Override
     public Class<Video> getModelClass() {

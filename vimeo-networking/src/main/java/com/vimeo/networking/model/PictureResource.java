@@ -34,7 +34,7 @@ import java.io.Serializable;
 @UseStag
 public class PictureResource implements Serializable {
 
-    private static final long serialVersionUID = -495204863230150919L;
+    private static final long serialVersionUID = -1409270284877574650L;
 
     @SerializedName("uri")
     private String mUri;

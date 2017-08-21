@@ -40,7 +40,7 @@ import java.io.Serializable;
 @UseStag
 public class SearchFacetCollection implements Serializable {
 
-    private static final long serialVersionUID = 3340976215489066653L;
+    private static final long serialVersionUID = 3970845072633088020L;
 
     @Nullable
     @SerializedName("type")

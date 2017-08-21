@@ -42,7 +42,7 @@ import java.io.Serializable;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public class VimeoAccount implements Serializable {
 
-    private static final long serialVersionUID = -8341071767843490585L;
+    private static final long serialVersionUID = -8535823709613167151L;
 
     @SerializedName("access_token")
     private String mAccessToken;

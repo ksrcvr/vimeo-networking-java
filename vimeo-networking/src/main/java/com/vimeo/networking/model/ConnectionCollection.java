@@ -39,7 +39,7 @@ import java.io.Serializable;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public class ConnectionCollection implements Serializable {
 
-    private static final long serialVersionUID = -4523270955994232839L;
+    private static final long serialVersionUID = 7843698163238766500L;
 
     @Nullable
     @SerializedName("videos")

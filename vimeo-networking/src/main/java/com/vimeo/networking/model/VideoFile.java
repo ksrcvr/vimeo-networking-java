@@ -41,7 +41,7 @@ import java.util.Date;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public abstract class VideoFile implements Serializable {
 
-    private static final long serialVersionUID = -5256416394912086020L;
+    private static final long serialVersionUID = -7880082086500468183L;
 
     public enum VideoQuality {
         NONE("N/A"),

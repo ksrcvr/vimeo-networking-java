@@ -41,7 +41,7 @@ import java.io.Serializable;
 @UseStag
 public class EmbedHtml implements Serializable {
 
-    private static final long serialVersionUID = 3752755790501317766L;
+    private static final long serialVersionUID = -1339628415825942792L;
 
     @SerializedName("width")
     private int mWidth;

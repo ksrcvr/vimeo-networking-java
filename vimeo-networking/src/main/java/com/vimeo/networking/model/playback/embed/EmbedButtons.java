@@ -39,7 +39,7 @@ import java.io.Serializable;
 @UseStag
 public class EmbedButtons implements Serializable {
 
-    private static final long serialVersionUID = 6724361702326756097L;
+    private static final long serialVersionUID = 8619226676762941084L;
 
     @SerializedName("like")
     private boolean mLike;

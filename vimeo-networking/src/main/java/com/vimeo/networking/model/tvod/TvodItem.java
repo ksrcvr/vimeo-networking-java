@@ -48,7 +48,7 @@ import java.util.Date;
 @UseStag
 public class TvodItem implements Serializable {
 
-    private static final long serialVersionUID = 8360150766347816073L;
+    private static final long serialVersionUID = -5609726371596038290L;
     private static final String S_FILM = "film";
     private static final String S_SERIES = "series";
 

@@ -40,7 +40,7 @@ import java.io.Serializable;
 @UseStag
 public class PlayProgress implements Serializable {
 
-    private static final long serialVersionUID = -3745271302058282379L;
+    private static final long serialVersionUID = 4114723137384518031L;
 
     @Nullable
     @SerializedName(value = "seconds", alternate = "m_seconds")

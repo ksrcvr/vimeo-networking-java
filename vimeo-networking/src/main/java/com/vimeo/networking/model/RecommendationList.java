@@ -32,7 +32,7 @@ import com.vimeo.stag.UseStag;
 @UseStag
 public class RecommendationList extends BaseResponseList<Recommendation> {
 
-    private static final long serialVersionUID = -1488717279892501485L;
+    private static final long serialVersionUID = 8986279715595685585L;
 
     @Override
     public Class<Recommendation> getModelClass() {

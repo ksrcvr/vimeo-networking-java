@@ -42,7 +42,7 @@ import java.util.Map;
 @UseStag
 public class Subscriptions implements Serializable {
 
-    private static final long serialVersionUID = 3088065484753327987L;
+    private static final long serialVersionUID = -2299284815136063667L;
 
     @SerializedName(NotificationConstants.NOTIFICATION_COMMENT)
     private boolean mComment;

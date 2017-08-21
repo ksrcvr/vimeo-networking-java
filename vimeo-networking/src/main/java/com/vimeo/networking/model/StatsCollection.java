@@ -36,7 +36,7 @@ import java.io.Serializable;
 @UseStag
 public class StatsCollection implements Serializable {
 
-    private static final long serialVersionUID = -348202198117360187L;
+    private static final long serialVersionUID = -8084269303645570534L;
 
     @Nullable
     @SerializedName("plays")

@@ -35,7 +35,7 @@ import java.util.ArrayList;
 @UseStag
 public abstract class BaseResponseList<T> implements Serializable {
 
-    private static final long serialVersionUID = -1641146617506148394L;
+    private static final long serialVersionUID = -5433273673273142333L;
 
     @SerializedName("total")
     private int mTotal;

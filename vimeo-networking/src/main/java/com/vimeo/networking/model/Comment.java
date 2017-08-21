@@ -36,7 +36,7 @@ import java.util.Date;
 @UseStag
 public class Comment implements Serializable {
 
-    private static final long serialVersionUID = -7716027694845877155L;
+    private static final long serialVersionUID = -631451265029611766L;
 
     @UseStag
     public enum CommentType {

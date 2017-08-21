@@ -42,7 +42,7 @@ import java.util.Date;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public class ProgressiveVideoFile extends VideoFile {
 
-    private static final long serialVersionUID = 2834083637971280026L;
+    private static final long serialVersionUID = -1211507772596566789L;
 
     private static final int HEIGHT_720P = 720;
     private static final int WIDTH_720P = 1280;

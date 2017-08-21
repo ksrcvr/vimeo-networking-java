@@ -34,7 +34,7 @@ import java.io.Serializable;
 @UseStag
 public class Website implements Serializable {
 
-    private static final long serialVersionUID = -1672589618654261644L;
+    private static final long serialVersionUID = 3228839033003767535L;
 
     @SerializedName("name")
     private String mName;

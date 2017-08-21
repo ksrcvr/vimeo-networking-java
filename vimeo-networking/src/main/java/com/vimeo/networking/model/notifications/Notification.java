@@ -44,7 +44,7 @@ import java.util.Date;
 @UseStag
 public class Notification implements Serializable {
 
-    private static final long serialVersionUID = -68262442832775695L;
+    private static final long serialVersionUID = -4102366581720560224L;
 
     @Nullable
     @SerializedName("uri")

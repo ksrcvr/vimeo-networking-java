@@ -42,7 +42,7 @@ import java.io.Serializable;
 @Deprecated
 public class Embed implements Serializable {
 
-    private static final long serialVersionUID = 7145437300195734964L;
+    private static final long serialVersionUID = 5589227182800544909L;
 
     @SerializedName("html")
     private String mHtml;

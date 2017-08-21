@@ -39,7 +39,7 @@ import java.io.Serializable;
 @UseStag
 public class VideoBadge implements Serializable {
 
-    private static final long serialVersionUID = -5343389171512787927L;
+    private static final long serialVersionUID = 8557001741242938353L;
 
     @Nullable
     @SerializedName("type")

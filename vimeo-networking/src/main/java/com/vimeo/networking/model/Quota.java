@@ -36,7 +36,7 @@ import java.io.Serializable;
 @UseStag
 public class Quota implements Serializable {
 
-    private static final long serialVersionUID = -9173641301792409558L;
+    private static final long serialVersionUID = 5311737146611874522L;
 
     @SerializedName("hd")
     private boolean mHd;

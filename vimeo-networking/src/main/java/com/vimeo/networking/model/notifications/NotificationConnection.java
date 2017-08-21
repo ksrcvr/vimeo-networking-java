@@ -39,7 +39,7 @@ import java.io.Serializable;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public class NotificationConnection extends Connection {
 
-    private static final long serialVersionUID = 4908222195478449252L;
+    private static final long serialVersionUID = 5685459846249514868L;
 
     @SerializedName("new_total")
     private int mNewTotal;

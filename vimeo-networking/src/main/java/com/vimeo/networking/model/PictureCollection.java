@@ -40,7 +40,7 @@ import java.util.ArrayList;
 @UseStag
 public class PictureCollection implements Serializable {
 
-    private static final long serialVersionUID = -4495146309328278574L;
+    private static final long serialVersionUID = 4087678817207492780L;
 
     private static final String PICTURE_TYPE_CAUTION = "caution";
     private static final String PICTURE_TYPE_CUSTOM = "custom";

@@ -39,7 +39,7 @@ import java.io.Serializable;
 @UseStag
 public class Preferences implements Serializable {
 
-    private static final long serialVersionUID = -251634859829805204L;
+    private static final long serialVersionUID = 4501426336910735003L;
 
     @Nullable
     @SerializedName(value = "videos", alternate = "m_videos")

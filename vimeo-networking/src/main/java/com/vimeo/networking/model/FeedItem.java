@@ -37,7 +37,7 @@ import java.util.Date;
 @UseStag
 public class FeedItem implements Serializable {
 
-    private static final long serialVersionUID = -8744477085158366576L;
+    private static final long serialVersionUID = -6574482010985809531L;
 
     @SuppressWarnings("WeakerAccess")
     public enum AttributionType {

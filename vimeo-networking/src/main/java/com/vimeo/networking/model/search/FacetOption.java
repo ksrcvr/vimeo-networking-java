@@ -40,7 +40,7 @@ import java.io.Serializable;
 @UseStag
 public class FacetOption implements Serializable {
 
-    private static final long serialVersionUID = 6525562797608669182L;
+    private static final long serialVersionUID = 2263580473164542919L;
 
     @Nullable
     @SerializedName("name")

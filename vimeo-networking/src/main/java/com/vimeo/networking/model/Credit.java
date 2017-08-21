@@ -37,7 +37,7 @@ import java.io.Serializable;
 @UseStag
 public class Credit implements Serializable {
 
-    private static final long serialVersionUID = 6037404487282167384L;
+    private static final long serialVersionUID = -554194634899143106L;
 
     @Nullable
     @SerializedName("uri")

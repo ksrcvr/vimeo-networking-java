@@ -34,7 +34,7 @@ import java.io.Serializable;
 @UseStag
 public class Tag implements Serializable {
 
-    private static final long serialVersionUID = 3388947522077930006L;
+    private static final long serialVersionUID = -1949455764156364196L;
 
     @SerializedName("uri")
     private String mUri;

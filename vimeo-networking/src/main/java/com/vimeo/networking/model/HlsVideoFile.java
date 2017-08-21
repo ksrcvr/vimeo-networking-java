@@ -38,7 +38,7 @@ import org.jetbrains.annotations.NotNull;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public class HlsVideoFile extends VideoFile {
 
-    private static final long serialVersionUID = -1238371468337472674L;
+    private static final long serialVersionUID = 1034777756911922861L;
 
     @NotNull
     @Override

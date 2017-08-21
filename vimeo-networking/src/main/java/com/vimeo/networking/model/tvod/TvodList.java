@@ -35,7 +35,7 @@ import com.vimeo.stag.UseStag;
 @UseStag
 public class TvodList extends BaseResponseList<TvodItem> {
 
-    private static final long serialVersionUID = 2086096986453255372L;
+    private static final long serialVersionUID = -8133952065961402232L;
 
     @Override
     public Class<TvodItem> getModelClass() {

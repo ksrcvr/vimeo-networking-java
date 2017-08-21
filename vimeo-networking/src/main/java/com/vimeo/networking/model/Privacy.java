@@ -38,7 +38,7 @@ import java.io.Serializable;
 // @UseStag(FieldOption.SERIALIZED_NAME)
 public class Privacy implements Serializable {
 
-    private static final long serialVersionUID = -1679908652622815871L;
+    private static final long serialVersionUID = 1427451506466142691L;
 
     private static final String PRIVACY_NOBODY = "nobody";
     private static final String PRIVACY_USERS = "users";

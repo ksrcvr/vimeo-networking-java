@@ -39,7 +39,7 @@ import java.io.Serializable;
 @UseStag
 public class Spatial implements Serializable {
 
-    private static final long serialVersionUID = 5660325676029549468L;
+    private static final long serialVersionUID = 161510758178248526L;
 
     public enum Projection {
         EQUIRECTANGULAR,

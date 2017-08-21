@@ -39,7 +39,7 @@ import java.util.Date;
 @UseStag
 public class Interaction implements Serializable {
 
-    private static final long serialVersionUID = 2033767841952340400L;
+    private static final long serialVersionUID = 5139275303150691005L;
 
     private static final String STREAM_PURCHASED = "purchased";
     private static final String STREAM_RESTRICTED = "restricted";

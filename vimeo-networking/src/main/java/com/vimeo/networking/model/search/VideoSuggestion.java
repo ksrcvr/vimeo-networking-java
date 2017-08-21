@@ -39,7 +39,7 @@ import java.io.Serializable;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public final class VideoSuggestion extends BaseSuggestion implements Serializable {
 
-    private static final long serialVersionUID = -6047771941064977527L;
+    private static final long serialVersionUID = -6976597188498977419L;
 
     @Nullable
     @SerializedName("meta")

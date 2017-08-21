@@ -39,6 +39,8 @@ import java.io.Serializable;
 @UseStag(FieldOption.SERIALIZED_NAME)
 abstract class BaseSuggestion implements Serializable {
 
+    private static final long serialVersionUID = 9173677673373890202L;
+
     @NotNull
     @SerializedName("text")
     private String mText;

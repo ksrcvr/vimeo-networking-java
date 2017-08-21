@@ -36,7 +36,7 @@ import java.io.Serializable;
 @UseStag
 public class Space implements Serializable {
 
-    private static final long serialVersionUID = -1985382617862372889L;
+    private static final long serialVersionUID = -208466034649023600L;
 
     @SerializedName("free")
     private long mFree;

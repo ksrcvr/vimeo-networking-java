@@ -39,7 +39,7 @@ import java.util.ArrayList;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public class SuggestionResponse implements Serializable {
 
-    private static final long serialVersionUID = -3474410244242185856L;
+    private static final long serialVersionUID = -7631904894521530486L;
 
     @Nullable
     @SerializedName("ondemand_title")

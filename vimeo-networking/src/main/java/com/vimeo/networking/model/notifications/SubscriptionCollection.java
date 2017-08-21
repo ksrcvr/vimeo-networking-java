@@ -41,7 +41,7 @@ import java.util.Date;
 @UseStag
 public class SubscriptionCollection implements Serializable {
 
-    private static final long serialVersionUID = -6392190720319669273L;
+    private static final long serialVersionUID = 2411419059914710417L;
 
     @Nullable
     @SerializedName("uri")

@@ -40,7 +40,7 @@ import org.jetbrains.annotations.Nullable;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public class DashVideoFile extends VideoFile {
 
-    private static final long serialVersionUID = -5721104078876753376L;
+    private static final long serialVersionUID = -4128631582365398458L;
 
     @Nullable
     @SerializedName("token")

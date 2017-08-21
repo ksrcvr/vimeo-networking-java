@@ -36,7 +36,7 @@ import java.io.Serializable;
 @UseStag
 public class Email implements Serializable {
 
-    private static final long serialVersionUID = -4112910222188194649L;
+    private static final long serialVersionUID = -2406528682176767925L;
 
     @SerializedName("email") private String mEmail;
 

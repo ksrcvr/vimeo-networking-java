@@ -38,7 +38,7 @@ import java.io.Serializable;
 @UseStag
 public class UploadQuota implements Serializable {
 
-    private static final long serialVersionUID = 4050488085481972886L;
+    private static final long serialVersionUID = -5734822239703447619L;
 
     @SerializedName("space")
     private Space mSpace;

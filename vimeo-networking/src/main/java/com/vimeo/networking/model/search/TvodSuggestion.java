@@ -39,11 +39,11 @@ import java.io.Serializable;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public final class TvodSuggestion extends BaseSuggestion implements Serializable {
 
-    private static final long serialVersionUID = -1176546228110567452L;
+    private static final long serialVersionUID = -6676348010684692597L;
 
     @Nullable
     @SerializedName("meta")
-    TvodSuggestionMetadata mMetadata;
+    private TvodSuggestionMetadata mMetadata;
 
     /**
      * Return the {@link PictureCollection} associated with this TVOD.

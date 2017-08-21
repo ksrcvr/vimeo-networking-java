@@ -34,7 +34,7 @@ import java.io.Serializable;
 @UseStag
 public class Metadata implements Serializable {
 
-    private static final long serialVersionUID = 6626539965452151962L;
+    private static final long serialVersionUID = -3922920204487720208L;
 
     @SerializedName("connections")
     private ConnectionCollection mConnections;

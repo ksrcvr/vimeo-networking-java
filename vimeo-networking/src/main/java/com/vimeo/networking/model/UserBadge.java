@@ -42,7 +42,7 @@ import java.io.Serializable;
 @UseStag
 public class UserBadge implements Serializable {
 
-    private static final long serialVersionUID = 927892812790804141L;
+    private static final long serialVersionUID = 4184875757132125902L;
 
     private static final String BADGE_ALUM = "alum";
     private static final String BADGE_BUSINESS = "business";

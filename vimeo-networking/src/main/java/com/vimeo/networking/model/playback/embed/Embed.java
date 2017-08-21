@@ -44,7 +44,7 @@ import java.io.Serializable;
 @UseStag
 public class Embed implements Serializable {
 
-    private static final long serialVersionUID = -4708548576616330795L;
+    private static final long serialVersionUID = -5650053203707039358L;
 
     @Nullable
     @SerializedName("uri")

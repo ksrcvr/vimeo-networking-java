@@ -52,7 +52,8 @@ import java.util.List;
 @UseStag(FieldOption.SERIALIZED_NAME)
 public class ProgramContentItem implements Serializable {
 
-    private static final long serialVersionUID = -3929762661095254821L;
+    private static final long serialVersionUID = -8919865439752715939L;
+
     private static final String S_CATEGORY = "category";
     private static final String S_CHANNEL = "channel";
     @Nullable

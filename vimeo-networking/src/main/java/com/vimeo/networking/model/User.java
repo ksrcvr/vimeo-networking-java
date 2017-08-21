@@ -43,7 +43,7 @@ import java.util.Date;
 @UseStag
 public class User implements Serializable, Followable {
 
-    private static final long serialVersionUID = -4112910222188194647L;
+    private static final long serialVersionUID = -203117713760259941L;
     private static final String ACCOUNT_BASIC = "basic";
     private static final String ACCOUNT_BUSINESS = "business";
     private static final String ACCOUNT_PLUS = "plus";

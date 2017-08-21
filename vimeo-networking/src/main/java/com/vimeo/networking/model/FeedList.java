@@ -31,7 +31,7 @@ import com.vimeo.stag.UseStag;
 @UseStag
 public class FeedList extends BaseResponseList<FeedItem> {
 
-    private static final long serialVersionUID = 5489148474407186588L;
+    private static final long serialVersionUID = 2262594990973931514L;
 
     @Override
     public Class<FeedItem> getModelClass() {
