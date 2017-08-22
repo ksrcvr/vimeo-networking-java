@@ -30,7 +30,8 @@ package com.vimeo.networking;
 @SuppressWarnings("unused")
 public final class Vimeo {
 
-    public static final String VIMEO_BASE_URL_STRING = "https://api.vimeo.com/";
+    public static final String VIMEO_BASE_URL_STRING = "https://api-upload-ticket-to-upload-attempt-api.ci.vimeows.com/";
+//    public static final String VIMEO_BASE_URL_STRING = "https://api.vimeo.com/";
 
     public static final String API_VERSION = "3.3.5";
 
