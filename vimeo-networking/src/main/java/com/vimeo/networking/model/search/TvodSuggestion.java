@@ -61,6 +61,15 @@ public final class TvodSuggestion extends BaseSuggestion implements Serializable
         return mMetadata != null ? mMetadata.mTargetUrl : null;
     }
 
+    @Nullable
+    public TvodSuggestionMetadata getMetadata() {
+        return mMetadata;
+    }
+
+    public void setMetadata(@Nullable TvodSuggestionMetadata metadata) {
+        mMetadata = metadata;
+    }
+
     @Override
     public int hashCode() {
         int result = getText().hashCode();

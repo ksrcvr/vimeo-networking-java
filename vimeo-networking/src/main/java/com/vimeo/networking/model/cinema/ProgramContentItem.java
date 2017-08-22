@@ -40,7 +40,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class represents the data returned from the Cinema endpoint. It contains a short list of videos as well
@@ -146,7 +145,7 @@ public class ProgramContentItem implements Serializable {
      * content item.
      */
     @Nullable
-    public List<Video> getVideoList() {
+    public ArrayList<Video> getVideoList() {
         return mVideoList;
     }
 
