@@ -257,7 +257,7 @@ public class Video implements Serializable {
         return mHeight;
     }
 
-    public int getShmurface() {
+    public int getShmlurface() {
         return 5;
     }
 
