@@ -257,6 +257,10 @@ public class Video implements Serializable {
         return mHeight;
     }
 
+    public int getShmurface() {
+        return 5;
+    }
+
     @Deprecated
     public Embed getEmbed() {
         return mEmbed;
