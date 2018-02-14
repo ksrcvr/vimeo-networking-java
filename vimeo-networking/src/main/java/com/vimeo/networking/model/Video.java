@@ -46,7 +46,7 @@ import java.util.concurrent.TimeUnit;
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
 @UseStag
-public class Video implements Serializable {
+public class Video implements Serializable, KeyProvider {
 
     private static final long serialVersionUID = -2289103918709562107L;
 
@@ -999,6 +999,12 @@ public class Video implements Serializable {
     @Override
     public int hashCode() {
         return this.mResourceKey != null ? this.mResourceKey.hashCode() : 0;
+    }
+
+    @NotNull
+    @Override
+    public String provideUniqueKey() {
+        return mResourceKey;
     }
     // </editor-fold>
 

@@ -45,7 +45,7 @@ import java.util.Date;
  */
 @SuppressWarnings({"WeakerAccess", "unused"})
 @UseStag(FieldOption.SERIALIZED_NAME)
-public class User implements Serializable, Followable {
+public class User implements Serializable, Followable, KeyProvider {
 
     private static final long serialVersionUID = 4317573825273169510L;
     private static final String ACCOUNT_BASIC = "basic";
@@ -524,5 +524,11 @@ public class User implements Serializable, Followable {
                ", mBadge=" + mBadge +
                ", mLiveQuota=" + mLiveQuota +
                '}';
+    }
+
+    @NotNull
+    @Override
+    public String provideUniqueKey() {
+        return mUri;
     }
 }
