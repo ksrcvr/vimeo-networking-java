@@ -242,7 +242,9 @@ public interface VimeoService {
                              @Header("Cache-Control") String cacheHeaderValue);
 
     @GET
-    Call<Document> getDocument(@Header("Authorization") String authHeader, @Url String uri);
+    Call<Document> getDocument(@Header("Authorization") String authHeader,
+                               @Url String uri,
+                               @Header("Cache-Control") String cacheHeaderValue);
 
     @GET
     Call<TvodItem> getTvodItem(@Header("Authorization") String authHeader,
