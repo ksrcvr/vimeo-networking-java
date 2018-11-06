@@ -28,6 +28,8 @@ import com.vimeo.networking.VimeoClient;
 import com.vimeo.networking.VimeoClient.Caller;
 import com.vimeo.networking.VimeoService;
 import com.vimeo.networking.callbacks.VimeoCallback;
+import com.vimeo.networking.model.Category;
+import com.vimeo.networking.model.CategoryList;
 import com.vimeo.networking2.FeedList;
 import com.vimeo.networking2.UserList;
 import com.vimeo.networking2.VideoList;
@@ -47,6 +49,47 @@ import retrofit2.Call;
  * These classes are for specifically getting data using the new models.
  */
 public final class MoshiGetRequestCaller {
+
+    /**
+     * Used in association with
+     * {@link VimeoClient#getContent(String, CacheControl, Caller, String, Map, String, VimeoCallback)} or
+     * {@link VimeoClient#getContentSync(String, CacheControl, String, Map, String, Caller)}
+     * to get an {@link Category} response from an API endpoint. This caller will call through to
+     * {@link VimeoService#getCategory(String, String, Map, String)}
+     */
+    public static final Caller<Category> CATEGORY =
+            new Caller<Category>() {
+
+                @NotNull
+                @Override
+                public Call<Category> call(@NotNull String authHeader,
+                                           @NotNull String uri,
+                                           @NotNull Map<String, String> queryMap,
+                                           @NotNull String cacheHeader,
+                                           @NotNull VimeoService vimeoService) {
+                    return vimeoService.getCategory(authHeader, uri, queryMap, cacheHeader);
+                }
+            };
+
+    /**
+     * Used in association with
+     * {@link VimeoClient#getContent(String, CacheControl, Caller, String, Map, String, VimeoCallback)} or
+     * {@link VimeoClient#getContentSync(String, CacheControl, String, Map, String, Caller)}
+     * to get a {@link CategoryList} response from an API endpoint.
+     */
+    public static final Caller<CategoryList> CATEGORY_LIST =
+            new Caller<CategoryList>() {
+
+                @NotNull
+                @Override
+                public Call<CategoryList> call(@NotNull String authHeader,
+                                               @NotNull String uri,
+                                               @NotNull Map<String, String> queryMap,
+                                               @NotNull String cacheHeader,
+                                               @NotNull VimeoService vimeoService) {
+                    return vimeoService.getCategoryList(authHeader, uri, queryMap, cacheHeader);
+                }
+            };
 
     /**
      * Used in association with
