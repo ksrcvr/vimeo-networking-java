@@ -28,8 +28,8 @@ import com.vimeo.networking.VimeoClient;
 import com.vimeo.networking.VimeoClient.Caller;
 import com.vimeo.networking.VimeoService;
 import com.vimeo.networking.callbacks.VimeoCallback;
-import com.vimeo.networking.model.Category;
-import com.vimeo.networking.model.CategoryList;
+import com.vimeo.networking2.Category;
+import com.vimeo.networking2.CategoryList;
 import com.vimeo.networking2.FeedList;
 import com.vimeo.networking2.UserList;
 import com.vimeo.networking2.VideoList;
@@ -67,7 +67,7 @@ public final class MoshiGetRequestCaller {
                                            @NotNull Map<String, String> queryMap,
                                            @NotNull String cacheHeader,
                                            @NotNull VimeoService vimeoService) {
-                    return vimeoService.getCategory(authHeader, uri, queryMap, cacheHeader);
+                    return vimeoService.getCategoryMoshi(authHeader, uri, queryMap, cacheHeader);
                 }
             };
 
@@ -87,7 +87,7 @@ public final class MoshiGetRequestCaller {
                                                @NotNull Map<String, String> queryMap,
                                                @NotNull String cacheHeader,
                                                @NotNull VimeoService vimeoService) {
-                    return vimeoService.getCategoryList(authHeader, uri, queryMap, cacheHeader);
+                    return vimeoService.getCategoryListMoshi(authHeader, uri, queryMap, cacheHeader);
                 }
             };
 

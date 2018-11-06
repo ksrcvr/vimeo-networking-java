@@ -232,6 +232,12 @@ public interface VimeoService {
                                @Header("Cache-Control") String cacheHeaderValue);
 
     @GET
+    Call<com.vimeo.networking2.Category> getCategoryMoshi(@Header("Authorization") String authHeader,
+                                                          @Url String uri,
+                                                          @QueryMap Map<String, String> options,
+                                                          @Header("Cache-Control") String cacheHeaderValue);
+
+    @GET
     Call<Channel> getChannel(@Header("Authorization") String authHeader,
                              @Url String uri,
                              @QueryMap Map<String, String> options,
@@ -295,6 +301,12 @@ public interface VimeoService {
                                        @Url String uri,
                                        @QueryMap Map<String, String> options,
                                        @Header("Cache-Control") String cacheHeaderValue);
+
+    @GET
+    Call<com.vimeo.networking2.CategoryList> getCategoryListMoshi(@Header("Authorization") String authHeader,
+                                                                  @Url String uri,
+                                                                  @QueryMap Map<String, String> options,
+                                                                  @Header("Cache-Control") String cacheHeaderValue);
 
     @GET
     Call<ChannelList> getChannelList(@Header("Authorization") String authHeader,
