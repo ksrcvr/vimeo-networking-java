@@ -212,6 +212,12 @@ public interface VimeoService {
     Call<PictureResource> createPictureResource(@Header("Authorization") String authHeader, @Url String uri);
 
     @POST
+    <T> Call<T> responsePost(@Header("Authorization") String authHeader,
+                             @Url String uri,
+                             @QueryMap Map<String, String> options,
+                             @Body Object body);
+
+    @POST
     Call<Void> emptyResponsePost(@Header("Authorization") String authHeader, @Url String uri,
                                  @Body HashMap<String, String> parameters);
     // </editor-fold>

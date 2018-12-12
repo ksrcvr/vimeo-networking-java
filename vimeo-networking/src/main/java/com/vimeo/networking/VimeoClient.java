@@ -116,12 +116,33 @@ public class VimeoClient {
     @Nullable
     private VimeoAccount mVimeoAccount;
 
+    /**
+     * Caller used to make GET request.
+     *
+     * @param <DataType_T> data type to be returned from this request.
+     */
     public interface Caller<DataType_T> {
 
         @NotNull
         Call<DataType_T> call(@NotNull String authHeader,
                               @NotNull String uri,
                               @NotNull Map<String, String> queryMap,
+                              @NotNull String cacheHeader,
+                              @NotNull VimeoService vimeoService);
+    }
+
+    /**
+     * Caller used to make POST request.
+     *
+     * @param <DataType_T> data type to be returned from this request.
+     */
+    public interface PostRequestCaller<DataType_T> {
+
+        @NotNull
+        Call<DataType_T> call(@NotNull String authHeader,
+                              @NotNull String uri,
+                              @NotNull Map<String, String> queryMap,
+                              @Nullable ArrayList<Object> postBody,
                               @NotNull String cacheHeader,
                               @NotNull VimeoService vimeoService);
     }
@@ -1497,6 +1518,51 @@ public class VimeoClient {
         } catch (final IOException ioe) {
             return null;
         }
+    }
+
+    /**
+     * A generic POST call that takes in the URI of the specific resource.
+     *
+     * @param uri          URI of the resource to GET
+     * @param cacheControl Cache control type (includes max age and other cache policy information)
+     * @param queryMap     The query parameters to send in this request.
+     * @param postBody     The body to POST for this request.
+     * @param callback     The callback for the specific model type of the resource
+     */
+    @Nullable
+    public <DataType_T> Call<DataType_T> postContent(@NotNull String uri,
+                                                     @NotNull CacheControl cacheControl,
+                                                     @NotNull Map<String, String> queryMap,
+                                                     @Nullable ArrayList<Object> postBody,
+                                                     @NotNull VimeoCallback<DataType_T> callback) {
+        if (uri.isEmpty()) {
+            callback.failure(new VimeoError("Uri cannot be empty!"));
+            return null;
+        }
+
+        final String cacheHeaderValue = createCacheControlString(cacheControl);
+        PostRequestCaller<DataType_T> postRequestCaller = new PostRequestCaller<DataType_T>() {
+            @NotNull
+            @Override
+            public Call<DataType_T> call(@NotNull String authHeader, @NotNull String uri, @NotNull Map<String, String> queryMap, @Nullable ArrayList<Object> postBody, @NotNull String cacheHeader, @NotNull VimeoService vimeoService) {
+                return vimeoService.responsePost(
+                        authHeader,
+                        uri,
+                        queryMap,
+                        postBody
+                );
+            }
+        };
+        final Call<DataType_T> call = postRequestCaller.call(
+                getAuthHeader(),
+                uri,
+                queryMap,
+                postBody,
+                cacheHeaderValue,
+                mVimeoService
+        );
+        call.enqueue(callback);
+        return call;
     }
 
     /**
