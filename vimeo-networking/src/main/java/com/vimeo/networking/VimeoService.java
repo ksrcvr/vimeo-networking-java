@@ -22,28 +22,9 @@
 
 package com.vimeo.networking;
 
-import com.vimeo.networking.model.Album;
-import com.vimeo.networking.model.AlbumList;
 import com.vimeo.networking.AnnotatedConverterFactory.ConverterType;
 import com.vimeo.networking.AnnotatedConverterFactory.Serializer;
-import com.vimeo.networking.model.Category;
-import com.vimeo.networking.model.CategoryList;
-import com.vimeo.networking.model.Channel;
-import com.vimeo.networking.model.ChannelList;
-import com.vimeo.networking.model.Comment;
-import com.vimeo.networking.model.CommentList;
-import com.vimeo.networking.model.Document;
-import com.vimeo.networking.model.FeedList;
-import com.vimeo.networking.model.PictureCollection;
-import com.vimeo.networking.model.PictureResource;
-import com.vimeo.networking.model.PinCodeInfo;
-import com.vimeo.networking.model.RecommendationList;
-import com.vimeo.networking.model.TextTrackList;
-import com.vimeo.networking.model.User;
-import com.vimeo.networking.model.UserList;
-import com.vimeo.networking.model.Video;
-import com.vimeo.networking.model.VideoList;
-import com.vimeo.networking.model.VimeoAccount;
+import com.vimeo.networking.model.*;
 import com.vimeo.networking.model.appconfiguration.AppConfiguration;
 import com.vimeo.networking.model.cinema.ProgramContentItemList;
 import com.vimeo.networking.model.iap.Product;
@@ -56,24 +37,12 @@ import com.vimeo.networking.model.search.SuggestionResponse;
 import com.vimeo.networking.model.tvod.SeasonList;
 import com.vimeo.networking.model.tvod.TvodItem;
 import com.vimeo.networking.model.tvod.TvodList;
+import retrofit2.Call;
+import retrofit2.http.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.DELETE;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
-import retrofit2.http.Header;
-import retrofit2.http.Headers;
-import retrofit2.http.PATCH;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
-import retrofit2.http.QueryMap;
-import retrofit2.http.Url;
 
 /**
  * Interface of available API calls that can be made using Retrofit.
@@ -267,9 +236,9 @@ public interface VimeoService {
                        @QueryMap Map<String, String> options,
                        @Header("Cache-Control") String cacheHeaderValue);
 
-    @GET
+    @GET("/{uri}")
     Call<Video> getVideo(@Header("Authorization") String authHeader,
-                         @Url String uri,
+                         @Path("uri") String uri,
                          @QueryMap Map<String, String> options,
                          @Header("Cache-Control") String cacheHeaderValue);
 
