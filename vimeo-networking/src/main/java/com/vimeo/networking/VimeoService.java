@@ -268,7 +268,7 @@ public interface VimeoService {
                        @QueryMap Map<String, String> options,
                        @Header("Cache-Control") String cacheHeaderValue);
 
-    @GET("/{uri}")
+    @GET("{uri}")
     Call<Video> getVideo(@Header("Authorization") String authHeader,
                          @Path(value = "uri", encoded = true) String uri,
                          @QueryMap Map<String, String> options,
